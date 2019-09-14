@@ -8,11 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		CA018C08232D786400DC990D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C07232D786400DC990D /* AppDelegate.swift */; };
-		CA018C0A232D786400DC990D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C09232D786400DC990D /* ViewController.swift */; };
 		CA018C0D232D786400DC990D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C0B232D786400DC990D /* Main.storyboard */; };
 		CA018C0F232D786600DC990D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA018C0E232D786600DC990D /* Assets.xcassets */; };
 		CA018C12232D786600DC990D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C10232D786600DC990D /* LaunchScreen.storyboard */; };
 		CA018C1D232D786600DC990D /* Stew_s_StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */; };
+		CA018C28232D790300DC990D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +28,6 @@
 /* Begin PBXFileReference section */
 		CA018C04232D786400DC990D /* Stew's Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stew's Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA018C07232D786400DC990D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CA018C09232D786400DC990D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CA018C0C232D786400DC990D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA018C0E232D786600DC990D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA018C11232D786600DC990D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		CA018C18232D786600DC990D /* Stew's StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stew's StatsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stew_s_StatsTests.swift; sourceTree = "<group>"; };
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA018C27232D790300DC990D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				CA018C07232D786400DC990D /* AppDelegate.swift */,
-				CA018C09232D786400DC990D /* ViewController.swift */,
+				CA018C27232D790300DC990D /* TableViewController.swift */,
 				CA018C0B232D786400DC990D /* Main.storyboard */,
 				CA018C0E232D786600DC990D /* Assets.xcassets */,
 				CA018C10232D786600DC990D /* LaunchScreen.storyboard */,
@@ -197,8 +197,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA018C0A232D786400DC990D /* ViewController.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
+				CA018C28232D790300DC990D /* TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +363,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -370,7 +371,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -381,6 +382,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -388,7 +390,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
