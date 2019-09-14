@@ -59,6 +59,14 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 5 {
+            let ct = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            
+            if ct - 1 == indexPath.row {
+                return .insert
+            }
+            //return .delete
+        }
         return .none
     }
     
