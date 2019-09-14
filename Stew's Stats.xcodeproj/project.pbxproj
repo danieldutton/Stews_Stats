@@ -13,6 +13,7 @@
 		CA018C12232D786600DC990D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C10232D786600DC990D /* LaunchScreen.storyboard */; };
 		CA018C1D232D786600DC990D /* Stew_s_StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */; };
 		CA018C28232D790300DC990D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* TableViewController.swift */; };
+		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stew_s_StatsTests.swift; sourceTree = "<group>"; };
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA018C27232D790300DC990D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			children = (
 				CA018C07232D786400DC990D /* AppDelegate.swift */,
 				CA018C27232D790300DC990D /* TableViewController.swift */,
+				CA018C29232D79B200DC990D /* TableViewCell.swift */,
 				CA018C0B232D786400DC990D /* Main.storyboard */,
 				CA018C0E232D786600DC990D /* Assets.xcassets */,
 				CA018C10232D786600DC990D /* LaunchScreen.storyboard */,
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA018C28232D790300DC990D /* TableViewController.swift in Sources */,
 			);
