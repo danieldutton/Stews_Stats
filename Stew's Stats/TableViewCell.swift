@@ -18,6 +18,12 @@ class TableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    override func didTransition(to state: UITableViewCell.StateMask) {
+        self.txtFieldStatValue.isEnabled = state.contains(.showingEditControl)
+        super.didTransition(to: state)
+    }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
