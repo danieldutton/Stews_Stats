@@ -14,6 +14,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -61,6 +62,19 @@ class TableViewController: UITableViewController {
         return .none
     }
     
+    //for enabling ordering of cells.  Consult book
+    /*
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 1 { // && self.numbers.count > 1
+            return true
+        }
+        return false
+    }
+ */
 
     /*
     // Override to support conditional editing of the table view.

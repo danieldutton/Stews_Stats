@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Stewy's Stats-->
         <scene sceneID="2TR-5I-iWW">
             <objects>
                 <tableViewController id="3sL-ZX-mAd" customClass="TableViewController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,11 +65,11 @@
                             <outlet property="delegate" destination="3sL-ZX-mAd" id="m3L-jm-diz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="pZr-1K-ddu"/>
+                    <navigationItem key="navigationItem" title="Stewy's Stats" id="pZr-1K-ddu"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPZ-nz-apD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="-29"/>
+            <point key="canvasLocation" x="-311" y="-29"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YsL-9y-b5c">
@@ -79,6 +79,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y3g-rI-lba">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="1" green="0.028115646649575443" blue="0.035685830139567276" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -87,7 +91,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cac-en-DzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-650" y="-29"/>
+            <point key="canvasLocation" x="-1039" y="-29"/>
         </scene>
     </scenes>
 </document>
