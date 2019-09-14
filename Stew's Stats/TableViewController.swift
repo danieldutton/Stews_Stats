@@ -23,30 +23,44 @@ class TableViewController: UITableViewController {
     }
     
     @IBAction func editTableView(_ sender: UIBarButtonItem) {
+        //update themodel here
     }
     
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 6
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50.0
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return "Title"
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 6
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        cell.txtFieldStatValue.delegate = self
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -93,4 +107,27 @@ class TableViewController: UITableViewController {
     }
     */
 
+}
+
+extension TableViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+        
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        // some cell's text field has finished editing; which cell?
+        var v : UIView = textField
+        repeat { v = v.superview! } while !(v is UITableViewCell)
+        let cell = v as! TableViewCell
+        // what row is that?
+        let ip = self.tableView.indexPath(for:cell)!
+        // update data model to match
+        if ip.section == 1 {
+            //self.numbers[ip.row] = cell.textField.text!
+        } else if ip.section == 0 {
+            //self.name = cell.textField.text!
+        }
+    }
 }
