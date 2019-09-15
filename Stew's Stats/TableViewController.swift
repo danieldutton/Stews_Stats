@@ -9,6 +9,17 @@
 import UIKit
 
 class TableViewController: UITableViewController {
+    
+    let section = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
+    
+    let items = [
+        ["0", "1", "2", "3", "4", "5"],
+        ["0", "1", "2", "3", "4", "5"],
+        ["0", "1", "2", "3", "4", "5"],
+        ["0", "1", "2", "3", "4", "5"],
+        ["0", "1", "2", "3", "4", "5"],
+        ["0", "1", "2", "3", "4", "5"],
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +41,7 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 6
+        return self.section.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -39,21 +49,19 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Title"
+        return self.section[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 6
+        return self.items[section].count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
+        cell.lblStat.text = self.items[indexPath.section][indexPath.row]
         cell.txtFieldStatValue.delegate = self
-
-        // Configure the cell...
 
         return cell
     }
