@@ -9,16 +9,25 @@
 import UIKit
 
 class TableViewController: UITableViewController {
-    
+
     let section = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
     
     let items = [
-        ["0", "1", "2", "3", "4", "5"],
-        ["0", "1", "2", "3", "4", "5"],
-        ["0", "1", "2", "3", "4", "5"],
-        ["0", "1", "2", "3", "4", "5"],
-        ["0", "1", "2", "3", "4", "5"],
-        ["0", "1", "2", "3", "4", "5"],
+        ["< miles", "1-5 miles", "5-10 miles", "10-15 miles", "15-20 miles", "20-30 miles"],
+        ["< 30 mins", "30-60 mins", "1-2 hours", "2-3 hours", "3-5 hours"],
+        ["Road", "Mixed", "Trail", "Beach", "Wilderness"],
+        ["Sunny", "Cloudy", "Rainy", "Snowy", "Night"],
+        ["Awesome", "Good", "So-So", "Sluggish", "Injured"],
+        ["Belfast", "Blackpool", "Bo'ness", "Cleveleys", "Fleetwood"],
+    ]
+    
+    var data = [
+        ["0","0","0","0","0","0"],
+        ["0","0","0","0","0"],
+        ["0","0","0","0","0"],
+        ["0","0","0","0","0"],
+        ["0","0","0","0","0"],
+        ["0","0","0","0","0"],
     ]
 
     override func viewDidLoad() {
@@ -26,16 +35,6 @@ class TableViewController: UITableViewController {
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-    }
-    
-    @IBAction func editTableView(_ sender: UIBarButtonItem) {
-        //update themodel here
     }
     
     // MARK: - Table view data source
@@ -56,12 +55,14 @@ class TableViewController: UITableViewController {
         return self.items[section].count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
         cell.lblStat.text = self.items[indexPath.section][indexPath.row]
+        cell.lblStat.sizeToFit()
+        
         cell.txtFieldStatValue.delegate = self
+        cell.txtFieldStatValue.text = self.data[indexPath.section][indexPath.row]
 
         return cell
     }
@@ -136,10 +137,10 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension TableViewController: UITextFieldDelegate {
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
         
