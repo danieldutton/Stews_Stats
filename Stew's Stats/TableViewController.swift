@@ -8,11 +8,10 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-
-    let section = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
+class TableViewData: Codable {
+    let section: [String] = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
     
-    let items = [
+    var items: [[String]] = [
         ["< miles", "1-5 miles", "5-10 miles", "10-15 miles", "15-20 miles", "20-30 miles"],
         ["< 30 mins", "30-60 mins", "1-2 hours", "2-3 hours", "3-5 hours"],
         ["Road", "Mixed", "Trail", "Beach", "Wilderness"],
@@ -21,7 +20,7 @@ class TableViewController: UITableViewController {
         ["Belfast", "Blackpool", "Bo'ness", "Cleveleys", "Fleetwood"],
     ]
     
-    var data = [
+    var data: [[String]] = [
         ["0","0","0","0","0","0"],
         ["0","0","0","0","0"],
         ["0","0","0","0","0"],
@@ -29,18 +28,43 @@ class TableViewController: UITableViewController {
         ["0","0","0","0","0"],
         ["0","0","0","0","0"],
     ]
+}
+
+class TableViewController: UITableViewController {
+
+    var tableViewData: TableViewData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableViewData = TableViewData()
+        
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        
+        retrievePersistedData()
     }
     
-    // MARK: - Table view data source
+    private func retrievePersistedData() {
+        if let savedData = UserDefaults.standard.data(forKey: "tableViewData") {
+            let data = try? JSONDecoder().decode(TableViewData.self, from: savedData)
+            self.tableViewData = data
+        } else {
+            self.tableViewData = TableViewData()
+        }
+        let i = 10
+    }
+    
+    private func persistUserData() {
+        if let encoded = try? JSONEncoder().encode(self.tableViewData) {
+            UserDefaults.standard.set(encoded, forKey: "tableViewData")
+        } else {
+            //display try again error message
+        }
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.section.count
+        return self.tableViewData.section.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -48,23 +72,27 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.section[section]
+        return self.tableViewData.section[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.items[section].count
+        return self.tableViewData.items[section].count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
-        cell.lblStat.text = self.items[indexPath.section][indexPath.row]
+        cell.lblStat.text = self.tableViewData.items[indexPath.section][indexPath.row]
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = self.data[indexPath.section][indexPath.row]
+        cell.txtFieldStatValue.text = self.tableViewData.data[indexPath.section][indexPath.row]
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -79,54 +107,46 @@ class TableViewController: UITableViewController {
         return .none
     }
     
-    //for enabling ordering of cells.  Consult book
-    /*
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.endEditing(true)
+        /*
+        if editingStyle == .insert {
+            self.tableViewData.items[0] += ["New Location"]
+            let ct = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            tableView.performBatchUpdates({
+                tableView.insertRows(at: [IndexPath(row: ct-1, section: 1)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: ct-2, section: 1)], with: .automatic)
+            }) { (_) in
+                let cell = self.tableView.cellForRow(at: IndexPath(row: ct-1, section: 1))
+                //(cell as! TableViewCell).txtFieldStatValue.becomeFirstResponder()
+            }
+        }
+    */
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
+        let s = self.tableViewData.data.remove(at:fromIndexPath.row)
+        self.tableViewData.data.insert(s, at:toIndexPath.row)
+        persistUserData()
+        tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 1 { // && self.numbers.count > 1
+        if indexPath.section == 5  {
             return true
         }
         return false
     }
- */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        tableView.endEditing(true)
+        if proposedDestinationIndexPath.section == 0 || proposedDestinationIndexPath.section == 1
+        || proposedDestinationIndexPath.section == 2 || proposedDestinationIndexPath.section == 3
+            || proposedDestinationIndexPath.section == 4 {
+            return IndexPath(row: 0, section: 5)
+        }
+        return proposedDestinationIndexPath
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     /*
     // MARK: - Navigation
@@ -150,15 +170,17 @@ extension TableViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         // some cell's text field has finished editing; which cell?
         var v : UIView = textField
+        //
         repeat { v = v.superview! } while !(v is UITableViewCell)
+        //
         let cell = v as! TableViewCell
+        //what section is that
+        let sec = self.tableView.indexPath(for: cell)!.section
         // what row is that?
-        let ip = self.tableView.indexPath(for:cell)!
+        let ip = self.tableView.indexPath(for:cell)!.row
         // update data model to match
-        if ip.section == 1 {
-            //self.numbers[ip.row] = cell.textField.text!
-        } else if ip.section == 0 {
-            //self.name = cell.textField.text!
-        }
+        self.tableViewData.data[sec][ip] = cell.txtFieldStatValue.text!
+        
+        persistUserData()
     }
 }
