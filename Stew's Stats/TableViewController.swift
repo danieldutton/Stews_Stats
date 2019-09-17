@@ -17,7 +17,11 @@ class TableViewData: Codable {
         ["Road", "Mixed", "Trail", "Beach", "Wilderness"],
         ["Sunny", "Cloudy", "Rainy", "Snowy", "Night"],
         ["Awesome", "Good", "So-So", "Sluggish", "Injured"],
-        ["Belfast", "Blackpool", "Bo'ness", "Cleveleys", "Fleetwood"],
+        ["Belfast", "Nottensdorf", "Buxtehude", "Fleetwood", "Scheidholz", "Bo'ness", "Wedel", "Hahnenbalken",
+         "Cleveleys", "Marston", "Caton", "Littleborough", "Daestorf", "Thornton-Cleveleys", "Ripponden", "Rivington",
+         "Sankt Georg", "Niederhaverbeck", "Marizion", "Par", "Chipping", "Goosnargh", "Barton", "Lostwithiel", "Hamburg-Mitte", "Saddleworth",
+         "Bergedorf", "Mittelnkirchen", "Bodmin", "Tywardreath", "Great Marton", "Mawgan Porth", "Drochtersen", "Bassenfleth", "Saint Dennis",
+         "Weaverham", "Alderley Edge", "Timperley", "Rochdale"],
     ]
     
     var data: [[String]] = [
@@ -26,7 +30,7 @@ class TableViewData: Codable {
         ["0","0","0","0","0"],
         ["0","0","0","0","0"],
         ["0","0","0","0","0"],
-        ["0","0","0","0","0"],
+        ["0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0","0"],
     ]
 }
 
@@ -38,6 +42,7 @@ class TableViewController: UITableViewController {
         super.viewDidLoad()
         
         tableViewData = TableViewData()
+        
         
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
@@ -67,10 +72,6 @@ class TableViewController: UITableViewController {
         return self.tableViewData.section.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50.0
-    }
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.tableViewData.section[section]
     }
@@ -78,9 +79,15 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.items[section].count
     }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        cell.selectionStyle = .none
         
         cell.lblStat.text = self.tableViewData.items[indexPath.section][indexPath.row]
         cell.lblStat.sizeToFit()
@@ -91,9 +98,6 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 5 {
@@ -157,6 +161,7 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
 }
 
 extension TableViewController: UITextFieldDelegate {

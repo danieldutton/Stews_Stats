@@ -83,8 +83,8 @@
 				CA018C27232D790300DC990D /* TableViewController.swift */,
 				CA018C29232D79B200DC990D /* TableViewCell.swift */,
 				CA018C0B232D786400DC990D /* Main.storyboard */,
-				CA018C0E232D786600DC990D /* Assets.xcassets */,
 				CA018C10232D786600DC990D /* LaunchScreen.storyboard */,
+				CA018C0E232D786600DC990D /* Assets.xcassets */,
 				CA018C13232D786600DC990D /* Info.plist */,
 			);
 			path = "Stew's Stats";
