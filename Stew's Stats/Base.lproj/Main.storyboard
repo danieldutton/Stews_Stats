@@ -26,17 +26,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-E7-atP">
-                                            <rect key="frame" x="213" y="12" width="155" height="22"/>
+                                            <rect key="frame" x="251" y="12" width="117" height="22"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="196" id="gvo-ne-K9U"/>
+                                                <constraint firstAttribute="width" constant="117" id="gvo-ne-K9U"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR4-9i-wJh">
-                                            <rect key="frame" x="9" y="13.5" width="47.5" height="17"/>
-                                            <fontDescription key="fontDescription" name="Rockwell-Regular" family="Rockwell" pointSize="17"/>
+                                            <rect key="frame" x="9" y="11.5" width="42" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -45,7 +45,7 @@
                                     <constraints>
                                         <constraint firstItem="LR4-9i-wJh" firstAttribute="leading" secondItem="FS0-wq-kb3" secondAttribute="leading" constant="9" id="YdO-05-FYj"/>
                                         <constraint firstItem="LR4-9i-wJh" firstAttribute="centerY" secondItem="FS0-wq-kb3" secondAttribute="centerY" id="b5q-36-U8x"/>
-                                        <constraint firstItem="rTA-E7-atP" firstAttribute="centerY" secondItem="FS0-wq-kb3" secondAttribute="centerY" id="ds3-cn-lpe"/>
+                                        <constraint firstItem="rTA-E7-atP" firstAttribute="centerY" secondItem="FS0-wq-kb3" secondAttribute="centerY" constant="1.25" id="ds3-cn-lpe"/>
                                         <constraint firstAttribute="trailing" secondItem="rTA-E7-atP" secondAttribute="trailing" constant="7" id="dsW-zO-cZf"/>
                                     </constraints>
                                 </tableViewCellContentView>
