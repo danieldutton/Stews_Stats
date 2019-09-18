@@ -15,6 +15,7 @@
 		CA018C28232D790300DC990D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* TableViewController.swift */; };
 		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
 		CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableViewData.swift */; };
+		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		CA018C27232D790300DC990D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
+		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 		CA19811423322C7A00F6EDE8 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CA19811723322EE500F6EDE8 /* Persistance.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -230,6 +233,7 @@
 				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA018C28232D790300DC990D /* TableViewController.swift in Sources */,
+				CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

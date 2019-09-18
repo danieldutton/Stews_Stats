@@ -11,32 +11,18 @@ import UIKit
 class TableViewController: UITableViewController {
 
     var tableViewData: TableViewData!
+    
+    var persistance: Persistance!
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
         
-        retrievePersistedData()
-    }
-    
-    private func retrievePersistedData() {
-        if let savedData = UserDefaults.standard.data(forKey: "tableViewData") {
-            let data = try? JSONDecoder().decode(TableViewData.self, from: savedData)
-            self.tableViewData = data
-            print(data)
-        } else {
-            self.tableViewData = TableViewData()
-        }
-    }
-    
-    private func persistUserData() {
-        if let encoded = try? JSONEncoder().encode(self.tableViewData) {
-            UserDefaults.standard.set(encoded, forKey: "tableViewData")
-        } else {
-            //display try again error message
-        }
+        persistance = Persistance()
+        self.tableViewData = persistance.retrievePersistedData()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -70,67 +56,8 @@ class TableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        /*
-        if indexPath.section == 5 {
-            let ct = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
-            
-            if ct - 1 == indexPath.row {
-                return .insert
-            }
-            //return .delete
-        }
-        */
         return .none
     }
-    
-    /*
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        tableView.endEditing(true)
-        /*
-        if editingStyle == .insert {
-            self.tableViewData.items[0] += ["New Location"]
-            let ct = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
-            tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: ct-1, section: 1)], with: .automatic)
-                tableView.reloadRows(at: [IndexPath(row: ct-2, section: 1)], with: .automatic)
-            }) { (_) in
-                let cell = self.tableView.cellForRow(at: IndexPath(row: ct-1, section: 1))
-                //(cell as! TableViewCell).txtFieldStatValue.becomeFirstResponder()
-            }
-        }
-    */
-    }
-    */
- 
-    /*
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to toIndexPath: IndexPath) {
-        let s = self.tableViewData.data.remove(at:fromIndexPath.row)
-        self.tableViewData.data.insert(s, at:toIndexPath.row)
-        persistUserData()
-        tableView.reloadData()
-    }
-    */
- 
-    /*
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 5  {
-            return true
-        }
-        return false
-    }
-    */
-    
-    /*
-    override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
-        tableView.endEditing(true)
-        if proposedDestinationIndexPath.section == 0 || proposedDestinationIndexPath.section == 1
-        || proposedDestinationIndexPath.section == 2 || proposedDestinationIndexPath.section == 3
-            || proposedDestinationIndexPath.section == 4 {
-            return IndexPath(row: 0, section: 5)
-        }
-        return proposedDestinationIndexPath
-    }
-    */
  
     /*
     // MARK: - Navigation
@@ -141,14 +68,13 @@ class TableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
 
 extension TableViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
-        print(#function)
+
         return false
     }
     
@@ -168,6 +94,6 @@ extension TableViewController: UITextFieldDelegate {
         self.tableViewData.data[sec][ip] = cell.txtFieldStatValue.text!
         
         print(#function)
-        persistUserData()
+        persistance.persistUserData(tableViewData: self.tableViewData)
     }
 }
