@@ -40,6 +40,10 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
@@ -55,10 +59,13 @@ class TableViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .none
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let tempCell = cell as! TableViewCell
+        
+        let text = tempCell.txtFieldStatValue.text!
+        tableViewData.data[indexPath.section][indexPath.row] = text
     }
- 
+
     /*
     // MARK: - Navigation
 
@@ -77,23 +84,21 @@ extension TableViewController: UITextFieldDelegate {
 
         return false
     }
-    
+
     func textFieldDidEndEditing(_ textField: UITextField) {
         // some cell's text field has finished editing; which cell?
         var v : UIView = textField
         //
-        repeat { v = v.superview! } while !(v is UITableViewCell)
-        //
-        let cell = v as! TableViewCell
-        //what section is that
-        //this sometimes throws an error and if it does, the model isn't updated
-        let sec = self.tableView.indexPath(for: cell)!.section
-        // what row is that?
-        let ip = self.tableView.indexPath(for:cell)!.row
-        // update data model to match
-        self.tableViewData.data[sec][ip] = cell.txtFieldStatValue.text!
+        repeat {
+            v = v.superview!
+        } while !(v is UITableViewCell)
         
-        print(#function)
-        persistance.persistUserData(tableViewData: self.tableViewData)
+        let cell = v as! TableViewCell
+        
+        if let sec = self.tableView.indexPath(for: cell)?.section, let ip = self.tableView.indexPath(for:cell)?.row {
+            self.tableViewData.data[sec][ip] = cell.txtFieldStatValue.text!
+            persistance.persistUserData(tableViewData: self.tableViewData)
+            
+        }
     }
 }

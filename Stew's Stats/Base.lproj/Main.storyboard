@@ -25,17 +25,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-E7-atP">
-                                            <rect key="frame" x="251" y="12" width="117" height="22"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-E7-atP">
+                                            <rect key="frame" x="189.99999999999977" y="7.7076124567472561" width="178" height="30.000000000000085"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="117" id="gvo-ne-K9U"/>
+                                                <constraint firstAttribute="width" constant="178" id="gvo-ne-K9U"/>
                                             </constraints>
                                             <nil key="textColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                         </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LR4-9i-wJh">
-                                            <rect key="frame" x="9" y="11.5" width="42" height="20.5"/>
+                                            <rect key="frame" x="16" y="11.5" width="42" height="20.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="LR4-9i-wJh" firstAttribute="leading" secondItem="FS0-wq-kb3" secondAttribute="leading" constant="9" id="YdO-05-FYj"/>
+                                        <constraint firstItem="LR4-9i-wJh" firstAttribute="leading" secondItem="FS0-wq-kb3" secondAttribute="leading" constant="16" id="YdO-05-FYj"/>
                                         <constraint firstItem="LR4-9i-wJh" firstAttribute="centerY" secondItem="FS0-wq-kb3" secondAttribute="centerY" id="b5q-36-U8x"/>
                                         <constraint firstItem="rTA-E7-atP" firstAttribute="centerY" secondItem="FS0-wq-kb3" secondAttribute="centerY" constant="1.25" id="ds3-cn-lpe"/>
                                         <constraint firstAttribute="trailing" secondItem="rTA-E7-atP" secondAttribute="trailing" constant="7" id="dsW-zO-cZf"/>
@@ -64,7 +64,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPZ-nz-apD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-474.39999999999998" y="-29.23538230884558"/>
+            <point key="canvasLocation" x="-2383.1999999999998" y="-29.23538230884558"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YsL-9y-b5c">
@@ -86,7 +86,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cac-en-DzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1244" y="-29"/>
+            <point key="canvasLocation" x="-3076" y="-29"/>
         </scene>
     </scenes>
 </document>
