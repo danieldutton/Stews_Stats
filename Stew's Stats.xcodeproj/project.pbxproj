@@ -18,6 +18,7 @@
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CAE0291123339759002E975E /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE0290E23339722002E975E /* Charts.framework */; };
 		CAE0291223339759002E975E /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAE0290E23339722002E975E /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		CA19811223322C6700F6EDE8 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CAE0290823339721002E975E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,7 +124,6 @@
 		CA018C06232D786400DC990D /* Stew's Stats */ = {
 			isa = PBXGroup;
 			children = (
-				CAE0290823339721002E975E /* Charts.xcodeproj */,
 				CA19811623322C9200F6EDE8 /* Model */,
 				CA19811523322C8100F6EDE8 /* ViewController */,
 				CA19811423322C7A00F6EDE8 /* Domain */,
@@ -130,6 +131,7 @@
 				CA018C0B232D786400DC990D /* Main.storyboard */,
 				CA018C10232D786600DC990D /* LaunchScreen.storyboard */,
 				CA018C0E232D786600DC990D /* Assets.xcassets */,
+				CAE0290823339721002E975E /* Charts.xcodeproj */,
 				CA018C13232D786600DC990D /* Info.plist */,
 			);
 			path = "Stew's Stats";
@@ -156,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				CA018C27232D790300DC990D /* TableViewController.swift */,
+				CAE0291623339A0A002E975E /* PieChartController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
+				CAE0291723339A0A002E975E /* PieChartController.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA018C28232D790300DC990D /* TableViewController.swift in Sources */,
 				CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */,
@@ -479,7 +483,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -499,7 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
