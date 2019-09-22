@@ -9,30 +9,24 @@
 import Charts
 import UIKit
 
-class PieChartController: UIViewController, UITabBarControllerDelegate {
-    //this needs to be dynamically pumped through
+class PieChartController: UIViewController {
+
     var tableViewData: TableViewData = TableViewData()
     
+    var persistance = Persistance()
+    
     @IBOutlet weak var pieChartView: PieChartView!
-    
-    
-    var section = 0 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(#function)
-        print(self.section)
-        //view did load appears to be called once for each item click
-        //but then once they are loaded they are not called again
-        tabBarController?.delegate = self
-        self.tabBarController?.selectedIndex = self.section
-        self.section = tabBarController!.selectedIndex
-        updateChartData()
+
+        self.tableViewData = persistance.retrievePersistedData()
+        updateChartData(with: tabBarController!.selectedIndex)
     }
     
-    func updateChartData()  {
+    func updateChartData(with section: Int)  {
         //remove the view already there.  are we overlaying views.  memory problems etc
-
+        pieChartView.clear()
         // 2. generate chart data entries
         let statType = tableViewData.items[section]
         let statValue = tableViewData.data[section].map{Double($0)!}
@@ -47,8 +41,8 @@ class PieChartController: UIViewController, UITabBarControllerDelegate {
         
         // 3. chart setup
         let set = PieChartDataSet(entries: entries)
+        pieChartView.drawEntryLabelsEnabled = false
         
-
         set.colors = ChartColorTemplates.material()
         let data = PieChartData(dataSet: set)
         let formatter = NumberFormatter()
@@ -63,28 +57,18 @@ class PieChartController: UIViewController, UITabBarControllerDelegate {
         pieChartView.isUserInteractionEnabled = true
         
         let d = Description()
-        d.text = "Stew's Stats"
         
         pieChartView.chartDescription = d
         pieChartView.holeRadiusPercent = 0.2
+        
+        pieChartView.animate(yAxisDuration: 0.5,
+        easingOption: .linear)
         
         pieChartView.transparentCircleColor = UIColor.clear
         
         //animation
         
         self.view.addSubview(pieChartView)
-    }
-}
-
-extension PieChartController {
-    //this is only called if ew use the tab bar at the bottom
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        //foo(index: tabBarController.selectedIndex)
-        let nc = tabBarController.viewControllers![tabBarController.selectedIndex] as! UINavigationController
-        let vc = nc.viewControllers[0] as! PieChartController
-        vc.section = tabBarController.selectedIndex
-        updateChartData()
-        print("Selected Tab Bar Index:- \(tabBarController.selectedIndex)")
     }
 }
 

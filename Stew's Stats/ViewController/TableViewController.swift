@@ -52,7 +52,7 @@ class TableViewController: UITableViewController {
     
     //Completed
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return indexPath.section == 5 ? nil : indexPath
+        return nil
     }
 
     //
@@ -70,30 +70,12 @@ class TableViewController: UITableViewController {
         return cell
     }
     
+    //
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let tempCell = cell as! TableViewCell
         
         let text = tempCell.txtFieldStatValue.text!
         tableViewData.data[indexPath.section][indexPath.row] = text
-    }
-
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = self.tableView.indexPathForSelectedRow {
-            //use a factory to get the right controller
-            let tabbedController = segue.destination as! UITabBarController
-            let vc = tabbedController.viewControllers![0] as! UINavigationController
-            
-            let pie = vc.viewControllers.first as! PieChartController
-            
-            pie.tableViewData = self.tableViewData
-            pie.section = indexPath.section
-            //vc.section = indexPath.section
-            print("Section:- \(indexPath.section)")
-            
-        }
     }
 }
 
@@ -115,8 +97,10 @@ extension TableViewController: UITextFieldDelegate {
         
         let cell = v as! TableViewCell
         
-        if let sec = self.tableView.indexPath(for: cell)?.section, let ip = self.tableView.indexPath(for:cell)?.row {
-            self.tableViewData.data[sec][ip] = cell.txtFieldStatValue.text!
+        if let sec = self.tableView.indexPath(for: cell)?.section,
+            let row = self.tableView.indexPath(for:cell)?.row {
+            
+            self.tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
             persistance.persistUserData(tableViewData: self.tableViewData)
         }
     }

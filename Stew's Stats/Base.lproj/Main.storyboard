@@ -49,7 +49,6 @@
                                 <connections>
                                     <outlet property="lblStat" destination="LR4-9i-wJh" id="ihn-wm-A1X"/>
                                     <outlet property="txtFieldStatValue" destination="rTA-E7-atP" id="yCa-4z-lgM"/>
-                                    <segue destination="8Ua-9x-38R" kind="show" id="iyC-mp-1zm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -58,7 +57,13 @@
                             <outlet property="delegate" destination="3sL-ZX-mAd" id="m3L-jm-diz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Stewy's Stats" id="pZr-1K-ddu"/>
+                    <navigationItem key="navigationItem" title="Stewy's Stats" id="pZr-1K-ddu">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="chart.pie" catalog="system" id="ynN-oT-CZl">
+                            <connections>
+                                <segue destination="8Ua-9x-38R" kind="show" id="X9B-dX-XL3"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPZ-nz-apD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,6 +72,7 @@
         <!--Pie Chart Controller-->
         <scene sceneID="RyO-0Z-s8m">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fSe-xr-6y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="PmD-wV-lww" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPB-HD-4Qh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -91,13 +97,13 @@
                         <outlet property="pieChartView" destination="4Nv-La-d2H" id="fX0-g8-IPF"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fSe-xr-6y4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2519.1999999999998" y="53.523238380809602"/>
         </scene>
         <!--Pie Chart Controller-->
         <scene sceneID="eQg-eU-qj0">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qd9-M4-2VU" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="Deg-Ej-adT" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ztd-Or-XPw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -122,13 +128,13 @@
                         <outlet property="pieChartView" destination="wgV-yp-Bt1" id="lmY-6j-Wne"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Qd9-M4-2VU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2519.1999999999998" y="721.88905547226398"/>
         </scene>
         <!--Pie Chart Controller-->
         <scene sceneID="kyM-AP-hGp">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P0L-lb-blB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="k6J-eK-fad" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lie-VH-79K">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -153,7 +159,6 @@
                         <outlet property="pieChartView" destination="gen-ER-q8c" id="t55-gy-f5g"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P0L-lb-blB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2519.1999999999998" y="1401.9490254872564"/>
         </scene>
@@ -224,6 +229,7 @@
         <scene sceneID="0ne-5R-IMC">
             <objects>
                 <tabBarController id="8Ua-9x-38R" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="h0C-X5-SmY"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vyB-NT-VtO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -298,6 +304,7 @@
         <!--Navigation Controller-->
         <scene sceneID="EwD-DH-aLZ">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="or8-4Q-xjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8uL-ee-XTM" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="control" catalog="system" id="6Yf-yV-AxU"/>
                     <toolbarItems/>
@@ -310,13 +317,13 @@
                         <segue destination="PmD-wV-lww" kind="relationship" relationship="rootViewController" id="COx-kL-oKV"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="or8-4Q-xjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3308" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HHk-DV-9RO">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jtM-P8-Q3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4oA-w8-hPC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="timer" catalog="system" id="Jhq-yM-3ds"/>
                     <toolbarItems/>
@@ -329,13 +336,13 @@
                         <segue destination="yoQ-Mn-9YR" kind="relationship" relationship="rootViewController" id="Sf0-xI-x5Z"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jtM-P8-Q3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3308" y="-616"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0h-1U-anD">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nlD-Z2-ap6" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RNS-d9-1UY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="cloud.rain" catalog="system" id="1rC-vC-v4m"/>
                     <toolbarItems/>
@@ -348,13 +355,13 @@
                         <segue destination="Deg-Ej-adT" kind="relationship" relationship="rootViewController" id="s5N-QX-3E6"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="nlD-Z2-ap6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3308" y="722"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="JNC-PO-RzW">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jsT-dC-Anf" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UQf-xK-r83" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="smiley" catalog="system" id="CGh-Uw-B8z"/>
                     <toolbarItems/>
@@ -367,13 +374,13 @@
                         <segue destination="k6J-eK-fad" kind="relationship" relationship="rootViewController" id="L9O-Z2-quv"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jsT-dC-Anf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3308" y="1402"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrow.left.and.right.square" catalog="system" width="64" height="56"/>
+        <image name="chart.pie" catalog="system" width="64" height="62"/>
         <image name="cloud.rain" catalog="system" width="64" height="62"/>
         <image name="control" catalog="system" width="64" height="34"/>
         <image name="smiley" catalog="system" width="64" height="62"/>
