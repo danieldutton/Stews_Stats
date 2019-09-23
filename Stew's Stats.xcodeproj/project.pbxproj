@@ -11,8 +11,8 @@
 		CA018C0D232D786400DC990D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C0B232D786400DC990D /* Main.storyboard */; };
 		CA018C0F232D786600DC990D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA018C0E232D786600DC990D /* Assets.xcassets */; };
 		CA018C12232D786600DC990D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C10232D786600DC990D /* LaunchScreen.storyboard */; };
-		CA018C1D232D786600DC990D /* Stew_s_StatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */; };
-		CA018C28232D790300DC990D /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* TableViewController.swift */; };
+		CA018C1D232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */; };
+		CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */; };
 		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
 		CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableViewData.swift */; };
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
@@ -74,9 +74,9 @@
 		CA018C11232D786600DC990D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA018C13232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA018C18232D786600DC990D /* Stew's StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stew's StatsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stew_s_StatsTests.swift; sourceTree = "<group>"; };
+		CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSummaryTableViewControllerTests.swift; sourceTree = "<group>"; };
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA018C27232D790300DC990D /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
+		CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSummaryTableVC.swift; sourceTree = "<group>"; };
 		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 		CA018C1B232D786600DC990D /* Stew's StatsTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA018C1C232D786600DC990D /* Stew_s_StatsTests.swift */,
+				CA6AD7612338D43C004501F0 /* ViewController */,
 				CA018C1E232D786600DC990D /* Info.plist */,
 			);
 			path = "Stew's StatsTests";
@@ -157,7 +157,7 @@
 		CA19811523322C8100F6EDE8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				CA018C27232D790300DC990D /* TableViewController.swift */,
+				CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */,
 				CAE0291623339A0A002E975E /* PieChartController.swift */,
 			);
 			path = ViewController;
@@ -170,6 +170,14 @@
 				CA018C29232D79B200DC990D /* TableViewCell.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CA6AD7612338D43C004501F0 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		CAE0290923339721002E975E /* Products */ = {
@@ -310,7 +318,7 @@
 				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
 				CAE0291723339A0A002E975E /* PieChartController.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
-				CA018C28232D790300DC990D /* TableViewController.swift in Sources */,
+				CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */,
 				CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */,
 			);
@@ -320,7 +328,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA018C1D232D786600DC990D /* Stew_s_StatsTests.swift in Sources */,
+				CA018C1D232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

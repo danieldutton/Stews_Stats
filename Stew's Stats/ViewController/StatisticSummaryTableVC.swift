@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  StatisticSummaryTableVC.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 14/09/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
+class StatisticSummaryTableVC: UITableViewController {
 
     var tableViewData: TableViewData!
     
@@ -25,28 +25,29 @@ class TableViewController: UITableViewController {
         self.tableViewData = persistance.retrievePersistedData()
     }
 
-    //Complete
+    //Tests Complete
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.tableViewData.section.count
     }
     
-    //Complete
+    //Tests Complete
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.tableViewData.items[section].count
+    }
+    
+    //Tests Complete
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.tableViewData.section[section]
     }
 
     //Complete
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableViewData.items[section].count
-    }
-    
-    //Complete
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-    
-    //Complete
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == 5 {
+            let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            if rows - 1 == indexPath.row {
+                return .insert
+            }
+        }
         return .none
     }
     
@@ -77,9 +78,17 @@ class TableViewController: UITableViewController {
         let text = tempCell.txtFieldStatValue.text!
         tableViewData.data[indexPath.section][indexPath.row] = text
     }
+    
+    //Complete
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
+    }
+    
+    //insertion
+    
 }
 
-extension TableViewController: UITextFieldDelegate {
+extension StatisticSummaryTableVC: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
