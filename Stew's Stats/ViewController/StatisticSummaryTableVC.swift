@@ -85,7 +85,62 @@ class StatisticSummaryTableVC: UITableViewController {
     }
     
     //insertion
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        //first force our textfield to cease editing
+        tableView.endEditing(true)
+        if editingStyle == .insert {
+            let alertCon = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
+            alertCon.addTextField { tf in
+                tf.keyboardType = .alphabet
+                tf.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
+                let tf = alertCon.textFields![0]
+                print(tf.text!)
+                //can read tf text here
+            }
+            
+            /*
+            func handler(_ action: UIAlertAction) {
+                let tf = alertCon.textFields![0]
+                print(tf.text!)
+                //can read tf text here
+            }
+            */
+            
+            alertCon.addAction(cancelAction)
+            alertCon.addAction(confirmAction)
+            alertCon.actions[1].isEnabled = false
+            alertCon.preferredAction = alertCon.actions[1]
+            
+            present(alertCon, animated: true)
+            
+            /*
+            let sectionNo = 5
+            tableViewData.items[5] += ["New Location"]
+            tableViewData.data[5] += ["0"]
+            let ct = tableViewData.items.count
+            tableView.performBatchUpdates({
+                tableView.insertRows(at: [IndexPath(row: ct-1, section: sectionNo)], with: .automatic)
+                tableView.reloadData()
+                //tableView.reloadRows(at: [IndexPath(row: ct-2, section: sectionNo)], with: .automatic)
+            }) { _ in
+                let cell = tableView.cellForRow(at: IndexPath(row: ct-1, section: sectionNo))
+                (cell as! TableViewCell).txtFieldStatValue.becomeFirstResponder()
+            }
+            */
+        }
+        
+    }
     
+    @objc func textChanged(_ sender: Any) {
+            let tf = sender as! UITextField
+            var resp : UIResponder! = tf
+            while !(resp is UIAlertController) { resp = resp.next }
+            let alert = resp as! UIAlertController
+            alert.actions[1].isEnabled = (tf.text != "")
+    }
 }
 
 extension StatisticSummaryTableVC: UITextFieldDelegate {
