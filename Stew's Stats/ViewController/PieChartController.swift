@@ -13,7 +13,7 @@ class PieChartController: UIViewController {
 
     var tableViewData: TableViewData = TableViewData()
     
-    var persistance = Persistance()
+    var persistance = Persistance.shared
     
     @IBOutlet weak var pieChartView: PieChartView!
 

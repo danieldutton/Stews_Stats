@@ -10,6 +10,10 @@ import Foundation
 
 class Persistance {
     
+    static let shared = Persistance()
+    
+    private init() {}
+    
     func retrievePersistedData() -> TableViewData {
         if let savedData = UserDefaults.standard.data(forKey: "tableViewData") {
             let data = (try? JSONDecoder().decode(TableViewData.self, from: savedData))!

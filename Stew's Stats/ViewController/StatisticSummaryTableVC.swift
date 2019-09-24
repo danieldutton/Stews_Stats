@@ -12,7 +12,7 @@ class StatisticSummaryTableVC: UITableViewController {
 
     var tableViewData: TableViewData!
     
-    var persistance: Persistance!
+    var persistance = Persistance.shared
 
     
     override func viewDidLoad() {
@@ -20,8 +20,7 @@ class StatisticSummaryTableVC: UITableViewController {
 
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        
-        persistance = Persistance()
+
         self.tableViewData = persistance.retrievePersistedData()
     }
 
