@@ -132,11 +132,13 @@ class StatisticSummaryTableVC: UITableViewController {
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
             self.tableViewData.items[5].remove(at: indexPath.row)
-            //what about the data
-            //self.tableArray.remove(at: indexPath.row)
+            self.tableViewData.data[5].remove(at: indexPath.row)
+
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-            //save to user defaults so we remember deletion
+            
             self.persistance.persistUserData(tableViewData: self.tableViewData)
+            //don't forget, although unlikely, at some point you may have to consider section deletion
+            //if no rows are present
         }
         return [delete]
     }
