@@ -48,4 +48,9 @@ class TableViewData: Codable {
             "36","37","38","39"
         ],
     ]
+    
+    func removeLocation(at indexPath: IndexPath) {
+        self.items[5].remove(at: indexPath.row)
+        self.data[5].remove(at: indexPath.row)
+    }
 }

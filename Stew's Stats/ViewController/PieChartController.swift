@@ -43,7 +43,15 @@ class PieChartController: UIViewController {
         let set = PieChartDataSet(entries)
         pieChartView.drawEntryLabelsEnabled = false
         
-        set.colors = ChartColorTemplates.material()
+        let colors: [NSUIColor] = [
+            NSUIColor(red: 223.0/255.0, green: 52.0/255.0, blue: 46.0/255.0, alpha: 1.0),
+            NSUIColor(red: 44.0/255.0, green: 197.0/255.0, blue: 94.0/255.0, alpha: 1.0),
+            NSUIColor(red: 43.0/255.0, green: 132.0/255.0, blue: 210.0/255.0, alpha: 1.0),
+            NSUIColor(red: 237.0/255.0, green: 186.0/255.0, blue: 16.0/255.0, alpha: 1.0),
+            NSUIColor.orange,
+        ]
+        
+        set.colors = colors
         let data = PieChartData(dataSet: set)
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent

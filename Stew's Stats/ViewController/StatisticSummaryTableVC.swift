@@ -90,8 +90,7 @@ class StatisticSummaryTableVC: UITableViewController {
             let ct = tableViewData.items.count
             tableView.performBatchUpdates({
                 tableView.insertRows(at: [IndexPath(row: ct-1, section: sectionNo)], with: .automatic)
-                tableView.reloadData()
-                //tableView.reloadRows(at: [IndexPath(row: ct-2, section: sectionNo)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: ct-1, section: sectionNo)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
@@ -99,28 +98,7 @@ class StatisticSummaryTableVC: UITableViewController {
         }
         
         if editingStyle == .insert {
-            let alertCon = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
-            alertCon.addTextField { txtField in
-                txtField.keyboardType = .alphabet
-                txtField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
-                let tf = alertCon.textFields![0]
-
-                addNewLocationRow(tf.text!)
-                
-                //line next not working properly
-                self.tableView.setEditing(false, animated: true)
-                //can read tf text here
-            }
-
-            alertCon.addAction(cancelAction)
-            alertCon.addAction(confirmAction)
-            alertCon.actions[1].isEnabled = false
-            alertCon.preferredAction = alertCon.actions[1]
-            
-            present(alertCon, animated: true)
+            present(inputLocationForm(), animated: true)
         }
     }
     
@@ -131,8 +109,7 @@ class StatisticSummaryTableVC: UITableViewController {
         }
         
         let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
-            self.tableViewData.items[5].remove(at: indexPath.row)
-            self.tableViewData.data[5].remove(at: indexPath.row)
+            self.tableViewData.removeLocation(at: indexPath)
 
             self.tableView.deleteRows(at: [indexPath], with: .fade)
             
@@ -152,6 +129,46 @@ class StatisticSummaryTableVC: UITableViewController {
         }
         let alert = responder as! UIAlertController
         alert.actions[1].isEnabled = (textField.text != "")
+    }
+    
+    private func inputLocationForm() -> UIAlertController {
+        func addNewLocationRow(_ location: String) {
+            let sectionNo = 5
+            tableViewData.items[5].append(location)
+            //this doesn't appear to be working
+            tableViewData.data[5].append("0")
+            let ct = tableViewData.items.count
+            tableView.performBatchUpdates({
+                tableView.insertRows(at: [IndexPath(row: ct-2, section: sectionNo)], with: .automatic)
+                tableView.reloadData()
+            }) { _ in
+                self.tableView.setEditing(true, animated: false)
+                self.persistance.persistUserData(tableViewData: self.tableViewData)
+            }
+        }
+        
+        let alertCon = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
+        alertCon.addTextField { txtField in
+            txtField.keyboardType = .alphabet
+            txtField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
+            let tf = alertCon.textFields![0]
+
+            addNewLocationRow(tf.text!)
+            
+            //line next not working properly
+            self.tableView.setEditing(false, animated: true)
+            //can read tf text here
+        }
+
+        alertCon.addAction(cancelAction)
+        alertCon.addAction(confirmAction)
+        alertCon.actions[1].isEnabled = false
+        alertCon.preferredAction = alertCon.actions[1]
+        
+        return alertCon
     }
 }
 
@@ -180,4 +197,5 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
             persistance.persistUserData(tableViewData: self.tableViewData)
         }
     }
+    
 }
