@@ -40,7 +40,7 @@ class PieChartController: UIViewController {
         }
         
         // 3. chart setup
-        let set = PieChartDataSet(entries: entries)
+        let set = PieChartDataSet(entries)
         pieChartView.drawEntryLabelsEnabled = false
         
         set.colors = ChartColorTemplates.material()
@@ -65,9 +65,7 @@ class PieChartController: UIViewController {
         easingOption: .linear)
         
         pieChartView.transparentCircleColor = UIColor.clear
-        
-        //animation
-        
+
         self.view.addSubview(pieChartView)
     }
 }

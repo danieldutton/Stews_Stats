@@ -16,8 +16,8 @@
 		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
 		CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableViewData.swift */; };
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
-		CAE0291123339759002E975E /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAE0290E23339722002E975E /* Charts.framework */; };
-		CAE0291223339759002E975E /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CAE0290E23339722002E975E /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
+		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,37 +29,16 @@
 			remoteGlobalIDString = CA018C03232D786400DC990D;
 			remoteInfo = "Stew's Stats";
 		};
-		CAE0290D23339722002E975E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAE0290823339721002E975E /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 65AD9E95D9ED4DC0BD73A743;
-			remoteInfo = Charts;
-		};
-		CAE0290F23339722002E975E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAE0290823339721002E975E /* Charts.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 1CBBC58C6CE1EBEE9852CE41;
-			remoteInfo = ChartsTests;
-		};
-		CAE0291323339759002E975E /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAE0290823339721002E975E /* Charts.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = A58A4ED274A941CA248EA921;
-			remoteInfo = Charts;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CAE029152333975A002E975E /* Embed Frameworks */ = {
+		CA4DA56C233A25140029393E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				CAE0291223339759002E975E /* Charts.framework in Embed Frameworks */,
+				CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -80,7 +59,7 @@
 		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
-		CAE0290823339721002E975E /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = "../../../Downloads/Charts-master/Charts.xcodeproj"; sourceTree = "<group>"; };
+		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,7 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAE0291123339759002E975E /* Charts.framework in Frameworks */,
+				CA499BBE233A2C050013220D /* Charts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +88,7 @@
 				CA018C06232D786400DC990D /* Stew's Stats */,
 				CA018C1B232D786600DC990D /* Stew's StatsTests */,
 				CA018C05232D786400DC990D /* Products */,
+				CA499BBC233A2C050013220D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -131,7 +111,6 @@
 				CA018C0B232D786400DC990D /* Main.storyboard */,
 				CA018C10232D786600DC990D /* LaunchScreen.storyboard */,
 				CA018C0E232D786600DC990D /* Assets.xcassets */,
-				CAE0290823339721002E975E /* Charts.xcodeproj */,
 				CA018C13232D786600DC990D /* Info.plist */,
 			);
 			path = "Stew's Stats";
@@ -172,21 +151,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CA499BBC233A2C050013220D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CA499BBD233A2C050013220D /* Charts.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CA6AD7612338D43C004501F0 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		CAE0290923339721002E975E /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				CAE0290E23339722002E975E /* Charts.framework */,
-				CAE0291023339722002E975E /* ChartsTests.xctest */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,14 +177,16 @@
 				CA018C00232D786400DC990D /* Sources */,
 				CA018C01232D786400DC990D /* Frameworks */,
 				CA018C02232D786400DC990D /* Resources */,
-				CAE029152333975A002E975E /* Embed Frameworks */,
+				CA4DA56C233A25140029393E /* Embed Frameworks */,
+				CA499BC0233A2C120013220D /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CAE0291423339759002E975E /* PBXTargetDependency */,
 			);
 			name = "Stew's Stats";
+			packageProductDependencies = (
+			);
 			productName = "Stew's Stats";
 			productReference = CA018C04232D786400DC990D /* Stew's Stats.app */;
 			productType = "com.apple.product-type.application";
@@ -257,14 +237,10 @@
 				Base,
 			);
 			mainGroup = CA018BFB232D786400DC990D;
+			packageReferences = (
+			);
 			productRefGroup = CA018C05232D786400DC990D /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = CAE0290923339721002E975E /* Products */;
-					ProjectRef = CAE0290823339721002E975E /* Charts.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				CA018C03232D786400DC990D /* Stew's Stats */,
@@ -272,23 +248,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		CAE0290E23339722002E975E /* Charts.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Charts.framework;
-			remoteRef = CAE0290D23339722002E975E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CAE0291023339722002E975E /* ChartsTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ChartsTests.xctest;
-			remoteRef = CAE0290F23339722002E975E /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CA018C02232D786400DC990D /* Resources */ = {
@@ -309,6 +268,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		CA499BC0233A2C120013220D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Charts.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CA018C00232D786400DC990D /* Sources */ = {
@@ -339,11 +319,6 @@
 			isa = PBXTargetDependency;
 			target = CA018C03232D786400DC990D /* Stew's Stats */;
 			targetProxy = CA018C19232D786600DC990D /* PBXContainerItemProxy */;
-		};
-		CAE0291423339759002E975E /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = Charts;
-			targetProxy = CAE0291323339759002E975E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -486,10 +461,13 @@
 		CA018C22232D786600DC990D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -506,10 +484,13 @@
 		CA018C23232D786600DC990D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -540,7 +521,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-StatsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stew's Stats.app/Stew's Stats";
 			};
 			name = Debug;
@@ -562,7 +543,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-StatsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stew's Stats.app/Stew's Stats";
 			};
 			name = Release;

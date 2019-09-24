@@ -40,7 +40,6 @@ class StatisticSummaryTableVC: UITableViewController {
         return self.tableViewData.section[section]
     }
 
-    //Complete
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 5 {
             let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
@@ -51,12 +50,10 @@ class StatisticSummaryTableVC: UITableViewController {
         return .none
     }
     
-    //Completed
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
 
-    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
@@ -71,7 +68,6 @@ class StatisticSummaryTableVC: UITableViewController {
         return cell
     }
     
-    //
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let tempCell = cell as! TableViewCell
         
@@ -79,46 +75,18 @@ class StatisticSummaryTableVC: UITableViewController {
         tableViewData.data[indexPath.section][indexPath.row] = text
     }
     
-    //Complete
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
-    //insertion
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         //first force our textfield to cease editing
+        //be wary we have ended force editing here so can't edit other boxes till we reenable
         tableView.endEditing(true)
-        if editingStyle == .insert {
-            let alertCon = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
-            alertCon.addTextField { tf in
-                tf.keyboardType = .alphabet
-                tf.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
-            }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
-            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
-                let tf = alertCon.textFields![0]
-                print(tf.text!)
-                //can read tf text here
-            }
-            
-            /*
-            func handler(_ action: UIAlertAction) {
-                let tf = alertCon.textFields![0]
-                print(tf.text!)
-                //can read tf text here
-            }
-            */
-            
-            alertCon.addAction(cancelAction)
-            alertCon.addAction(confirmAction)
-            alertCon.actions[1].isEnabled = false
-            alertCon.preferredAction = alertCon.actions[1]
-            
-            present(alertCon, animated: true)
-            
-            /*
+        
+        func addNewLocationRow(_ location: String) {
             let sectionNo = 5
-            tableViewData.items[5] += ["New Location"]
+            tableViewData.items[5] += [location]
             tableViewData.data[5] += ["0"]
             let ct = tableViewData.items.count
             tableView.performBatchUpdates({
@@ -126,20 +94,63 @@ class StatisticSummaryTableVC: UITableViewController {
                 tableView.reloadData()
                 //tableView.reloadRows(at: [IndexPath(row: ct-2, section: sectionNo)], with: .automatic)
             }) { _ in
-                let cell = tableView.cellForRow(at: IndexPath(row: ct-1, section: sectionNo))
-                (cell as! TableViewCell).txtFieldStatValue.becomeFirstResponder()
+                tableView.setEditing(true, animated: false)
+                self.persistance.persistUserData(tableViewData: self.tableViewData)
             }
-            */
         }
         
+        if editingStyle == .insert {
+            let alertCon = UIAlertController(title: "Add New Location", message: nil, preferredStyle: .alert)
+            alertCon.addTextField { txtField in
+                txtField.keyboardType = .alphabet
+                txtField.addTarget(self, action: #selector(self.textChanged), for: .editingChanged)
+            }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { action in
+                let tf = alertCon.textFields![0]
+
+                addNewLocationRow(tf.text!)
+                
+                //line next not working properly
+                self.tableView.setEditing(false, animated: true)
+                //can read tf text here
+            }
+
+            alertCon.addAction(cancelAction)
+            alertCon.addAction(confirmAction)
+            alertCon.actions[1].isEnabled = false
+            alertCon.preferredAction = alertCon.actions[1]
+            
+            present(alertCon, animated: true)
+        }
+    }
+    
+    //
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard indexPath.section == 5 else {
+            return []
+        }
+        
+        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+            self.tableViewData.items[5].remove(at: indexPath.row)
+            //what about the data
+            //self.tableArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .fade)
+            //save to user defaults so we remember deletion
+            self.persistance.persistUserData(tableViewData: self.tableViewData)
+        }
+        return [delete]
     }
     
     @objc func textChanged(_ sender: Any) {
-            let tf = sender as! UITextField
-            var resp : UIResponder! = tf
-            while !(resp is UIAlertController) { resp = resp.next }
-            let alert = resp as! UIAlertController
-            alert.actions[1].isEnabled = (tf.text != "")
+        let textField = sender as! UITextField
+        var responder : UIResponder! = textField
+            
+        while !(responder is UIAlertController) {
+            responder = responder.next
+        }
+        let alert = responder as! UIAlertController
+        alert.actions[1].isEnabled = (textField.text != "")
     }
 }
 

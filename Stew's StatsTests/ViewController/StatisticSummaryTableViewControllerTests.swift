@@ -170,10 +170,18 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
         
         XCTAssertEqual(expected, actual)
     }
+    
+    //WillSelectRowAt
+    func test_willSelectRowAt_returnsNil() {
+        let sut = createTableViewController()
+        let tableView = UITableView()
+
+    }
 }
 
 
 extension StatisticSummaryTableViewControllerTests {
+    //
     fileprivate func createTableViewController() -> StatisticSummaryTableVC {
         let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
         let sut = storyboard.instantiateViewController(identifier: "Main") as! StatisticSummaryTableVC
