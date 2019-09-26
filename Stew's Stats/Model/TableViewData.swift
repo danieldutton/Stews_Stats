@@ -9,6 +9,7 @@
 import Foundation
 
 class TableViewData: Codable {
+    
     let section: [String] = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
     
     var items: [[String]] = [
@@ -52,5 +53,10 @@ class TableViewData: Codable {
     func removeLocation(at indexPath: IndexPath) {
         self.items[5].remove(at: indexPath.row)
         self.data[5].remove(at: indexPath.row)
+    }
+    
+    func add(location: String, at indexPath: IndexPath) {
+        self.items[5].append(location)
+        self.data[5].append("0")
     }
 }

@@ -10,35 +10,49 @@ import UIKit
 
 class StatisticSummaryTableVC: UITableViewController {
 
-    var tableViewData: TableViewData!
-    
-    var persistance = Persistance.shared
+    private var tableViewData: TableViewData!
 
-    
+    private var persistance = Persistance.shared
+
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        addRightEditBarButtonItemToNavBar()
+        tableViewData = persistance.retrievePersistedData()
+        
+        printSavedLocationDetails()
+    }
+    
+    func printSavedLocationDetails() {
+        let items = self.persistance.retrievePersistedData().items
+        let data =  self.persistance.retrievePersistedData().data
+        print(items)
+        print(data)
+    }
+    
+    //
+    private func addRightEditBarButtonItemToNavBar() {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-
-        self.tableViewData = persistance.retrievePersistedData()
     }
 
-    //Tests Complete
+    //
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.tableViewData.section.count
     }
-    
-    //Tests Complete
+
+    //
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.items[section].count
     }
     
-    //Tests Complete
+    //
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.tableViewData.section[section]
     }
 
+    //
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 5 {
             let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
@@ -48,11 +62,13 @@ class StatisticSummaryTableVC: UITableViewController {
         }
         return .none
     }
-    
+
+    //
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
 
+    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
@@ -67,20 +83,24 @@ class StatisticSummaryTableVC: UITableViewController {
         return cell
     }
     
+    //
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let tempCell = cell as! TableViewCell
         
         let text = tempCell.txtFieldStatValue.text!
+        //deleting other rows fine. Deleting last row crashes
+
+        //row is one ahead on delete and causing a crash
         tableViewData.data[indexPath.section][indexPath.row] = text
     }
     
+    //
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
     
+    //
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        //first force our textfield to cease editing
-        //be wary we have ended force editing here so can't edit other boxes till we reenable
         tableView.endEditing(true)
         
         func addNewLocationRow(_ location: String) {
@@ -90,6 +110,7 @@ class StatisticSummaryTableVC: UITableViewController {
             let ct = tableViewData.items.count
             tableView.performBatchUpdates({
                 tableView.insertRows(at: [IndexPath(row: ct-1, section: sectionNo)], with: .automatic)
+                //prev called reloaddata here
                 tableView.reloadRows(at: [IndexPath(row: ct-1, section: sectionNo)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
@@ -103,23 +124,23 @@ class StatisticSummaryTableVC: UITableViewController {
     }
     
     //
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard indexPath.section == 5 else {
-            return []
+            return UISwipeActionsConfiguration(actions: [])
         }
         
-        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             self.tableViewData.removeLocation(at: indexPath)
-
             self.tableView.deleteRows(at: [indexPath], with: .fade)
-            
             self.persistance.persistUserData(tableViewData: self.tableViewData)
-            //don't forget, although unlikely, at some point you may have to consider section deletion
-            //if no rows are present
+            //self.tableView.reloadSections(IndexSet(integersIn: 0...0), with: .top)
         }
-        return [delete]
+        let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
+
+        return swipeActions
     }
-    
+
+    //
     @objc func textChanged(_ sender: Any) {
         let textField = sender as! UITextField
         var responder : UIResponder! = textField
@@ -131,19 +152,21 @@ class StatisticSummaryTableVC: UITableViewController {
         alert.actions[1].isEnabled = (textField.text != "")
     }
     
+    //
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            let sectionNo = 5
             tableViewData.items[5].append(location)
-            //this doesn't appear to be working
             tableViewData.data[5].append("0")
-            let ct = tableViewData.items.count
+            
+            //tableView.beginUpdates()
+
+            //tableView.endUpdates()
             tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: ct-2, section: sectionNo)], with: .automatic)
-                tableView.reloadData()
+                tableView.insertRows(at: [IndexPath(row: tableViewData.items[5].count - 1, section: 5)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: tableViewData.items[5].count - 2, section: 5)], with: .automatic)
             }) { _ in
-                self.tableView.setEditing(true, animated: false)
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
+                self.printSavedLocationDetails()
             }
         }
         
@@ -159,7 +182,7 @@ class StatisticSummaryTableVC: UITableViewController {
             addNewLocationRow(tf.text!)
             
             //line next not working properly
-            self.tableView.setEditing(false, animated: true)
+            //self.tableView.setEditing(false, animated: true)
             //can read tf text here
         }
 
@@ -173,7 +196,7 @@ class StatisticSummaryTableVC: UITableViewController {
 }
 
 extension StatisticSummaryTableVC: UITextFieldDelegate {
-    
+
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
 
@@ -193,9 +216,11 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
             
-            self.tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
+            tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
             persistance.persistUserData(tableViewData: self.tableViewData)
         }
     }
-    
 }
+
+
+
