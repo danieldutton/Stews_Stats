@@ -31,23 +31,23 @@ class StatisticSummaryTableVC: UITableViewController {
         print(data)
     }
     
-    //
+    //Completed
     private func addRightEditBarButtonItemToNavBar() {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 
-    //
+    //Completed
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.tableViewData.section.count
     }
 
-    //
+    //Completed
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.items[section].count
     }
     
-    //
+    //Completed
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.tableViewData.section[section]
     }
@@ -166,6 +166,8 @@ class StatisticSummaryTableVC: UITableViewController {
                 tableView.reloadRows(at: [IndexPath(row: tableViewData.items[5].count - 2, section: 5)], with: .automatic)
             }) { _ in
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
+                self.tableView.scrollToRow(at: IndexPath.init(row: self.tableViewData.items[5].count - 1, section: 5), at: .bottom, animated: true)
+
                 self.printSavedLocationDetails()
             }
         }
