@@ -20,15 +20,10 @@ class StatisticSummaryTableVC: UITableViewController {
 
         addRightEditBarButtonItemToNavBar()
         tableViewData = persistance.retrievePersistedData()
+        print(#function)
         
-        printSavedLocationDetails()
-    }
-    
-    func printSavedLocationDetails() {
-        let items = self.persistance.retrievePersistedData().items
-        let data =  self.persistance.retrievePersistedData().data
-        print(items)
-        print(data)
+        printTableViewModelValues()
+        printPersistanceModelValues()
     }
     
     //Completed
@@ -85,6 +80,10 @@ class StatisticSummaryTableVC: UITableViewController {
     
     //
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !tableView.isEditing else {
+            return
+        }
+        print(#function)
         let tempCell = cell as! TableViewCell
         
         let text = tempCell.txtFieldStatValue.text!
@@ -115,6 +114,9 @@ class StatisticSummaryTableVC: UITableViewController {
             }) { _ in
                 tableView.setEditing(true, animated: false)
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
+                print(#function)
+                self.printTableViewModelValues()
+                self.printPersistanceModelValues()
             }
         }
         
@@ -130,10 +132,21 @@ class StatisticSummaryTableVC: UITableViewController {
         }
         
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-            self.tableViewData.removeLocation(at: indexPath)
-            self.tableView.deleteRows(at: [indexPath], with: .fade)
-            self.persistance.persistUserData(tableViewData: self.tableViewData)
-            //self.tableView.reloadSections(IndexSet(integersIn: 0...0), with: .top)
+
+            self.tableView.performBatchUpdates({
+                self.tableViewData.items[5].remove(at: indexPath.row)
+                self.tableViewData.data[5].remove(at: indexPath.row)
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.persistance.persistUserData(tableViewData: self.tableViewData)
+                print(#function)
+                self.printTableViewModelValues()
+                self.printPersistanceModelValues()
+            }) { (_) in
+                //self.tableView.reloadData()
+                //code to handle if last row in section is deleted
+                //consult iOS 12 book
+                
+            }
         }
         let swipeActions = UISwipeActionsConfiguration(actions: [contextItem])
 
@@ -168,7 +181,9 @@ class StatisticSummaryTableVC: UITableViewController {
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
                 self.tableView.scrollToRow(at: IndexPath.init(row: self.tableViewData.items[5].count - 1, section: 5), at: .bottom, animated: true)
 
-                self.printSavedLocationDetails()
+                print(#function)
+                self.printTableViewModelValues()
+                self.printPersistanceModelValues()
             }
         }
         
@@ -220,9 +235,27 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
             
             tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
             persistance.persistUserData(tableViewData: self.tableViewData)
+            print(#function)
+            printTableViewModelValues()
+            printPersistanceModelValues()
         }
     }
 }
 
+extension StatisticSummaryTableVC {
+    func printTableViewModelValues() {
+        print(#function)
+        print(tableViewData.items[5])
+        print(tableViewData.data[5])
+    }
+    
+    func printPersistanceModelValues() {
+        print(#function)
+        let items = self.persistance.retrievePersistedData().items
+        let data =  self.persistance.retrievePersistedData().data
+        print(items)
+        print(data)
+    }
+}
 
 
