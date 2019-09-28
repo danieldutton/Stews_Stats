@@ -25,29 +25,24 @@ class StatisticSummaryTableVC: UITableViewController {
         //printTableViewModelValues()
         //printPersistanceModelValues()
     }
-    
-    //Completed
+
     private func addRightEditBarButtonItemToNavBar() {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 
-    //Completed
     override func numberOfSections(in tableView: UITableView) -> Int {
         return self.tableViewData.section.count
     }
 
-    //Completed
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.tableViewData.items[section].count
     }
-    
-    //Completed
+
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.tableViewData.section[section]
     }
 
-    //
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         if indexPath.section == 5 {
             let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
@@ -58,12 +53,10 @@ class StatisticSummaryTableVC: UITableViewController {
         return .none
     }
 
-    //
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         return nil
     }
 
-    //
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
@@ -77,8 +70,7 @@ class StatisticSummaryTableVC: UITableViewController {
 
         return cell
     }
-    
-    //
+
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard !tableView.isEditing else {
             return
@@ -92,13 +84,11 @@ class StatisticSummaryTableVC: UITableViewController {
         //row is one ahead on delete and causing a crash
         tableViewData.data[indexPath.section][indexPath.row] = text
     }
-    
-    //
+
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         return false
     }
-    
-    //
+
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
         
@@ -125,7 +115,6 @@ class StatisticSummaryTableVC: UITableViewController {
         }
     }
     
-    //
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard indexPath.section == 5 else {
             return UISwipeActionsConfiguration(actions: [])
@@ -153,7 +142,6 @@ class StatisticSummaryTableVC: UITableViewController {
         return swipeActions
     }
 
-    //
     @objc func textChanged(_ sender: Any) {
         let textField = sender as! UITextField
         var responder : UIResponder! = textField
@@ -164,8 +152,7 @@ class StatisticSummaryTableVC: UITableViewController {
         let alert = responder as! UIAlertController
         alert.actions[1].isEnabled = (textField.text != "")
     }
-    
-    //
+
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
             tableViewData.items[5].append(location)
