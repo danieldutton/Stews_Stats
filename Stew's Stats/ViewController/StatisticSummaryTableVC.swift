@@ -22,8 +22,8 @@ class StatisticSummaryTableVC: UITableViewController {
         tableViewData = persistance.retrievePersistedData()
         print(#function)
         
-        printTableViewModelValues()
-        printPersistanceModelValues()
+        //printTableViewModelValues()
+        //printPersistanceModelValues()
     }
     
     //Completed
@@ -115,8 +115,8 @@ class StatisticSummaryTableVC: UITableViewController {
                 tableView.setEditing(true, animated: false)
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
                 print(#function)
-                self.printTableViewModelValues()
-                self.printPersistanceModelValues()
+                //self.printTableViewModelValues()
+                //self.printPersistanceModelValues()
             }
         }
         
@@ -139,8 +139,8 @@ class StatisticSummaryTableVC: UITableViewController {
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 self.persistance.persistUserData(tableViewData: self.tableViewData)
                 print(#function)
-                self.printTableViewModelValues()
-                self.printPersistanceModelValues()
+                //self.printTableViewModelValues()
+                //self.printPersistanceModelValues()
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -182,8 +182,8 @@ class StatisticSummaryTableVC: UITableViewController {
                 self.tableView.scrollToRow(at: IndexPath.init(row: self.tableViewData.items[5].count - 1, section: 5), at: .bottom, animated: true)
 
                 print(#function)
-                self.printTableViewModelValues()
-                self.printPersistanceModelValues()
+                //self.printTableViewModelValues()
+                //self.printPersistanceModelValues()
             }
         }
         
@@ -236,25 +236,62 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
             tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
             persistance.persistUserData(tableViewData: self.tableViewData)
             print(#function)
-            printTableViewModelValues()
-            printPersistanceModelValues()
+            //printTableViewModelValues()
+            //printPersistanceModelValues()
         }
     }
 }
 
 extension StatisticSummaryTableVC {
     func printTableViewModelValues() {
-        print(#function)
-        print(tableViewData.items[5])
-        print(tableViewData.data[5])
+        //print(#function)
+        //print(tableViewData.items[5])
+        //print(tableViewData.data[5])
     }
     
     func printPersistanceModelValues() {
-        print(#function)
-        let items = self.persistance.retrievePersistedData().items
-        let data =  self.persistance.retrievePersistedData().data
-        print(items)
-        print(data)
+        //print(#function)
+        //let items = self.persistance.retrievePersistedData().items
+        //let data =  self.persistance.retrievePersistedData().data
+        //print(items)
+        //print(data)
+    }
+}
+
+
+
+extension StatisticSummaryTableVC {
+    //this surpresses the cells that can be moved
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        if indexPath.section == 5 && self.tableViewData.items[5].count > 1 {
+            return true
+        }
+        return false
+    }
+    
+     override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
+        tableView.endEditing(true)
+        
+        if proposedDestinationIndexPath.section != 5 {
+            return IndexPath(row: 0, section: 5)
+        }
+        return proposedDestinationIndexPath
+    }
+    
+    //this makes the editing functionality available
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let location = self.tableViewData.items[5].remove(at: sourceIndexPath.row)
+        let value = self.tableViewData.data[5].remove(at: sourceIndexPath.row)
+        
+        self.tableViewData.items[5].insert(location, at: destinationIndexPath.row)
+        self.tableViewData.data[5].insert(value, at: destinationIndexPath.row)
+        
+        persistance.persistUserData(tableViewData: self.tableViewData)
+        
+        //printTableViewModelValues()
+        //printPersistanceModelValues()
+        
+        tableView.reloadData()
     }
 }
 
