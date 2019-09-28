@@ -14,7 +14,7 @@
 		CA018C1D232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */; };
 		CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */; };
 		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
-		CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableViewData.swift */; };
+		CA19811323322C6700F6EDE8 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableSection.swift */; };
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
 		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -57,7 +57,7 @@
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSummaryTableVC.swift; sourceTree = "<group>"; };
 		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
-		CA19811223322C6700F6EDE8 /* TableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewData.swift; sourceTree = "<group>"; };
+		CA19811223322C6700F6EDE8 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		CA19811623322C9200F6EDE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA19811223322C6700F6EDE8 /* TableViewData.swift */,
+				CA19811223322C6700F6EDE8 /* TableSection.swift */,
 				CA018C29232D79B200DC990D /* TableViewCell.swift */,
 			);
 			path = Model;
@@ -300,7 +300,7 @@
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */,
 				CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */,
-				CA19811323322C6700F6EDE8 /* TableViewData.swift in Sources */,
+				CA19811323322C6700F6EDE8 /* TableSection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     
     //use mock test data?
     
-    func test_onInit_tableViewShouldNotBeNil() {
+    func test_onInit_tableViewIsNotNil() {
         let sut = createTableViewController()
         
         XCTAssertNotNil(sut.tableView)

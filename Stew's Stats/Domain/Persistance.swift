@@ -14,16 +14,16 @@ class Persistance {
     
     private init() {}
     
-    func retrievePersistedData() -> TableViewData {
+    func retrievePersistedData() -> TableSection {
         if let savedData = UserDefaults.standard.data(forKey: "tableViewData") {
-            let data = (try? JSONDecoder().decode(TableViewData.self, from: savedData))!
+            let data = (try? JSONDecoder().decode(TableSection.self, from: savedData))!
             return data
         } else {
-            return TableViewData()
+            return TableSection()
         }
     }
     
-    func persistUserData(tableViewData: TableViewData) {
+    func persistUserData(tableViewData: TableSection) {
         if let encoded = try? JSONEncoder().encode(tableViewData) {
             UserDefaults.standard.set(encoded, forKey: "tableViewData")
         } else {

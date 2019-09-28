@@ -1,5 +1,5 @@
 //
-//  TableViewData.swift
+//  TableSection.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 18/09/2019.
@@ -8,11 +8,11 @@
 
 import Foundation
 
-class TableViewData: Codable {
+class TableSection: Codable {
     
-    let section: [String] = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
+    let title: [String] = ["Distance", "Duration", "Surface", "Weather", "Mood", "Location"]
     
-    var items: [[String]] = [
+    var labels: [[String]] = [
         ["1-5 miles", "5-10 miles", "10-15 miles", "15-20 miles", "20-30 miles"],
         ["< 30 mins", "30-60 mins", "1-2 hours", "2-3 hours", "3-5 hours"],
         ["Road", "Mixed", "Trail", "Beach", "Wilderness"],
@@ -51,12 +51,12 @@ class TableViewData: Codable {
     ]
     
     func removeLocation(at indexPath: IndexPath) {
-        self.items[5].remove(at: indexPath.row)
+        self.labels[5].remove(at: indexPath.row)
         self.data[5].remove(at: indexPath.row)
     }
     
     func add(location: String, at indexPath: IndexPath) {
-        self.items[5].append(location)
+        self.labels[5].append(location)
         self.data[5].append("0")
     }
 }

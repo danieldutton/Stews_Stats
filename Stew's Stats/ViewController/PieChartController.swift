@@ -11,7 +11,7 @@ import UIKit
 
 class PieChartController: UIViewController {
 
-    var tableViewData: TableViewData = TableViewData()
+    var tableViewData: TableSection = TableSection()
     
     var persistance = Persistance.shared
     
@@ -28,7 +28,7 @@ class PieChartController: UIViewController {
         //remove the view already there.  are we overlaying views.  memory problems etc
         pieChartView.clear()
         // 2. generate chart data entries
-        let statType = tableViewData.items[section]
+        let statType = tableViewData.labels[section]
         let statValue = tableViewData.data[section].map{Double($0)!}
         
         var entries = [PieChartDataEntry]()
