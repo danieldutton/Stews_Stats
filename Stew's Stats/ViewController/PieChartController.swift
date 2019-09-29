@@ -29,7 +29,6 @@ class PieChartController: UIViewController {
         pieChartView.clear()
         // 2. generate chart data entries
         let statType = sections[section].values.map {$0.statName}
-        //let statType = tableViewData.labels[section]
         let statValue = sections[section].values.map{Double($0.statValue)!}
         
         var entries = [PieChartDataEntry]()
@@ -43,16 +42,8 @@ class PieChartController: UIViewController {
         // 3. chart setup
         let set = PieChartDataSet(entries)
         pieChartView.drawEntryLabelsEnabled = false
-        
-        let colors: [NSUIColor] = [
-            NSUIColor(red: 223.0/255.0, green: 52.0/255.0, blue: 46.0/255.0, alpha: 1.0),
-            NSUIColor(red: 44.0/255.0, green: 197.0/255.0, blue: 94.0/255.0, alpha: 1.0),
-            NSUIColor(red: 43.0/255.0, green: 132.0/255.0, blue: 210.0/255.0, alpha: 1.0),
-            NSUIColor(red: 237.0/255.0, green: 186.0/255.0, blue: 16.0/255.0, alpha: 1.0),
-            NSUIColor.orange,
-        ]
-        
-        set.colors = colors
+
+        set.colors = ChartColorTemplates.stewsStatsColourful()
         let data = PieChartData(dataSet: set)
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
@@ -63,11 +54,7 @@ class PieChartController: UIViewController {
         pieChartView.data = data
         pieChartView.noDataText = "Not enough data to construct a Pie Chart"
         // user interaction
-        pieChartView.isUserInteractionEnabled = true
-        
-        let d = Description()
-        
-        pieChartView.chartDescription = d
+        pieChartView.isUserInteractionEnabled = false
         pieChartView.holeRadiusPercent = 0.2
         
         pieChartView.animate(yAxisDuration: 0.5,
@@ -78,4 +65,6 @@ class PieChartController: UIViewController {
         self.view.addSubview(pieChartView)
     }
 }
+
+
 
