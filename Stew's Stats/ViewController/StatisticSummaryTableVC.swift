@@ -13,12 +13,15 @@ class StatisticSummaryTableVC: UITableViewController {
     private var locationsSection = 5
 
     private var sections: [Section]!
+    
+    private var seedData: SeedData!
 
     private var persistance = Persistance.shared
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        seedData = StewsRuntasticData()
         //self.sections = DataModelSeeder().getDataModel()
         addRightEditBarButtonItemToNavBar()
         sections = persistance.retrievePersistedData()

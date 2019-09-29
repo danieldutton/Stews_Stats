@@ -12,6 +12,8 @@ import UIKit
 class PieChartController: UIViewController {
     
     private var sections: [Section]!
+    
+    private var seedData: SeedData!
 
     var persistance = Persistance.shared
     
@@ -19,8 +21,9 @@ class PieChartController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.sections = persistance.retrievePersistedData()
+        seedData = StewsRuntasticData()
         updateChartData(with: tabBarController!.selectedIndex)
     }
     

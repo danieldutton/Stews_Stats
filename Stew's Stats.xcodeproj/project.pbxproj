@@ -19,6 +19,8 @@
 		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
 		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
+		CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */; };
+		CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */; };
 		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +64,8 @@
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColorTemplates.swift; sourceTree = "<group>"; };
+		CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsRuntasticData.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,6 +136,7 @@
 			children = (
 				CA5AEB782340EAFB005F4C91 /* Charts */,
 				CA5AEB7B2340EBD7005F4C91 /* Persistance */,
+				CA5AEB7C2340EC1F005F4C91 /* Seeding */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -176,6 +181,15 @@
 				CA19811723322EE500F6EDE8 /* Persistance.swift */,
 			);
 			path = Persistance;
+			sourceTree = "<group>";
+		};
+		CA5AEB7C2340EC1F005F4C91 /* Seeding */ = {
+			isa = PBXGroup;
+			children = (
+				CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */,
+				CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */,
+			);
+			path = Seeding;
 			sourceTree = "<group>";
 		};
 		CA6AD7612338D43C004501F0 /* ViewController */ = {
@@ -318,6 +332,8 @@
 				CAE0291723339A0A002E975E /* PieChartController.swift in Sources */,
 				CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
+				CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */,
+				CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */,
 				CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */,
 				CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* TableSection.swift in Sources */,
