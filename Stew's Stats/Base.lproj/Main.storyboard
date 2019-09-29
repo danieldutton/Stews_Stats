@@ -59,16 +59,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Stewy's Stats" id="pZr-1K-ddu">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="chart.pie" catalog="system" id="ynN-oT-CZl">
-                            <connections>
-                                <segue destination="8Ua-9x-38R" kind="show" id="X9B-dX-XL3"/>
-                            </connections>
-                        </barButtonItem>
+                        <leftBarButtonItems>
+                            <barButtonItem title="Item" image="chart.pie" catalog="system" id="QTS-da-awE">
+                                <connections>
+                                    <segue destination="8Ua-9x-38R" kind="show" id="Sz9-Rq-P6v"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="calendar" catalog="system" id="wAB-mv-q3O">
+                                <connections>
+                                    <segue destination="CSB-lo-tTf" kind="show" id="0Lp-Od-fBq"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPZ-nz-apD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4946.3999999999996" y="53.523238380809602"/>
+            <point key="canvasLocation" x="-4700" y="54"/>
         </scene>
         <!--Pie Chart Controller-->
         <scene sceneID="RyO-0Z-s8m">
@@ -256,7 +263,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrH-em-c1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4204" y="54"/>
+            <point key="canvasLocation" x="-4034" y="54"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YsL-9y-b5c">
@@ -321,6 +328,35 @@
             </objects>
             <point key="canvasLocation" x="-3308" y="54"/>
         </scene>
+        <!--Table View Controller-->
+        <scene sceneID="Cg4-Fs-ouX">
+            <objects>
+                <tableViewController id="CSB-lo-tTf" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i81-BE-Zv4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="rMe-de-GdG">
+                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rMe-de-GdG" id="cSW-VM-Z8l">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="CSB-lo-tTf" id="cSW-Gw-fO9"/>
+                            <outlet property="delegate" destination="CSB-lo-tTf" id="skg-8d-hfj"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DXk-wt-CMz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sg9-n1-Pat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4042" y="-611"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HHk-DV-9RO">
             <objects>
@@ -381,6 +417,7 @@
     </scenes>
     <resources>
         <image name="arrow.left.and.right.square" catalog="system" width="64" height="56"/>
+        <image name="calendar" catalog="system" width="64" height="54"/>
         <image name="chart.pie" catalog="system" width="64" height="62"/>
         <image name="cloud.rain" catalog="system" width="64" height="62"/>
         <image name="control" catalog="system" width="64" height="34"/>

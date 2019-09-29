@@ -18,7 +18,15 @@ class StatisticSummaryTableVC: UITableViewController {
 
     private var persistance = Persistance.shared
 
-
+    
+    @IBAction func onLaunchChartsClicked(_ sender: UIBarButtonItem) {
+        print(#function)
+    }
+    
+    @IBAction func onLaunchAnnualStatsClicked(_ sender: UIBarButtonItem) {
+        print(#function)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         seedData = StewsRuntasticData()
