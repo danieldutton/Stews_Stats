@@ -21,6 +21,7 @@
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
 		CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */; };
 		CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */; };
+		CA5AEB82234128F6005F4C91 /* AnnualSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */; };
 		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
 
@@ -66,6 +67,7 @@
 		CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColorTemplates.swift; sourceTree = "<group>"; };
 		CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsRuntasticData.swift; sourceTree = "<group>"; };
+		CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualSummaryTableVC.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +148,7 @@
 			children = (
 				CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */,
 				CAE0291623339A0A002E975E /* PieChartController.swift */,
+				CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
 				CAE0291723339A0A002E975E /* PieChartController.swift in Sources */,
 				CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */,
+				CA5AEB82234128F6005F4C91 /* AnnualSummaryTableVC.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */,
 				CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */,

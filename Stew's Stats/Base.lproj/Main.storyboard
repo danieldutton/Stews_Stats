@@ -328,10 +328,10 @@
             </objects>
             <point key="canvasLocation" x="-3308" y="54"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Annual Summary TableVC-->
         <scene sceneID="Cg4-Fs-ouX">
             <objects>
-                <tableViewController id="CSB-lo-tTf" sceneMemberID="viewController">
+                <tableViewController id="CSB-lo-tTf" customClass="AnnualSummaryTableVC" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i81-BE-Zv4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
