@@ -10,9 +10,9 @@ import Charts
 import UIKit
 
 class PieChartController: UIViewController {
-
-    var tableViewData: TableSection = TableSection()
     
+    private var sections: [Section]!
+
     var persistance = Persistance.shared
     
     @IBOutlet weak var pieChartView: PieChartView!
@@ -20,7 +20,7 @@ class PieChartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.tableViewData = persistance.retrievePersistedData()
+        self.sections = persistance.retrievePersistedData()
         updateChartData(with: tabBarController!.selectedIndex)
     }
     
@@ -28,8 +28,9 @@ class PieChartController: UIViewController {
         //remove the view already there.  are we overlaying views.  memory problems etc
         pieChartView.clear()
         // 2. generate chart data entries
-        let statType = tableViewData.labels[section]
-        let statValue = tableViewData.data[section].map{Double($0)!}
+        let statType = sections[section].values.map {$0.statName}
+        //let statType = tableViewData.labels[section]
+        let statValue = sections[section].values.map{Double($0.statValue)!}
         
         var entries = [PieChartDataEntry]()
         for (index, value) in statValue.enumerated() {

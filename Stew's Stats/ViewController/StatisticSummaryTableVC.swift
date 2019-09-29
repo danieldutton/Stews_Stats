@@ -11,17 +11,17 @@ import UIKit
 class StatisticSummaryTableVC: UITableViewController {
 
     private var locationsSection = 5
-    
-    private var tableViewData: TableSection!
+
+    private var sections: [Section]!
 
     private var persistance = Persistance.shared
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //self.sections = DataModelSeeder().getDataModel()
         addRightEditBarButtonItemToNavBar()
-        tableViewData = persistance.retrievePersistedData()
+        sections = persistance.retrievePersistedData()
     }
 
     private func addRightEditBarButtonItemToNavBar() {
@@ -30,15 +30,15 @@ class StatisticSummaryTableVC: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.tableViewData.title.count
+        return self.sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.tableViewData.labels[section].count
+        return self.sections[section].values.count
     }
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.tableViewData.title[section]
+        return self.sections[section].sectionName
     }
 
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -59,12 +59,13 @@ class StatisticSummaryTableVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
         cell.selectionStyle = .none
-        
-        cell.lblStat.text = self.tableViewData.labels[indexPath.section][indexPath.row]
+
+        cell.lblStat.text = self.sections[indexPath.section].values[indexPath.row].statName
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = self.tableViewData.data[indexPath.section][indexPath.row]
+        cell.txtFieldStatValue.text = self.sections[indexPath.section].values[indexPath.row].statValue
+        
 
         return cell
     }
@@ -78,7 +79,7 @@ class StatisticSummaryTableVC: UITableViewController {
         let text = tempCell.txtFieldStatValue.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        tableViewData.data[indexPath.section][indexPath.row] = text
+        self.sections[indexPath.section].values[indexPath.row].statValue = text
     }
 
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
@@ -89,16 +90,18 @@ class StatisticSummaryTableVC: UITableViewController {
         tableView.endEditing(true)
         
         func addNewLocationRow(_ location: String) {
-            tableViewData.labels[locationsSection] += [location]
-            tableViewData.data[locationsSection] += ["0"]
-            let ct = tableViewData.labels.count
+            //indexPath.section was prev hardcoded 5
+            self.sections[indexPath.section].values[indexPath.row].statName = location
+            self.sections[indexPath.section].values[indexPath.row].statValue = "0"
+            let ct = sections[indexPath.section].values.count
+
             tableView.performBatchUpdates({
                 tableView.insertRows(at: [IndexPath(row: ct-1, section: locationsSection)], with: .automatic)
                 //prev called reloaddata here
                 tableView.reloadRows(at: [IndexPath(row: ct-1, section: locationsSection)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
-                self.persistance.persistUserData(tableViewData: self.tableViewData)
+                self.persistance.persistUserData(tableViewData: self.sections)
             }
         }
         
@@ -115,10 +118,10 @@ class StatisticSummaryTableVC: UITableViewController {
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
 
             self.tableView.performBatchUpdates({
-                self.tableViewData.labels[self.locationsSection].remove(at: indexPath.row)
-                self.tableViewData.data[self.locationsSection].remove(at: indexPath.row)
+                self.sections[indexPath.section].values.remove(at: indexPath.row)
+
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.persistance.persistUserData(tableViewData: self.tableViewData)
+                self.persistance.persistUserData(tableViewData: self.sections)
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -141,19 +144,17 @@ class StatisticSummaryTableVC: UITableViewController {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            tableViewData.labels[locationsSection].append(location)
-            tableViewData.data[locationsSection].append("0")
+            self.sections[5].values.append(Row(statName: location, statValue: "0"))
 
             tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: tableViewData.labels[locationsSection].count - 1, section: locationsSection)], with: .automatic)
-                tableView.reloadRows(at: [IndexPath(row: tableViewData.labels[locationsSection].count - 2, section: locationsSection)], with: .automatic)
+                let indexPathInsert = IndexPath(row: sections[5].values.count - 1, section: 5)
+                tableView.insertRows(at: [indexPathInsert], with: .automatic)
+                let indexPathReload = IndexPath(row: sections[5].values.count - 2, section: 5)
+                tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
-                self.persistance.persistUserData(tableViewData: self.tableViewData)
-                self.tableView.scrollToRow(at: IndexPath.init(row: self.tableViewData.labels[self.locationsSection].count - 1, section: self.locationsSection), at: .bottom, animated: true)
-
-                print(#function)
-                //self.printTableViewModelValues()
-                //self.printPersistanceModelValues()
+                self.persistance.persistUserData(tableViewData: self.sections)
+                let indexPathScrollTo = IndexPath(row: self.sections[5].values.count - 1, section: 5)
+                self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
         }
         
@@ -192,8 +193,9 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
             
-            tableViewData.data[sec][row] = cell.txtFieldStatValue.text!
-            persistance.persistUserData(tableViewData: self.tableViewData)
+            self.sections[sec].values[row].statValue = cell.txtFieldStatValue.text!
+
+            persistance.persistUserData(tableViewData: self.sections)
         }
     }
     
@@ -211,7 +213,7 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
 extension StatisticSummaryTableVC {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == locationsSection && self.tableViewData.labels[locationsSection].count > 1 {
+        if indexPath.section == 5 && self.sections[indexPath.section].values.count > 1 {
             return true
         }
         return false
@@ -227,13 +229,10 @@ extension StatisticSummaryTableVC {
     }
 
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let location = self.tableViewData.labels[locationsSection].remove(at: sourceIndexPath.row)
-        let value = self.tableViewData.data[locationsSection].remove(at: sourceIndexPath.row)
-        
-        self.tableViewData.labels[locationsSection].insert(location, at: destinationIndexPath.row)
-        self.tableViewData.data[locationsSection].insert(value, at: destinationIndexPath.row)
-        
-        persistance.persistUserData(tableViewData: self.tableViewData)
+        let locationRow = self.sections[5].values.remove(at: sourceIndexPath.row)
+        self.sections[5].values.insert(locationRow, at: destinationIndexPath.row)
+
+        persistance.persistUserData(tableViewData: self.sections)
 
         tableView.reloadData()
     }
