@@ -13,6 +13,8 @@ class AnnualSummaryTableVC: UITableViewController {
     var data: SeedData!
     
     var sections: [Section]!
+    
+    private var persistance = Persistance.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,10 +25,14 @@ class AnnualSummaryTableVC: UITableViewController {
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        addRightEditBarButtonItemToNavBar()
+        //sections = persistance.retrieivePersistedData()
     }
-
-    // MARK: - Table view data source
+    
+    private func addRightEditBarButtonItemToNavBar() {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -36,7 +42,6 @@ class AnnualSummaryTableVC: UITableViewController {
         return sections[section].values.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
         
@@ -56,6 +61,31 @@ class AnnualSummaryTableVC: UITableViewController {
         return self.sections[section].sectionName
     }
     
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == sections.count - 1 {
+            let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            if rows - 1 == indexPath.row {
+                return .insert
+            }
+        }
+        return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        guard !tableView.isEditing else {
+            return
+        }
+
+        let tempCell = cell as! TableViewCell
+        let text = tempCell.txtFieldStatValue.text!
+
+        //add subscript to properly modelled class and pass an indexPath???
+        self.sections[indexPath.section].values[indexPath.row].statValue = text
+    }
 
     /*
     // Override to support conditional editing of the table view.

@@ -291,7 +291,7 @@
         <scene sceneID="60e-4D-hGx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bqH-DI-sZi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="arrow.left.and.right.square" catalog="system" id="k5K-aK-vOk"/>
+                    <tabBarItem key="tabBarItem" title="" image="arrow.right.arrow.left" catalog="system" id="k5K-aK-vOk"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OCa-ya-cnh">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -313,7 +313,7 @@
         <scene sceneID="EwD-DH-aLZ">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8uL-ee-XTM" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="control" catalog="system" id="6Yf-yV-AxU"/>
+                    <tabBarItem key="tabBarItem" title="" image="photo" catalog="system" id="6Yf-yV-AxU"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Z7I-19-0Ql">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -380,7 +380,7 @@
         <scene sceneID="HHk-DV-9RO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4oA-w8-hPC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="timer" catalog="system" id="Jhq-yM-3ds"/>
+                    <tabBarItem key="tabBarItem" title="" image="clock.fill" catalog="system" id="Jhq-yM-3ds"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gKP-Pt-QlM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -399,7 +399,7 @@
         <scene sceneID="N0h-1U-anD">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RNS-d9-1UY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="cloud.rain" catalog="system" id="1rC-vC-v4m"/>
+                    <tabBarItem key="tabBarItem" title="" image="cloud.heavyrain.fill" catalog="system" id="1rC-vC-v4m"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="luh-tx-FPb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -418,7 +418,7 @@
         <scene sceneID="JNC-PO-RzW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UQf-xK-r83" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="smiley" catalog="system" id="CGh-Uw-B8z"/>
+                    <tabBarItem key="tabBarItem" title="" image="smiley.fill" catalog="system" id="CGh-Uw-B8z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vx9-jk-lQl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -435,13 +435,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow.left.and.right.square" catalog="system" width="64" height="56"/>
+        <image name="arrow.right.arrow.left" catalog="system" width="58" height="64"/>
         <image name="calendar" catalog="system" width="64" height="54"/>
         <image name="chart.pie" catalog="system" width="64" height="62"/>
-        <image name="cloud.rain" catalog="system" width="64" height="62"/>
-        <image name="control" catalog="system" width="64" height="34"/>
-        <image name="smiley" catalog="system" width="64" height="62"/>
-        <image name="timer" catalog="system" width="64" height="62"/>
+        <image name="clock.fill" catalog="system" width="64" height="62"/>
+        <image name="cloud.heavyrain.fill" catalog="system" width="64" height="62"/>
+        <image name="photo" catalog="system" width="64" height="48"/>
+        <image name="smiley.fill" catalog="system" width="64" height="62"/>
     </resources>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
