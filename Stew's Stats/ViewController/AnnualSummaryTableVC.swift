@@ -9,38 +9,53 @@
 import UIKit
 
 class AnnualSummaryTableVC: UITableViewController {
+    
+    var data: SeedData!
+    
+    var sections: [Section]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let data = StewsAnnualData()
+        self.sections = data.getSeedData()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return sections[section].values.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        
+        cell.selectionStyle = .none
+        cell.lblStat.text = self.sections[indexPath.section].values[indexPath.row].statName
+        cell.lblStat.sizeToFit()
+        
+        //cell.txtFieldStatValue.delegate = self
+        cell.txtFieldStatValue.text = self.sections[indexPath.section].values[indexPath.row].statValue
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section].sectionName
+    }
+    
 
     /*
     // Override to support conditional editing of the table view.
