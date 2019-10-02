@@ -8,14 +8,11 @@
 
 import UIKit
 
-//When Pulling up to a superclass, consult refactoring book
-
 class BaseStatsTableVC: UITableViewController {
     
     internal var sections: [Section]!
     
     internal var persistance = Persistance.shared
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +20,7 @@ class BaseStatsTableVC: UITableViewController {
         addRightEditBarButtonItemToNavBar()
     }
     
-    fileprivate func addRightEditBarButtonItemToNavBar() {
+    internal func addRightEditBarButtonItemToNavBar() {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
@@ -52,6 +49,10 @@ class BaseStatsTableVC: UITableViewController {
             }
         }
         return .none
+    }
+    
+    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 
@@ -82,7 +83,6 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         cell.txtFieldStatValue.delegate = self
         cell.txtFieldStatValue.text = self.sections[indexPath.section].values[indexPath.row].statValue
         
-
         return cell
     }
 
@@ -96,10 +96,6 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
 
         //add subscript to properly modelled class and pass an indexPath???
         self.sections[indexPath.section].values[indexPath.row].statValue = text
-    }
-
-    override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

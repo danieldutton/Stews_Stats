@@ -115,6 +115,7 @@ extension AnnualSummaryTableVC: UITextFieldDelegate {
         }
     }
     
+    //use some generic magic here
     private func getCellTextFieldBelongsTo(_ textField: UITextField) -> AnnualStatisticCell {
         var v : UIView = textField
         
