@@ -12,6 +12,10 @@ import UIKit
 
 class BaseStatsTableVC: UITableViewController {
     
+    internal var sections: [Section]!
+    
+    internal var persistance = Persistance.shared
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,17 +27,14 @@ class BaseStatsTableVC: UITableViewController {
         self.navigationItem.rightBarButtonItem = self.editButtonItem
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
+    
 }
 
 class StatisticSummaryTableVC: BaseStatsTableVC {
 
     private var locationsSection = 5
-
-    private var sections: [Section]!
     
     private var seedData: SeedData!
-
-    private var persistance = Persistance.shared
 
 
     override func viewDidLoad() {

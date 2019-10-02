@@ -13,10 +13,6 @@ import UIKit
 class AnnualSummaryTableVC: BaseStatsTableVC {
     
     var data: SeedData!
-    
-    var sections: [Section]!
-    
-    private var persistance = Persistance.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
