@@ -36,20 +36,6 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == sections.count - 1 {
-            let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
-            if rows - 1 == indexPath.row {
-                return .insert
-            }
-        }
-        return .none
-    }
-    
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
-    }
-    
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard !tableView.isEditing else {
             return

@@ -39,6 +39,20 @@ class BaseStatsTableVC: UITableViewController {
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.sections[section].sectionName
     }
+    
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        return nil
+    }
+    
+    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        if indexPath.section == sections.count - 1 {
+            let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
+            if rows - 1 == indexPath.row {
+                return .insert
+            }
+        }
+        return .none
+    }
 }
 
 class StatisticSummaryTableVC: BaseStatsTableVC {
@@ -55,20 +69,6 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         addRightEditBarButtonItemToNavBar()
         sections = persistance.retrievePersistedData(.one)
         //persistance.persistUserData(tableViewData: self.sections, with: .one)
-    }
-
-    override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == locationsSection {
-            let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
-            if rows - 1 == indexPath.row {
-                return .insert
-            }
-        }
-        return .none
-    }
-
-    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
