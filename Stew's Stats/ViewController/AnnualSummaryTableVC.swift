@@ -9,17 +9,12 @@
 import UIKit
 
 class AnnualSummaryTableVC: BaseStatsTableVC {
-    
-    var data: SeedData!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let data = StewsAnnualData()
-        //self.sections = data.getSeedData()
-
-        sections = persistance.retrievePersistedData(.two)
-        //persistance.persistUserData(tableViewData: self.sections, with: .two)
+        //consider using factory
+        seedTableViewIfEmpty(.two, seedData: StewsAnnualData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

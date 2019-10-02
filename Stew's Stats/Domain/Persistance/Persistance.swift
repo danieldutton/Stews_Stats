@@ -19,12 +19,12 @@ class Persistance {
     
     private init() {}
     
-    func retrievePersistedData(_ key: Key) -> [Section] {
+    func retrievePersistedData(_ key: Key) -> [Section]? {
         if let savedData = UserDefaults.standard.data(forKey: key.rawValue) {
             let data = (try? JSONDecoder().decode([Section].self, from: savedData))!
             return data
         } else {
-            return []
+            return nil
         }
     }
     

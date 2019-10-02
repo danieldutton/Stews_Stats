@@ -13,7 +13,7 @@ class BaseStatsTableVC: UITableViewController {
     internal var sections: [Section]!
     
     internal var persistance = Persistance.shared
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +25,14 @@ class BaseStatsTableVC: UITableViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
     
+    func seedTableViewIfEmpty(_ key: Key, seedData: SeedData) {
+        if let persistedData = persistance.retrievePersistedData(key) {
+            self.sections = persistedData
+        } else {
+            self.sections = seedData.getSeedData()
+        }
+    }
+
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
     }
@@ -59,17 +67,11 @@ class BaseStatsTableVC: UITableViewController {
 class StatisticSummaryTableVC: BaseStatsTableVC {
 
     private var locationsSection = 5
-    
-    private var seedData: SeedData!
-
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        seedData = StewsRuntasticData()
-        //self.sections = DataModelSeeder().getDataModel()
-        addRightEditBarButtonItemToNavBar()
-        sections = persistance.retrievePersistedData(.one)
-        //persistance.persistUserData(tableViewData: self.sections, with: .one)
+
+        seedTableViewIfEmpty(.one, seedData: StewsRuntasticData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
