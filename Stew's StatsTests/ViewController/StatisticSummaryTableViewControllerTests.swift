@@ -186,7 +186,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section1_Row1_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 0)) as! DailyStatisticCell
         
         let expected = "1-5 miles"
         let actual = cell.lblStat.text!
@@ -197,7 +197,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section1_Row2_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 0)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 0)) as! DailyStatisticCell
         
         let expected = "5-10 miles"
         let actual = cell.lblStat.text!
@@ -208,7 +208,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section1_Row3_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 0)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 0)) as! DailyStatisticCell
         
         let expected = "10-15 miles"
         let actual = cell.lblStat.text!
@@ -219,7 +219,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section1_Row4_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 0)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 0)) as! DailyStatisticCell
         
         let expected = "15-20 miles"
         let actual = cell.lblStat.text!
@@ -230,7 +230,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section1_Row5_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 0)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 0)) as! DailyStatisticCell
         
         let expected = "20-30 miles"
         let actual = cell.lblStat.text!
@@ -243,7 +243,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section2_Row1_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 1)) as! DailyStatisticCell
         
         let expected = "< 30 mins"
         let actual = cell.lblStat.text!
@@ -254,7 +254,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section2_Row2_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 1)) as! DailyStatisticCell
         
         let expected = "30-60 mins"
         let actual = cell.lblStat.text!
@@ -265,7 +265,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section2_Row3_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 1)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 1)) as! DailyStatisticCell
         
         let expected = "1-2 hours"
         let actual = cell.lblStat.text!
@@ -276,7 +276,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section2_Row4_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 1)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 1)) as! DailyStatisticCell
         
         let expected = "2-3 hours"
         let actual = cell.lblStat.text!
@@ -287,7 +287,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section2_Row5_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 1)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 1)) as! DailyStatisticCell
         
         let expected = "3-5 hours"
         let actual = cell.lblStat.text!
@@ -300,7 +300,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section3_Row1_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 2)) as! DailyStatisticCell
         
         let expected = "Road"
         let actual = cell.lblStat.text!
@@ -311,7 +311,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section3_Row2_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 2)) as! DailyStatisticCell
         
         let expected = "Mixed"
         let actual = cell.lblStat.text!
@@ -322,7 +322,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section3_Row3_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 2)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 2)) as! DailyStatisticCell
         
         let expected = "Trail"
         let actual = cell.lblStat.text!
@@ -333,7 +333,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section3_Row4_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 2)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 2)) as! DailyStatisticCell
         
         let expected = "Beach"
         let actual = cell.lblStat.text!
@@ -344,7 +344,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section3_Row5_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 2)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 2)) as! DailyStatisticCell
         
         let expected = "Wilderness"
         let actual = cell.lblStat.text!
@@ -357,7 +357,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section4_Row1_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 3)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 3)) as! DailyStatisticCell
         
         let expected = "Sunny"
         let actual = cell.lblStat.text!
@@ -368,7 +368,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section4_Row2_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 3)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 3)) as! DailyStatisticCell
         
         let expected = "Cloudy"
         let actual = cell.lblStat.text!
@@ -379,7 +379,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section4_Row3_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 3)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 3)) as! DailyStatisticCell
         
         let expected = "Rainy"
         let actual = cell.lblStat.text!
@@ -390,7 +390,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section4_Row4_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 3)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 3)) as! DailyStatisticCell
         
         let expected = "Snowy"
         let actual = cell.lblStat.text!
@@ -401,7 +401,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section4_Row5_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 3)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 3)) as! DailyStatisticCell
         
         let expected = "Night"
         let actual = cell.lblStat.text!
@@ -414,7 +414,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section5_Row1_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 4)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 0, section: 4)) as! DailyStatisticCell
         
         let expected = "Awesome"
         let actual = cell.lblStat.text!
@@ -425,7 +425,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section5_Row2_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 4)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 1, section: 4)) as! DailyStatisticCell
         
         let expected = "Good"
         let actual = cell.lblStat.text!
@@ -436,7 +436,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section5_Row3_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 4)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 2, section: 4)) as! DailyStatisticCell
         
         let expected = "So-So"
         let actual = cell.lblStat.text!
@@ -447,7 +447,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section5_Row4_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 4)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 3, section: 4)) as! DailyStatisticCell
         
         let expected = "Sluggish"
         let actual = cell.lblStat.text!
@@ -458,7 +458,7 @@ class StatisticSummaryTableViewControllerTests: XCTestCase {
     func test_section5_Row5_labelValueIsCorrect() {
         let sut = createTableViewController()
 
-        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 4)) as! TableViewCell
+        let cell = sut.tableView(sut.tableView, cellForRowAt: IndexPath(row: 4, section: 4)) as! DailyStatisticCell
         
         let expected = "Injured"
         let actual = cell.lblStat.text!

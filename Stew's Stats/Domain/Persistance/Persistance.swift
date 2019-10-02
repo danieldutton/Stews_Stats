@@ -8,14 +8,19 @@
 
 import Foundation
 
+enum Key: String {
+    case one
+    case two
+}
+
 class Persistance {
     
     static let shared = Persistance()
     
     private init() {}
     
-    func retrievePersistedData() -> [Section] {
-        if let savedData = UserDefaults.standard.data(forKey: "tableViewData") {
+    func retrievePersistedData(_ key: Key) -> [Section] {
+        if let savedData = UserDefaults.standard.data(forKey: key.rawValue) {
             let data = (try? JSONDecoder().decode([Section].self, from: savedData))!
             return data
         } else {
@@ -23,9 +28,9 @@ class Persistance {
         }
     }
     
-    func persistUserData(tableViewData: [Section]) {
+    func persistUserData(tableViewData: [Section], with key: Key) {
         if let encoded = try? JSONEncoder().encode(tableViewData) {
-            UserDefaults.standard.set(encoded, forKey: "tableViewData")
+            UserDefaults.standard.set(encoded, forKey: key.rawValue)
         } else {
             //display try again error message
         }

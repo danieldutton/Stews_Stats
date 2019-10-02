@@ -13,7 +13,7 @@
 		CA018C12232D786600DC990D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C10232D786600DC990D /* LaunchScreen.storyboard */; };
 		CA018C1D232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */; };
 		CA018C28232D790300DC990D /* StatisticSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */; };
-		CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCell.swift */; };
+		CA018C2A232D79B200DC990D /* DailyStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* DailyStatisticCell.swift */; };
 		CA19811323322C6700F6EDE8 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableSection.swift */; };
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CA420A3423435FBF005325C8 /* StewsAnnualData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* StewsAnnualData.swift */; };
@@ -23,6 +23,7 @@
 		CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */; };
 		CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */; };
 		CA5AEB82234128F6005F4C91 /* AnnualSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */; };
+		CAA5F0C52343F1E800DA19FF /* AnnualStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualStatisticCell.swift */; };
 		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +62,7 @@
 		CA018C1C232D786600DC990D /* StatisticSummaryTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSummaryTableViewControllerTests.swift; sourceTree = "<group>"; };
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA018C27232D790300DC990D /* StatisticSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticSummaryTableVC.swift; sourceTree = "<group>"; };
-		CA018C29232D79B200DC990D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		CA018C29232D79B200DC990D /* DailyStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyStatisticCell.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* TableSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableSection.swift; sourceTree = "<group>"; };
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA420A3323435FBF005325C8 /* StewsAnnualData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsAnnualData.swift; sourceTree = "<group>"; };
@@ -70,6 +71,7 @@
 		CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsRuntasticData.swift; sourceTree = "<group>"; };
 		CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualSummaryTableVC.swift; sourceTree = "<group>"; };
+		CAA5F0C42343F1E800DA19FF /* AnnualStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualStatisticCell.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -159,7 +161,8 @@
 			isa = PBXGroup;
 			children = (
 				CA19811223322C6700F6EDE8 /* TableSection.swift */,
-				CA018C29232D79B200DC990D /* TableViewCell.swift */,
+				CA018C29232D79B200DC990D /* DailyStatisticCell.swift */,
+				CAA5F0C42343F1E800DA19FF /* AnnualStatisticCell.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -334,9 +337,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA018C2A232D79B200DC990D /* TableViewCell.swift in Sources */,
+				CA018C2A232D79B200DC990D /* DailyStatisticCell.swift in Sources */,
 				CAE0291723339A0A002E975E /* PieChartController.swift in Sources */,
 				CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */,
+				CAA5F0C52343F1E800DA19FF /* AnnualStatisticCell.swift in Sources */,
 				CA5AEB82234128F6005F4C91 /* AnnualSummaryTableVC.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */,

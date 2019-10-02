@@ -19,14 +19,12 @@ class AnnualSummaryTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let data = StewsAnnualData()
-        self.sections = data.getSeedData()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        //let data = StewsAnnualData()
+        //self.sections = data.getSeedData()
 
         addRightEditBarButtonItemToNavBar()
-        //sections = persistance.retrieivePersistedData()
+        sections = persistance.retrievePersistedData(.two)
+        //persistance.persistUserData(tableViewData: self.sections, with: .two)
     }
     
     private func addRightEditBarButtonItemToNavBar() {
@@ -43,17 +41,16 @@ class AnnualSummaryTableVC: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualStatisticCell
         
         cell.selectionStyle = .none
-        cell.lblStat.text = self.sections[indexPath.section].values[indexPath.row].statName
-        cell.lblStat.sizeToFit()
+
+        cell.txtFieldAnnualActivities.delegate = self
+        cell.txtFieldAnnualMiles.delegate = self
         
-        //cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = self.sections[indexPath.section].values[indexPath.row].statValue
-
-        // Configure the cell...
-
+        cell.txtFieldAnnualActivities.text = self.sections[indexPath.section].values[indexPath.row].statName
+        cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].values[indexPath.row].statValue
+        
         return cell
     }
     
@@ -80,56 +77,88 @@ class AnnualSummaryTableVC: UITableViewController {
             return
         }
 
-        let tempCell = cell as! TableViewCell
-        let text = tempCell.txtFieldStatValue.text!
+        let tempCell = cell as! AnnualStatisticCell
+        let txtActivities = tempCell.txtFieldAnnualActivities.text!
+        let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].values[indexPath.row].statValue = text
+        self.sections[indexPath.section].values[indexPath.row].statName = txtActivities
+        self.sections[indexPath.section].values[indexPath.row].statValue = txtMiles
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        tableView.endEditing(true)
+        
+        if editingStyle == .insert {
+            let lastSection = self.sections.count - 1
+            let lastYear = Int(self.sections[lastSection].sectionName)!
+            let nextYear = lastYear + 1
+            print(lastSection)
+            self.sections.append(Section(sectionName: "\(nextYear)", values: [
+                Row(statName: "0", statValue: "0")
+            ]))
+            let indexSet = IndexSet(integer: sections.count - 1)
+            
+            //consider insert sections
+            //use performbatchupdates
+            tableView.insertSections(indexSet, with: .automatic)
+            persistance.persistUserData(tableViewData: self.sections, with: .two)
+        }
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard indexPath.section == self.sections.count - 1 else {
+            return UISwipeActionsConfiguration(actions: [])
+        }
+        
+        let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+            self.tableView.performBatchUpdates({
+                //need to remove the section
+                self.sections[indexPath.section].values.remove(at: indexPath.row)
 
+                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                self.persistance.persistUserData(tableViewData: self.sections, with: .two)
+            }) { (_) in
+                //self.tableView.reloadData()
+                //code to handle if last row in section is deleted
+                //consult iOS 12 book
+            }
+        }
+        return UISwipeActionsConfiguration(actions: [contextItem])
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
+
+extension AnnualSummaryTableVC: UITextFieldDelegate {
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+
+        return false
+    }
+
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        let cell = getCellTextFieldBelongsTo(textField)
+        
+        if let sec = self.tableView.indexPath(for: cell)?.section,
+            let row = self.tableView.indexPath(for:cell)?.row {
+            
+            self.sections[sec].values[row].statName = cell.txtFieldAnnualActivities.text!
+            self.sections[sec].values[row].statValue = cell.txtFieldAnnualMiles.text!
+
+            persistance.persistUserData(tableViewData: self.sections, with: .two)
+        }
+    }
+    
+    private func getCellTextFieldBelongsTo(_ textField: UITextField) -> AnnualStatisticCell {
+        var v : UIView = textField
+        
+        repeat {
+            v = v.superview!
+        } while !(v is UITableViewCell)
+        
+        return v as! AnnualStatisticCell
+    }
+}
+ 

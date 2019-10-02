@@ -8,8 +8,6 @@
 
 import Foundation
 
-
-
 class StewsRuntasticData: SeedData {
     
     func getSeedData() -> [Section] {
