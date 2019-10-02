@@ -28,6 +28,17 @@ class BaseStatsTableVC: UITableViewController {
         self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return sections.count
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.sections[section].values.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.sections[section].sectionName
+    }
 }
 
 class StatisticSummaryTableVC: BaseStatsTableVC {
@@ -44,18 +55,6 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         addRightEditBarButtonItemToNavBar()
         sections = persistance.retrievePersistedData(.one)
         //persistance.persistUserData(tableViewData: self.sections, with: .one)
-    }
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return self.sections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].values.count
-    }
-
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sections[section].sectionName
     }
 
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {

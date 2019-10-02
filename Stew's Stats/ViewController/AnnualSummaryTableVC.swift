@@ -8,8 +8,6 @@
 
 import UIKit
 
-
-
 class AnnualSummaryTableVC: BaseStatsTableVC {
     
     var data: SeedData!
@@ -24,14 +22,6 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         //persistance.persistUserData(tableViewData: self.sections, with: .two)
     }
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sections[section].values.count
-    }
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualStatisticCell
         
@@ -44,10 +34,6 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].values[indexPath.row].statValue
         
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sections[section].sectionName
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
