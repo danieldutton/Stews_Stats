@@ -8,7 +8,9 @@
 
 import UIKit
 
-class AnnualSummaryTableVC: UITableViewController {
+
+
+class AnnualSummaryTableVC: BaseStatsTableVC {
     
     var data: SeedData!
     
@@ -22,14 +24,8 @@ class AnnualSummaryTableVC: UITableViewController {
         //let data = StewsAnnualData()
         //self.sections = data.getSeedData()
 
-        addRightEditBarButtonItemToNavBar()
         sections = persistance.retrievePersistedData(.two)
         //persistance.persistUserData(tableViewData: self.sections, with: .two)
-    }
-    
-    private func addRightEditBarButtonItemToNavBar() {
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {

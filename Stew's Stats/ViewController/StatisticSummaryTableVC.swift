@@ -10,7 +10,22 @@ import UIKit
 
 //When Pulling up to a superclass, consult refactoring book
 
-class StatisticSummaryTableVC: UITableViewController {
+class BaseStatsTableVC: UITableViewController {
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        addRightEditBarButtonItemToNavBar()
+    }
+    
+    fileprivate func addRightEditBarButtonItemToNavBar() {
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
+}
+
+class StatisticSummaryTableVC: BaseStatsTableVC {
 
     private var locationsSection = 5
 
@@ -28,11 +43,6 @@ class StatisticSummaryTableVC: UITableViewController {
         addRightEditBarButtonItemToNavBar()
         sections = persistance.retrievePersistedData(.one)
         //persistance.persistUserData(tableViewData: self.sections, with: .one)
-    }
-
-    private func addRightEditBarButtonItemToNavBar() {
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
