@@ -18,6 +18,10 @@
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CA420A3423435FBF005325C8 /* StewsAnnualData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* StewsAnnualData.swift */; };
 		CA47E1E52347D2D2003D111C /* BaseTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E1E42347D2D2003D111C /* BaseTableViewControllerTests.swift */; };
+		CA47E1EC2347E27C003D111C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA47E1EB2347E27C003D111C /* NotificationCenter.framework */; };
+		CA47E1EF2347E27C003D111C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E1EE2347E27C003D111C /* TodayViewController.swift */; };
+		CA47E1F22347E27C003D111C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA47E1F02347E27C003D111C /* MainInterface.storyboard */; };
+		CA47E1F62347E27C003D111C /* Stew's Stats Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
 		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
@@ -36,9 +40,27 @@
 			remoteGlobalIDString = CA018C03232D786400DC990D;
 			remoteInfo = "Stew's Stats";
 		};
+		CA47E1F42347E27C003D111C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CA018BFC232D786400DC990D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CA47E1E92347E27C003D111C;
+			remoteInfo = "Stew's Stats Widget";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		CA47E1F72347E27C003D111C /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				CA47E1F62347E27C003D111C /* Stew's Stats Widget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CA4DA56C233A25140029393E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -68,6 +90,11 @@
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA420A3323435FBF005325C8 /* StewsAnnualData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsAnnualData.swift; sourceTree = "<group>"; };
 		CA47E1E42347D2D2003D111C /* BaseTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewControllerTests.swift; sourceTree = "<group>"; };
+		CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stew's Stats Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA47E1EB2347E27C003D111C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		CA47E1EE2347E27C003D111C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		CA47E1F12347E27C003D111C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		CA47E1F32347E27C003D111C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColorTemplates.swift; sourceTree = "<group>"; };
 		CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
@@ -93,6 +120,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA47E1E72347E27C003D111C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA47E1EC2347E27C003D111C /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,6 +136,7 @@
 			children = (
 				CA018C06232D786400DC990D /* Stew's Stats */,
 				CA018C1B232D786600DC990D /* Stew's StatsTests */,
+				CA47E1ED2347E27C003D111C /* Stew's Stats Widget */,
 				CA018C05232D786400DC990D /* Products */,
 				CA499BBC233A2C050013220D /* Frameworks */,
 			);
@@ -111,6 +147,7 @@
 			children = (
 				CA018C04232D786400DC990D /* Stew's Stats.app */,
 				CA018C18232D786600DC990D /* Stew's StatsTests.xctest */,
+				CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -169,10 +206,21 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CA47E1ED2347E27C003D111C /* Stew's Stats Widget */ = {
+			isa = PBXGroup;
+			children = (
+				CA47E1EE2347E27C003D111C /* TodayViewController.swift */,
+				CA47E1F02347E27C003D111C /* MainInterface.storyboard */,
+				CA47E1F32347E27C003D111C /* Info.plist */,
+			);
+			path = "Stew's Stats Widget";
+			sourceTree = "<group>";
+		};
 		CA499BBC233A2C050013220D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				CA499BBD233A2C050013220D /* Charts.framework */,
+				CA47E1EB2347E27C003D111C /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,10 +272,12 @@
 				CA018C02232D786400DC990D /* Resources */,
 				CA4DA56C233A25140029393E /* Embed Frameworks */,
 				CA499BC0233A2C120013220D /* ShellScript */,
+				CA47E1F72347E27C003D111C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				CA47E1F52347E27C003D111C /* PBXTargetDependency */,
 			);
 			name = "Stew's Stats";
 			packageProductDependencies = (
@@ -254,13 +304,30 @@
 			productReference = CA018C18232D786600DC990D /* Stew's StatsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CA47E1E92347E27C003D111C /* Stew's Stats Widget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA47E1FA2347E27C003D111C /* Build configuration list for PBXNativeTarget "Stew's Stats Widget" */;
+			buildPhases = (
+				CA47E1E62347E27C003D111C /* Sources */,
+				CA47E1E72347E27C003D111C /* Frameworks */,
+				CA47E1E82347E27C003D111C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stew's Stats Widget";
+			productName = "Stew's Stats Widget";
+			productReference = CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		CA018BFC232D786400DC990D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1030;
+				LastSwiftUpdateCheck = 1100;
 				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = "Daniel Dutton";
 				TargetAttributes = {
@@ -270,6 +337,9 @@
 					CA018C17232D786600DC990D = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = CA018C03232D786400DC990D;
+					};
+					CA47E1E92347E27C003D111C = {
+						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -290,6 +360,7 @@
 			targets = (
 				CA018C03232D786400DC990D /* Stew's Stats */,
 				CA018C17232D786600DC990D /* Stew's StatsTests */,
+				CA47E1E92347E27C003D111C /* Stew's Stats Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -309,6 +380,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA47E1E82347E27C003D111C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA47E1F22347E27C003D111C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +443,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CA47E1E62347E27C003D111C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA47E1EF2347E27C003D111C /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -371,6 +458,11 @@
 			isa = PBXTargetDependency;
 			target = CA018C03232D786400DC990D /* Stew's Stats */;
 			targetProxy = CA018C19232D786600DC990D /* PBXContainerItemProxy */;
+		};
+		CA47E1F52347E27C003D111C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CA47E1E92347E27C003D111C /* Stew's Stats Widget */;
+			targetProxy = CA47E1F42347E27C003D111C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -389,6 +481,14 @@
 				CA018C11232D786600DC990D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CA47E1F02347E27C003D111C /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA47E1F12347E27C003D111C /* Base */,
+			);
+			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -513,6 +613,7 @@
 		CA018C22232D786600DC990D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
@@ -536,6 +637,7 @@
 		CA018C23232D786600DC990D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76BSGUF375;
@@ -600,6 +702,44 @@
 			};
 			name = Release;
 		};
+		CA47E1F82347E27C003D111C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76BSGUF375;
+				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats.Stew-s-Stats-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		CA47E1F92347E27C003D111C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 76BSGUF375;
+				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats.Stew-s-Stats-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -626,6 +766,15 @@
 			buildConfigurations = (
 				CA018C25232D786600DC990D /* Debug */,
 				CA018C26232D786600DC990D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CA47E1FA2347E27C003D111C /* Build configuration list for PBXNativeTarget "Stew's Stats Widget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA47E1F82347E27C003D111C /* Debug */,
+				CA47E1F92347E27C003D111C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
