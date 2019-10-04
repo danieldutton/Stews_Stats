@@ -8,45 +8,49 @@
 
 import UIKit
 
-class BaseStatsTableVC: UITableViewController {
+class BaseTableViewController: UITableViewController {
     
-    internal var sections: [Section]!
+    internal var sections: [Section] = []
     
     internal var persistance = Persistance.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addRightEditBarButtonItemToNavBar()
+        addEditButtonItemToRightOfNavBar()
     }
     
-    internal func addRightEditBarButtonItemToNavBar() {
-        self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    internal func addEditButtonItemToRightOfNavBar() {
+        navigationItem.rightBarButtonItem = editButtonItem
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+    }
+    
+    func seedTableViewWithData(){
+        //table views have been given tags
     }
     
     func seedTableViewIfEmpty(_ key: Key, seedData: SeedData) {
         if let persistedData = persistance.retrievePersistedData(key) {
-            self.sections = persistedData
+            sections = persistedData
         } else {
-            self.sections = seedData.getSeedData()
+            sections = seedData.getSeedData()
         }
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sections.count
+        sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sections[section].values.count
+        sections[section].rows.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return self.sections[section].sectionName
+        sections[section].name
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        return nil
+        nil
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
@@ -60,13 +64,12 @@ class BaseStatsTableVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
-        return false
+        false
     }
+    
 }
 
-class StatisticSummaryTableVC: BaseStatsTableVC {
-
-    private var locationsSection = 5
+class StatisticSummaryTableVC: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,11 +82,11 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         
         cell.selectionStyle = .none
 
-        cell.lblStat.text = self.sections[indexPath.section].values[indexPath.row].statName
+        cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].statName
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = self.sections[indexPath.section].values[indexPath.row].statValue
+        cell.txtFieldStatValue.text = sections[indexPath.section].rows[indexPath.row].statValue
         
         return cell
     }
@@ -97,7 +100,7 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         let text = tempCell.txtFieldStatValue.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].values[indexPath.row].statValue = text
+        self.sections[indexPath.section].rows[indexPath.row].statValue = text
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -105,14 +108,13 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
         
         func addNewLocationRow(_ location: String) {
             //indexPath.section was prev hardcoded 5
-            self.sections[indexPath.section].values[indexPath.row].statName = location
-            self.sections[indexPath.section].values[indexPath.row].statValue = "0"
-            let ct = sections[indexPath.section].values.count
+            self.sections[indexPath.section].rows[indexPath.row].statName = location
+            self.sections[indexPath.section].rows[indexPath.row].statValue = "0"
+            let ct = sections[indexPath.section].rows.count
 
             tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: ct-1, section: locationsSection)], with: .automatic)
-                //prev called reloaddata here
-                tableView.reloadRows(at: [IndexPath(row: ct-1, section: locationsSection)], with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: ct-1, section: sections.count - 1)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: ct-1, section: sections.count - 1)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
                 self.persistance.persistUserData(tableViewData: self.sections, with: .one)
@@ -125,14 +127,14 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard indexPath.section == locationsSection else {
+        guard indexPath.section == sections.count - 1 else {
             return UISwipeActionsConfiguration(actions: [])
         }
         
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
 
             self.tableView.performBatchUpdates({
-                self.sections[indexPath.section].values.remove(at: indexPath.row)
+                self.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 self.persistance.persistUserData(tableViewData: self.sections, with: .one)
@@ -158,16 +160,16 @@ class StatisticSummaryTableVC: BaseStatsTableVC {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            self.sections[5].values.append(Row(statName: location, statValue: "0"))
+            self.sections[5].rows.append(Row(statName: location, statValue: "0"))
 
             tableView.performBatchUpdates({
-                let indexPathInsert = IndexPath(row: sections[5].values.count - 1, section: 5)
+                let indexPathInsert = IndexPath(row: sections[5].rows.count - 1, section: 5)
                 tableView.insertRows(at: [indexPathInsert], with: .automatic)
-                let indexPathReload = IndexPath(row: sections[5].values.count - 2, section: 5)
+                let indexPathReload = IndexPath(row: sections[5].rows.count - 2, section: 5)
                 tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
                 self.persistance.persistUserData(tableViewData: self.sections, with: .one)
-                let indexPathScrollTo = IndexPath(row: self.sections[5].values.count - 1, section: 5)
+                let indexPathScrollTo = IndexPath(row: self.sections[5].rows.count - 1, section: 5)
                 self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
         }
@@ -207,7 +209,7 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
             
-            self.sections[sec].values[row].statValue = cell.txtFieldStatValue.text!
+            self.sections[sec].rows[row].statValue = cell.txtFieldStatValue.text!
 
             persistance.persistUserData(tableViewData: self.sections, with: .one)
         }
@@ -227,7 +229,7 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
 extension StatisticSummaryTableVC {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == 5 && self.sections[indexPath.section].values.count > 1 {
+        if indexPath.section == sections.count - 1 && self.sections[indexPath.section].rows.count > 1 {
             return true
         }
         return false
@@ -236,17 +238,17 @@ extension StatisticSummaryTableVC {
      override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         tableView.endEditing(true)
         
-        if proposedDestinationIndexPath.section != locationsSection {
-            return IndexPath(row: 0, section: locationsSection)
+        if proposedDestinationIndexPath.section != sections.count - 1 {
+            return IndexPath(row: 0, section: sections.count - 1)
         }
         return proposedDestinationIndexPath
     }
 
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let locationRow = self.sections[5].values.remove(at: sourceIndexPath.row)
-        self.sections[5].values.insert(locationRow, at: destinationIndexPath.row)
+        let locationRow = sections[5].rows.remove(at: sourceIndexPath.row)
+        sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
 
-        persistance.persistUserData(tableViewData: self.sections, with: .one)
+        persistance.persistUserData(tableViewData: sections, with: .one)
 
         tableView.reloadData()
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnnualSummaryTableVC: BaseStatsTableVC {
+class AnnualSummaryTableVC: BaseTableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,8 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
         
-        cell.txtFieldAnnualActivities.text = self.sections[indexPath.section].values[indexPath.row].statName
-        cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].values[indexPath.row].statValue
+        cell.txtFieldAnnualActivities.text = self.sections[indexPath.section].rows[indexPath.row].statName
+        cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].rows[indexPath.row].statValue
         
         return cell
     }
@@ -41,8 +41,8 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].values[indexPath.row].statName = txtActivities
-        self.sections[indexPath.section].values[indexPath.row].statValue = txtMiles
+        self.sections[indexPath.section].rows[indexPath.row].statName = txtActivities
+        self.sections[indexPath.section].rows[indexPath.row].statValue = txtMiles
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -50,10 +50,10 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
         
         if editingStyle == .insert {
             let lastSection = self.sections.count - 1
-            let lastYear = Int(self.sections[lastSection].sectionName)!
+            let lastYear = Int(self.sections[lastSection].name)!
             let nextYear = lastYear + 1
             print(lastSection)
-            self.sections.append(Section(sectionName: "\(nextYear)", values: [
+            self.sections.append(Section(name: "\(nextYear)", rows: [
                 Row(statName: "0", statValue: "0")
             ]))
             let indexSet = IndexSet(integer: sections.count - 1)
@@ -74,7 +74,7 @@ class AnnualSummaryTableVC: BaseStatsTableVC {
 
             self.tableView.performBatchUpdates({
                 //need to remove the section
-                self.sections[indexPath.section].values.remove(at: indexPath.row)
+                self.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 self.persistance.persistUserData(tableViewData: self.sections, with: .two)
@@ -103,8 +103,8 @@ extension AnnualSummaryTableVC: UITextFieldDelegate {
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
             
-            self.sections[sec].values[row].statName = cell.txtFieldAnnualActivities.text!
-            self.sections[sec].values[row].statValue = cell.txtFieldAnnualMiles.text!
+            self.sections[sec].rows[row].statName = cell.txtFieldAnnualActivities.text!
+            self.sections[sec].rows[row].statValue = cell.txtFieldAnnualMiles.text!
 
             persistance.persistUserData(tableViewData: self.sections, with: .two)
         }

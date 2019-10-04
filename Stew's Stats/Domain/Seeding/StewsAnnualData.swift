@@ -10,19 +10,19 @@ import Foundation
 
 class StewsAnnualData: SeedData {
     func getSeedData() -> [Section] {
-        let section_2014 = Section(sectionName: "2014", values: [
+        let section_2014 = Section(name: "2014", rows: [
             Row(statName: "50", statValue: "900"),
         ])
-        let section_2015 = Section(sectionName: "2015", values: [
+        let section_2015 = Section(name: "2015", rows: [
             Row(statName: "100", statValue: "1800"),
         ])
-        let section_2016 = Section(sectionName: "2016", values: [
+        let section_2016 = Section(name: "2016", rows: [
             Row(statName: "150", statValue: "2700"),
         ])
-        let section_2017 = Section(sectionName: "2017", values: [
+        let section_2017 = Section(name: "2017", rows: [
             Row(statName: "200", statValue: "3600"),
         ])
-        let section_2018 = Section(sectionName: "2018", values: [
+        let section_2018 = Section(name: "2018", rows: [
             Row(statName: "250", statValue: "4500"),
         ])
         
