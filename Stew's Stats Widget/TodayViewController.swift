@@ -12,16 +12,15 @@ import NotificationCenter
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     @IBOutlet weak var lbl_1: UILabel!
-    
     @IBOutlet weak var lbl_2: UILabel!
-    
     @IBOutlet weak var lbl_3: UILabel!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setLabelPlaceholderText()
+        displaySavedData()
+        sizeLabelsToFit()
     }
     
     private func setLabelPlaceholderText() {
@@ -31,10 +30,23 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         lbl_2.text = placeHolderText
         lbl_3.text = placeHolderText
     }
-
-    private func displayData() {
-        
+    
+    private func displayDataOnWidget(){
+        let data = fetchDataToDisplay()
     }
+    
+    private func displaySavedData() {
+        let persistance = Persistance.shared
+        let results = persistance.retrievePersistedData(.one)
+        lbl_1.text = results?.first?.name ?? "No Value"
+    }
+    
+    private func sizeLabelsToFit() {
+        lbl_1.sizeToFit()
+        lbl_2.sizeToFit()
+        lbl_3.sizeToFit()
+    }
+
     
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
@@ -45,5 +57,5 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         
         completionHandler(NCUpdateResult.newData)
     }
-    
 }
+

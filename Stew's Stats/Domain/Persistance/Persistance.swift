@@ -20,7 +20,7 @@ class Persistance {
     private init() {}
     
     func retrievePersistedData(_ key: Key) -> [Section]? {
-        if let savedData = UserDefaults.standard.data(forKey: key.rawValue) {
+        if let savedData = UserDefaults(suiteName: "group.co.uk.danbdutton.Stew-s-Stats")?.data(forKey: key.rawValue) {
             let data = (try? JSONDecoder().decode([Section].self, from: savedData))!
             return data
         } else {
@@ -30,7 +30,9 @@ class Persistance {
     
     func persistUserData(tableViewData: [Section], with key: Key) {
         if let encoded = try? JSONEncoder().encode(tableViewData) {
-            UserDefaults.standard.set(encoded, forKey: key.rawValue)
+            UserDefaults(suiteName: "group.co.uk.danbdutton.Stew-s-Stats")!.set(encoded, forKey: key.rawValue)
+            //UserDefaults.standard.set(encoded, forKey: key.rawValue)
+            
         } else {
             //display try again error message
         }

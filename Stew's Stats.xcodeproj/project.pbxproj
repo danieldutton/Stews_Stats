@@ -28,6 +28,8 @@
 		CA5AEB7E2340EC8A005F4C91 /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */; };
 		CA5AEB802340ECC4005F4C91 /* StewsRuntasticData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */; };
 		CA5AEB82234128F6005F4C91 /* AnnualSummaryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */; };
+		CA9C5F0C2348C3F20090A807 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableSection.swift */; };
+		CA9C5F0F2348D4510090A807 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CAA5F0C52343F1E800DA19FF /* AnnualStatisticCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualStatisticCell.swift */; };
 		CAE0291723339A0A002E975E /* PieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* PieChartController.swift */; };
 /* End PBXBuildFile section */
@@ -100,6 +102,8 @@
 		CA5AEB7D2340EC8A005F4C91 /* SeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		CA5AEB7F2340ECC4005F4C91 /* StewsRuntasticData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StewsRuntasticData.swift; sourceTree = "<group>"; };
 		CA5AEB81234128F6005F4C91 /* AnnualSummaryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualSummaryTableVC.swift; sourceTree = "<group>"; };
+		CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats.entitlements"; sourceTree = "<group>"; };
+		CA9C5F102348D4DC0090A807 /* Stew's Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats Widget.entitlements"; sourceTree = "<group>"; };
 		CAA5F0C42343F1E800DA19FF /* AnnualStatisticCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualStatisticCell.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* PieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +159,7 @@
 		CA018C06232D786400DC990D /* Stew's Stats */ = {
 			isa = PBXGroup;
 			children = (
+				CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */,
 				CA19811623322C9200F6EDE8 /* Model */,
 				CA19811523322C8100F6EDE8 /* ViewController */,
 				CA19811423322C7A00F6EDE8 /* Domain */,
@@ -209,6 +214,7 @@
 		CA47E1ED2347E27C003D111C /* Stew's Stats Widget */ = {
 			isa = PBXGroup;
 			children = (
+				CA9C5F102348D4DC0090A807 /* Stew's Stats Widget.entitlements */,
 				CA47E1EE2347E27C003D111C /* TodayViewController.swift */,
 				CA47E1F02347E27C003D111C /* MainInterface.storyboard */,
 				CA47E1F32347E27C003D111C /* Info.plist */,
@@ -447,7 +453,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA9C5F0C2348C3F20090A807 /* TableSection.swift in Sources */,
 				CA47E1EF2347E27C003D111C /* TodayViewController.swift in Sources */,
+				CA9C5F0F2348D4510090A807 /* Persistance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -615,8 +623,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Stew's Stats/Stew's Stats.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -639,8 +648,9 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Stew's Stats/Stew's Stats.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -664,7 +674,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				INFOPLIST_FILE = "Stew's StatsTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -686,7 +696,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				INFOPLIST_FILE = "Stew's StatsTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -705,8 +715,9 @@
 		CA47E1F82347E27C003D111C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Stew's Stats Widget/Stew's Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,8 +735,9 @@
 		CA47E1F92347E27C003D111C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Stew's Stats Widget/Stew's Stats Widget.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 76BSGUF375;
+				DEVELOPMENT_TEAM = HE7PQVU2ZD;
 				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
