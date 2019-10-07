@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum Key: String {
-    case one
-    case two
+enum UserPrefsKey: String {
+    case dailySummary
+    case annualSummary
 }
 
 class Persistance {
@@ -19,7 +19,7 @@ class Persistance {
     
     private init() {}
     
-    func retrievePersistedData(_ key: Key) -> [Section]? {
+    func retrievePersistedData(_ key: UserPrefsKey) -> [Section]? {
         if let savedData = UserDefaults(suiteName: "group.co.uk.danbdutton.Stew-s-Stats")?.data(forKey: key.rawValue) {
             let data = (try? JSONDecoder().decode([Section].self, from: savedData))!
             return data
@@ -28,11 +28,9 @@ class Persistance {
         }
     }
     
-    func persistUserData(tableViewData: [Section], with key: Key) {
+    func persistUserData(tableViewData: [Section], with key: UserPrefsKey) {
         if let encoded = try? JSONEncoder().encode(tableViewData) {
             UserDefaults(suiteName: "group.co.uk.danbdutton.Stew-s-Stats")!.set(encoded, forKey: key.rawValue)
-            //UserDefaults.standard.set(encoded, forKey: key.rawValue)
-            
         } else {
             //display try again error message
         }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Row: Codable {
+struct Row: Codable, Hashable {
     var statName: String
     var statValue: String
 }
@@ -17,5 +17,17 @@ struct Section: Codable {
     var name: String
     var rows: [Row] = []
 }
+
+extension Section: Equatable, Comparable {
+    static func < (lhs: Section, rhs: Section) -> Bool {
+        return Int(lhs.name)! < Int(rhs.name)!
+    }
+    
+    static func == (lhs: Section, rhs: Section) -> Bool {
+        return lhs.name == rhs.name
+    }
+}
+
+extension Section: Hashable {}
 
 

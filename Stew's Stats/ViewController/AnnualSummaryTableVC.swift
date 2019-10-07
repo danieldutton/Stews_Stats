@@ -14,7 +14,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
         super.viewDidLoad()
         
         //consider using factory
-        seedTableViewIfEmpty(.two, seedData: StewsAnnualData())
+        seedTableViewIfEmpty(.annualSummary, seedData: StewsAnnualData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,7 +61,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
             //consider insert sections
             //use performbatchupdates
             tableView.insertSections(indexSet, with: .automatic)
-            persistance.persistUserData(tableViewData: self.sections, with: .two)
+            persistance.persistUserData(tableViewData: self.sections, with: .annualSummary)
         }
     }
     
@@ -77,7 +77,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
                 self.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.persistance.persistUserData(tableViewData: self.sections, with: .two)
+                self.persistance.persistUserData(tableViewData: self.sections, with: .annualSummary)
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -106,7 +106,7 @@ extension AnnualSummaryTableVC: UITextFieldDelegate {
             self.sections[sec].rows[row].statName = cell.txtFieldAnnualActivities.text!
             self.sections[sec].rows[row].statValue = cell.txtFieldAnnualMiles.text!
 
-            persistance.persistUserData(tableViewData: self.sections, with: .two)
+            persistance.persistUserData(tableViewData: self.sections, with: .annualSummary)
         }
     }
     

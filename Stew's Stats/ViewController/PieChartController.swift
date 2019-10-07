@@ -20,7 +20,7 @@ class PieChartController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.sections = persistance.retrievePersistedData(.one)
+        self.sections = persistance.retrievePersistedData(.dailySummary)
 
         updateChartData(with: tabBarController!.selectedIndex)
     }
@@ -55,7 +55,7 @@ class PieChartController: UIViewController {
         pieChartView.data = data
         pieChartView.noDataText = "Not enough data to construct a Pie Chart"
         // user interaction
-        pieChartView.isUserInteractionEnabled = false
+        pieChartView.isUserInteractionEnabled = true
         pieChartView.holeRadiusPercent = 0.2
         
         pieChartView.animate(yAxisDuration: 0.5,

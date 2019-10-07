@@ -29,7 +29,7 @@ class BaseTableViewController: UITableViewController {
         //table views have been given tags
     }
     
-    func seedTableViewIfEmpty(_ key: Key, seedData: SeedData) {
+    func seedTableViewIfEmpty(_ key: UserPrefsKey, seedData: SeedData) {
         if let persistedData = persistance.retrievePersistedData(key) {
             sections = persistedData
         } else {
@@ -74,7 +74,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        seedTableViewIfEmpty(.one, seedData: StewsRuntasticData())
+        seedTableViewIfEmpty(.dailySummary, seedData: StewsRuntasticData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -117,7 +117,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
                 tableView.reloadRows(at: [IndexPath(row: ct-1, section: sections.count - 1)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
-                self.persistance.persistUserData(tableViewData: self.sections, with: .one)
+                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
             }
         }
         
@@ -137,7 +137,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
                 self.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.persistance.persistUserData(tableViewData: self.sections, with: .one)
+                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -168,7 +168,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
                 let indexPathReload = IndexPath(row: sections[5].rows.count - 2, section: 5)
                 tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
-                self.persistance.persistUserData(tableViewData: self.sections, with: .one)
+                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
                 let indexPathScrollTo = IndexPath(row: self.sections[5].rows.count - 1, section: 5)
                 self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
@@ -211,7 +211,7 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
             
             self.sections[sec].rows[row].statValue = cell.txtFieldStatValue.text!
 
-            persistance.persistUserData(tableViewData: self.sections, with: .one)
+            persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
         }
     }
     
@@ -248,7 +248,7 @@ extension StatisticSummaryTableVC {
         let locationRow = sections[5].rows.remove(at: sourceIndexPath.row)
         sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
 
-        persistance.persistUserData(tableViewData: sections, with: .one)
+        persistance.persistUserData(tableViewData: sections, with: .dailySummary)
 
         tableView.reloadData()
     }
