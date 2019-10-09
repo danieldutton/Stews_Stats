@@ -71,7 +71,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
         }
         
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
-
+            
             self.tableView.performBatchUpdates({
                 //need to remove the section
                 self.sections[indexPath.section].rows.remove(at: indexPath.row)
