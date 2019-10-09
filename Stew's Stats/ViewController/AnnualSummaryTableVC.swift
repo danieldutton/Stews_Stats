@@ -19,8 +19,6 @@ class AnnualSummaryTableVC: BaseTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualStatisticCell
-        
-        cell.selectionStyle = .none
 
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self

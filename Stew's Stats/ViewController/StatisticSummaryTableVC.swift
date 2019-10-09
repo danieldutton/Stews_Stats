@@ -18,8 +18,6 @@ class StatisticSummaryTableVC: BaseTableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyStatisticCell
-        
-        cell.selectionStyle = .none
 
         cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].statName
         cell.lblStat.sizeToFit()
