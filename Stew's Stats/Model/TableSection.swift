@@ -9,8 +9,8 @@
 import Foundation
 
 struct Row: Codable, Hashable {
-    var statName: String
-    var statValue: String
+    var stat1: String
+    var stat2: String
 }
 
 struct Section: Codable {

@@ -36,19 +36,19 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         lblYear1.text = sectionPair.one.name
         lblYear1.sizeToFit()
         
-        lblYear1ActivityCount.text = sectionPair.one.rows[0].statName
+        lblYear1ActivityCount.text = sectionPair.one.rows[0].stat1
         lblYear1ActivityCount.sizeToFit()
         
-        lblYear1TotalMilesCount.text = sectionPair.one.rows[0].statValue
+        lblYear1TotalMilesCount.text = sectionPair.one.rows[0].stat2
         lblYear1TotalMilesCount.sizeToFit()
         
         lblYear2.text = sectionPair.two.name
         lblYear2.sizeToFit()
         
-        lblYear2ActivityCount.text = sectionPair.two.rows[0].statName
+        lblYear2ActivityCount.text = sectionPair.two.rows[0].stat1
         lblYear2ActivityCount.sizeToFit()
         
-        lblYear2TotalMilesCount.text = sectionPair.two.rows[0].statValue
+        lblYear2TotalMilesCount.text = sectionPair.two.rows[0].stat2
         lblYear2TotalMilesCount.sizeToFit()
     }
 

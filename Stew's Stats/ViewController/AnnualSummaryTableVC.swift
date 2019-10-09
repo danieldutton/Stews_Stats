@@ -23,8 +23,8 @@ class AnnualSummaryTableVC: BaseTableViewController {
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
         
-        cell.txtFieldAnnualActivities.text = self.sections[indexPath.section].rows[indexPath.row].statName
-        cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].rows[indexPath.row].statValue
+        cell.txtFieldAnnualActivities.text = self.sections[indexPath.section].rows[indexPath.row].stat1
+        cell.txtFieldAnnualMiles.text = self.sections[indexPath.section].rows[indexPath.row].stat2
         
         return cell
     }
@@ -39,8 +39,8 @@ class AnnualSummaryTableVC: BaseTableViewController {
         let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].rows[indexPath.row].statName = txtActivities
-        self.sections[indexPath.section].rows[indexPath.row].statValue = txtMiles
+        self.sections[indexPath.section].rows[indexPath.row].stat1 = txtActivities
+        self.sections[indexPath.section].rows[indexPath.row].stat2 = txtMiles
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -52,7 +52,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
             let nextYear = lastYear + 1
             print(lastSection)
             self.sections.append(Section(name: "\(nextYear)", rows: [
-                Row(statName: "0", statValue: "0")
+                Row(stat1: "0", stat2: "0")
             ]))
             let indexSet = IndexSet(integer: sections.count - 1)
             
@@ -91,11 +91,9 @@ extension AnnualSummaryTableVC {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: AnnualStatisticCell = getCellTextFieldBelongsTo(textField)
         
-        if let sec = self.tableView.indexPath(for: cell)?.section,
-            let row = self.tableView.indexPath(for:cell)?.row {
-            
-            self.sections[sec].rows[row].statName = cell.txtFieldAnnualActivities.text!
-            self.sections[sec].rows[row].statValue = cell.txtFieldAnnualMiles.text!
+        if let indexPath = indexPathIsValidFor(cell: cell) {
+            self.sections[indexPath.section].rows[indexPath.row].stat1 = cell.txtFieldAnnualActivities.text!
+            self.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldAnnualMiles.text!
 
             persistance.persistUserData(tableViewData: self.sections, with: .annualSummary)
         }

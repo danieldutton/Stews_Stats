@@ -64,6 +64,14 @@ class BaseTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         false
     }
+    
+    func indexPathIsValidFor(cell: UITableViewCell) -> IndexPath? {
+        if let sec = self.tableView.indexPath(for: cell)?.section,
+        let row = self.tableView.indexPath(for:cell)?.row {
+            return IndexPath(row: sec, section: row)
+        }
+        return nil
+    }
 }
 
 extension BaseTableViewController: UITextFieldDelegate {

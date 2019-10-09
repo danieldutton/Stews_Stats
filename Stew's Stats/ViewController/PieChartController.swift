@@ -29,8 +29,8 @@ class PieChartController: UIViewController {
         //remove the view already there.  are we overlaying views.  memory problems etc
         pieChartView.clear()
         // 2. generate chart data entries
-        let statType = sections[section].rows.map {$0.statName}
-        let statValue = sections[section].rows.map{Double($0.statValue)!}
+        let statType = sections[section].rows.map {$0.stat1}
+        let statValue = sections[section].rows.map{Double($0.stat2)!}
         
         var entries = [PieChartDataEntry]()
         for (index, value) in statValue.enumerated() {

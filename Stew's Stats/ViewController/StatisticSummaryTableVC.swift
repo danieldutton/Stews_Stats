@@ -19,11 +19,11 @@ class StatisticSummaryTableVC: BaseTableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyStatisticCell
 
-        cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].statName
+        cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].stat1
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = sections[indexPath.section].rows[indexPath.row].statValue
+        cell.txtFieldStatValue.text = sections[indexPath.section].rows[indexPath.row].stat2
         
         return cell
     }
@@ -37,7 +37,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
         let text = tempCell.txtFieldStatValue.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].rows[indexPath.row].statValue = text
+        self.sections[indexPath.section].rows[indexPath.row].stat2 = text
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -45,8 +45,8 @@ class StatisticSummaryTableVC: BaseTableViewController {
         
         func addNewLocationRow(_ location: String) {
             //indexPath.section was prev hardcoded 5
-            self.sections[indexPath.section].rows[indexPath.row].statName = location
-            self.sections[indexPath.section].rows[indexPath.row].statValue = "0"
+            self.sections[indexPath.section].rows[indexPath.row].stat1 = location
+            self.sections[indexPath.section].rows[indexPath.row].stat2 = "0"
             let ct = sections[indexPath.section].rows.count
 
             tableView.performBatchUpdates({
@@ -97,7 +97,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            self.sections[5].rows.append(Row(statName: location, statValue: "0"))
+            self.sections[5].rows.append(Row(stat1: location, stat2: "0"))
 
             tableView.performBatchUpdates({
                 let indexPathInsert = IndexPath(row: sections[5].rows.count - 1, section: 5)
@@ -137,10 +137,8 @@ extension StatisticSummaryTableVC {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: DailyStatisticCell = getCellTextFieldBelongsTo(textField)
         
-        if let sec = self.tableView.indexPath(for: cell)?.section,
-            let row = self.tableView.indexPath(for:cell)?.row {
-            
-            self.sections[sec].rows[row].statValue = cell.txtFieldStatValue.text!
+        if let indexPath = indexPathIsValidFor(cell: cell) {
+            self.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
 
             persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
         }
