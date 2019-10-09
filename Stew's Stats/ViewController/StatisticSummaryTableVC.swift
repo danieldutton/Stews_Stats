@@ -132,16 +132,10 @@ class StatisticSummaryTableVC: BaseTableViewController {
     }
 }
 
-extension StatisticSummaryTableVC: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-
-        return false
-    }
+extension StatisticSummaryTableVC {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell = getCellTextFieldBelongsTo(textField)
+        let cell: DailyStatisticCell = getCellTextFieldBelongsTo(textField)
         
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
@@ -150,16 +144,6 @@ extension StatisticSummaryTableVC: UITextFieldDelegate {
 
             persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
         }
-    }
-    
-    private func getCellTextFieldBelongsTo(_ textField: UITextField) -> DailyStatisticCell {
-        var v : UIView = textField
-        
-        repeat {
-            v = v.superview!
-        } while !(v is UITableViewCell)
-        
-        return v as! DailyStatisticCell
     }
 }
 

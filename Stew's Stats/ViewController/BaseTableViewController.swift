@@ -65,3 +65,22 @@ class BaseTableViewController: UITableViewController {
         false
     }
 }
+
+extension BaseTableViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.endEditing(true)
+
+        return false
+    }
+    
+    internal func getCellTextFieldBelongsTo<T: UITableViewCell>(_ textField: UITextField) -> T {
+        var v : UIView = textField
+        
+        repeat {
+            v = v.superview!
+        } while !(v is UITableViewCell)
+        
+        return v as! T
+    }
+}

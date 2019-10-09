@@ -86,17 +86,10 @@ class AnnualSummaryTableVC: BaseTableViewController {
     }
 }
 
-
-extension AnnualSummaryTableVC: UITextFieldDelegate {
-
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-
-        return false
-    }
+extension AnnualSummaryTableVC {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell = getCellTextFieldBelongsTo(textField)
+        let cell: AnnualStatisticCell = getCellTextFieldBelongsTo(textField)
         
         if let sec = self.tableView.indexPath(for: cell)?.section,
             let row = self.tableView.indexPath(for:cell)?.row {
@@ -106,17 +99,6 @@ extension AnnualSummaryTableVC: UITextFieldDelegate {
 
             persistance.persistUserData(tableViewData: self.sections, with: .annualSummary)
         }
-    }
-    
-    //use some generic magic here
-    private func getCellTextFieldBelongsTo(_ textField: UITextField) -> AnnualStatisticCell {
-        var v : UIView = textField
-        
-        repeat {
-            v = v.superview!
-        } while !(v is UITableViewCell)
-        
-        return v as! AnnualStatisticCell
     }
 }
  
