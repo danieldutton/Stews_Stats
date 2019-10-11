@@ -1,5 +1,5 @@
 //
-//  StewsRuntasticData.swift
+//  DailyActivityStatisticsSeedData.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 29/09/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StewsRuntasticData: SeedData {
+class DailyActivityStatisticsSeedData: ActivitySeedData {
     
     func getSeedData() -> [Section] {
         let section_distance = Section(name: "Distance", rows: [

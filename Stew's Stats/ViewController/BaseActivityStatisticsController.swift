@@ -1,5 +1,5 @@
 //
-//  BaseTableViewController.swift
+//  BaseActivityStatisticsController.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 09/10/2019.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BaseTableViewController: UITableViewController {
+class BaseActivityStatisticsController: UITableViewController {
     
     internal var sections: [Section] = []
     
@@ -26,7 +26,7 @@ class BaseTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
 
-    internal func seedTableViewIfEmpty(_ key: UserPrefsKey, seedData: SeedData) {
+    internal func seedTableViewIfEmpty(_ key: UserPrefsKey, seedData: ActivitySeedData) {
         if let persistedData = persistance.retrievePersistedData(key) {
             sections = persistedData
         } else {
@@ -74,7 +74,7 @@ class BaseTableViewController: UITableViewController {
     }
 }
 
-extension BaseTableViewController: UITextFieldDelegate {
+extension BaseActivityStatisticsController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)

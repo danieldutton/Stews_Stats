@@ -1,5 +1,5 @@
 //
-//  StatisticSummaryTableVC.swift
+//  DailyActivityStatisticsController.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 14/09/2019.
@@ -8,16 +8,16 @@
 
 import UIKit
 
-class StatisticSummaryTableVC: BaseTableViewController {
+class DailyActivityStatisticsController: BaseActivityStatisticsController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        seedTableViewIfEmpty(.dailySummary, seedData: StewsRuntasticData())
+        seedTableViewIfEmpty(.dailySummary, seedData: DailyActivityStatisticsSeedData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyStatisticCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyActivityStatisticsCell
 
         cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].stat1
         cell.lblStat.sizeToFit()
@@ -33,7 +33,7 @@ class StatisticSummaryTableVC: BaseTableViewController {
             return
         }
 
-        let tempCell = cell as! DailyStatisticCell
+        let tempCell = cell as! DailyActivityStatisticsCell
         let text = tempCell.txtFieldStatValue.text!
 
         //add subscript to properly modelled class and pass an indexPath???
@@ -132,10 +132,10 @@ class StatisticSummaryTableVC: BaseTableViewController {
     }
 }
 
-extension StatisticSummaryTableVC {
+extension DailyActivityStatisticsController {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell: DailyStatisticCell = getCellTextFieldBelongsTo(textField)
+        let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = indexPathIsValidFor(cell: cell) {
             self.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
@@ -145,7 +145,7 @@ extension StatisticSummaryTableVC {
     }
 }
 
-extension StatisticSummaryTableVC {
+extension DailyActivityStatisticsController {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         if indexPath.section == sections.count - 1 && self.sections[indexPath.section].rows.count > 1 {
@@ -172,5 +172,6 @@ extension StatisticSummaryTableVC {
         tableView.reloadData()
     }
 }
+
 
 

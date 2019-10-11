@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0KE-Om-Lvl">
-    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -10,21 +9,21 @@
         <!--Stewy's Stats-->
         <scene sceneID="2TR-5I-iWW">
             <objects>
-                <tableViewController storyboardIdentifier="Main" id="3sL-ZX-mAd" customClass="StatisticSummaryTableVC" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="Main" id="3sL-ZX-mAd" customClass="DailyActivityStatisticsController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gbj-rl-ATY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="K5m-5T-YLh" customClass="DailyStatisticCell" customModule="Stew_s_Stats" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="cell" id="K5m-5T-YLh" customClass="DailyActivityStatisticsCell" customModule="Stew_s_Stats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K5m-5T-YLh" id="FS0-wq-kb3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rTA-E7-atP">
-                                            <rect key="frame" x="190" y="5" width="178" height="34"/>
+                                            <rect key="frame" x="415" y="5" width="178" height="34"/>
                                             <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="178" id="gvo-ne-K9U"/>
@@ -75,18 +74,18 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XPZ-nz-apD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7082" y="152"/>
+            <point key="canvasLocation" x="-8260" y="152"/>
         </scene>
-        <!--Pie Chart Controller-->
+        <!--Daily Activity Pie Chart Controller-->
         <scene sceneID="RyO-0Z-s8m">
             <objects>
-                <viewController id="PmD-wV-lww" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PmD-wV-lww" customClass="DailyActivityPieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pPB-HD-4Qh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Nv-La-d2H" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -108,16 +107,16 @@
             </objects>
             <point key="canvasLocation" x="-4751" y="152"/>
         </scene>
-        <!--Pie Chart Controller-->
+        <!--Daily Activity Pie Chart Controller-->
         <scene sceneID="eQg-eU-qj0">
             <objects>
-                <viewController id="Deg-Ej-adT" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Deg-Ej-adT" customClass="DailyActivityPieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ztd-Or-XPw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wgV-yp-Bt1" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -139,16 +138,16 @@
             </objects>
             <point key="canvasLocation" x="-3006" y="152"/>
         </scene>
-        <!--Pie Chart Controller-->
+        <!--Daily Activity Pie Chart Controller-->
         <scene sceneID="kyM-AP-hGp">
             <objects>
-                <viewController id="k6J-eK-fad" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="k6J-eK-fad" customClass="DailyActivityPieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Lie-VH-79K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gen-ER-q8c" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -170,16 +169,16 @@
             </objects>
             <point key="canvasLocation" x="-4751" y="918"/>
         </scene>
-        <!--Pie Chart Controller-->
+        <!--Daily Activity Pie Chart Controller-->
         <scene sceneID="ZcW-2k-9Aj">
             <objects>
-                <viewController id="jMj-Ol-QXo" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jMj-Ol-QXo" customClass="DailyActivityPieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yYO-W1-1pQ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AwP-Xx-zTe" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -201,16 +200,16 @@
             </objects>
             <point key="canvasLocation" x="-4750" y="-1424"/>
         </scene>
-        <!--Pie Chart Controller-->
+        <!--Daily Activity Pie Chart Controller-->
         <scene sceneID="3U8-iQ-rw1">
             <objects>
-                <viewController id="yoQ-Mn-9YR" customClass="PieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yoQ-Mn-9YR" customClass="DailyActivityPieChartController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7aZ-2m-EBK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i4W-ho-Lco" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="44" width="375" height="574"/>
+                                <rect key="frame" x="0.0" y="44" width="600" height="507"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </view>
                         </subviews>
@@ -249,7 +248,7 @@
                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </userDefinedRuntimeAttribute>
                             <userDefinedRuntimeAttribute type="color" keyPath="selectedImageTintColor">
-                                <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="value" systemColor="opaqueSeparatorColor" red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -263,12 +262,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zrH-em-c1H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6324" y="152"/>
+            <point key="canvasLocation" x="-7434" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YsL-9y-b5c">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0KE-Om-Lvl" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Mainz" automaticallyAdjustsScrollViewInsets="NO" id="0KE-Om-Lvl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y3g-rI-lba">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -285,7 +284,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cac-en-DzE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-7756" y="153"/>
+            <point key="canvasLocation" x="-9055" y="152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="60e-4D-hGx">
@@ -307,7 +306,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j5V-6Y-Ovf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5575" y="-1424"/>
+            <point key="canvasLocation" x="-6649" y="-1232"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EwD-DH-aLZ">
@@ -326,22 +325,22 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="or8-4Q-xjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5575" y="152"/>
+            <point key="canvasLocation" x="-6650" y="152"/>
         </scene>
-        <!--Annual Summary TableVC-->
+        <!--Annual Activity Statistics Controller-->
         <scene sceneID="Cg4-Fs-ouX">
             <objects>
-                <tableViewController id="CSB-lo-tTf" customClass="AnnualSummaryTableVC" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="CSB-lo-tTf" customClass="AnnualActivityStatisticsController" customModule="Stew_s_Stats" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="i81-BE-Zv4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rMe-de-GdG" customClass="AnnualStatisticCell" customModule="Stew_s_Stats" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="rMe-de-GdG" customClass="AnnualActivityStatisticsCell" customModule="Stew_s_Stats" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="600" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rMe-de-GdG" id="cSW-VM-Z8l">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ok6-gg-CbO">
@@ -389,7 +388,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sg9-n1-Pat" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6356" y="-681.40929535232385"/>
+            <point key="canvasLocation" x="-7434" y="-539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="HHk-DV-9RO">
@@ -408,7 +407,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jtM-P8-Q3y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5575" y="-681"/>
+            <point key="canvasLocation" x="-6650" y="-539"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="N0h-1U-anD">
@@ -446,7 +445,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jsT-dC-Anf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5575" y="918"/>
+            <point key="canvasLocation" x="-6650" y="886"/>
         </scene>
     </scenes>
     <resources>

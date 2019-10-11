@@ -13,14 +13,14 @@ import UIKit
 class BaseTableViewControllerTests: XCTestCase {
 
     func test_viewDidLoad_invokingViewDidLoad_addsEditButtonItem() {
-        let sut = BaseTableViewController()
+        let sut = createSystemUnderTest()
         //sut.viewDidLoad()
         
         XCTAssertNotNil(sut.navigationItem.rightBarButtonItem)
     }
     
     func test_numberOfSections_sectionsLeftAsDefault_hasZeroSections() {
-        let sut = BaseTableViewController()
+        let sut = createSystemUnderTest()
         
         let expected = 0
         let actual = sut.numberOfSections(in: UITableView())
@@ -32,7 +32,7 @@ class BaseTableViewControllerTests: XCTestCase {
         let sections: [Section] = [
             Section(name: "S1"), Section(name: "S2"), Section(name: "S3")
         ]
-        let sut = BaseTableViewController()
+        let sut = createSystemUnderTest()
         sut.sections = sections
         
         let expected = sections.count
@@ -42,11 +42,20 @@ class BaseTableViewControllerTests: XCTestCase {
     }
     
     func test_numberOfRowsInSection_zeroByDefault() {
-        let sut = BaseTableViewController()
+        let sut = createSystemUnderTest()
         
         let expected = 0
         let actual = sut.tableView(UITableView(), numberOfRowsInSection: 0)
         
         XCTAssertEqual(expected, actual)
+    }
+}
+
+extension BaseTableViewControllerTests {
+    fileprivate func createSystemUnderTest() -> BaseActivityStatisticsController {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(identifier: "Main") as! BaseActivityStatisticsController
+        
+        return vc
     }
 }

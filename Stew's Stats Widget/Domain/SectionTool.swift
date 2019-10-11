@@ -19,7 +19,7 @@ class SectionTool {
     func getRandomSection() -> Section {
         //get the test data
         //use prefs eventually
-        let data: [Section] = StewsAnnualData().getSeedData()
+        let data: [Section] = AnnualActivityStatisticsSeedData().getSeedData()
         
         //get 1 random section index
         let random1 = Int(arc4random_uniform(UInt32(sections.count - 1)))

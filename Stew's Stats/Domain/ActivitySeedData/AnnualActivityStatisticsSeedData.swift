@@ -1,5 +1,5 @@
 //
-//  StewsAnnualData.swift
+//  AnnualActivityStatisticsSeedData.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 01/10/2019.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class StewsAnnualData: SeedData {
+class AnnualActivityStatisticsSeedData: ActivitySeedData {
     func getSeedData() -> [Section] {
         let section_2014 = Section(name: "2014", rows: [
             Row(stat1: "50", stat2: "900"),

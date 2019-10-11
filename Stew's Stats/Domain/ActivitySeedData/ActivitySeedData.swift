@@ -1,5 +1,5 @@
 //
-//  SeedData.swift
+//  ActivitySeedData.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 29/09/2019.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol SeedData {
+protocol ActivitySeedData {
     func getSeedData() -> [Section]
 }

@@ -9,24 +9,17 @@
 import XCTest
 @testable import Stew_s_Stats
 
-
-
 class FooTest: XCTestCase {
 
     func test_sectionArrayHolds_twoSections() {
-        let sut = SectionTool()
-        let result = sut.getTwoSectionsDescByYear()
-        
-        let expected = 2
-        let actual = result.count
-        
-        XCTAssertEqual(expected, actual)
+        let sut =  StatisticSummaryPresenter()
     }
     
     func test_twoSectionsHeld_sortedYearDesc() {
-        let sut = SectionTool()
-        let result = sut.getTwoSectionsDescByYear()
         
-        XCTAssertGreaterThan(result[0], result[1])
     }
+}
+
+class StatisticSummaryPresenter {
+    
 }

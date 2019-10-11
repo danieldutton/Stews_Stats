@@ -1,5 +1,5 @@
 //
-//  AnnualStatisticCell.swift
+//  AnnualActivityStatisticsCell.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 01/10/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AnnualStatisticCell: UITableViewCell {
+class AnnualActivityStatisticsCell: UITableViewCell {
     
     @IBOutlet weak var txtFieldAnnualActivities: UITextField!
     

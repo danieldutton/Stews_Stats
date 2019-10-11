@@ -1,5 +1,5 @@
 //
-//  DailyStatisticCell.swift
+//  DailyActivityStatisticsCell.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 14/09/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DailyStatisticCell: UITableViewCell {
+class DailyActivityStatisticsCell: UITableViewCell {
 
     @IBOutlet weak var lblStat: UILabel!
     

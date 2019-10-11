@@ -13,7 +13,12 @@ enum UserPrefsKey: String {
     case annualSummary
 }
 
-class Persistance {
+protocol Persister{
+    func retrievePersistedData(_ key: UserPrefsKey) -> [Section]?
+    func persistUserData(tableViewData: [Section], with key: UserPrefsKey) 
+}
+
+class Persistance: Persister {
     
     static let shared = Persistance()
     

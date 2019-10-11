@@ -1,5 +1,5 @@
 //
-//  PieChartController.swift
+//  DailyActivityPieChartController.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 19/09/2019.
@@ -9,7 +9,7 @@
 import Charts
 import UIKit
 
-class PieChartController: UIViewController {
+class DailyActivityPieChartController: UIViewController {
     
     private var sections: [Section]!
 

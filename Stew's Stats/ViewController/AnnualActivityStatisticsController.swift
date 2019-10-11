@@ -1,5 +1,5 @@
 //
-//  AnnualSummaryTableVC.swift
+//  AnnualActivityStatisticsController.swift
 //  Stew's Stats
 //
 //  Created by Daniel Dutton on 29/09/2019.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-class AnnualSummaryTableVC: BaseTableViewController {
+class AnnualActivityStatisticsController: BaseActivityStatisticsController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //consider using factory
-        seedTableViewIfEmpty(.annualSummary, seedData: StewsAnnualData())
+        seedTableViewIfEmpty(.annualSummary, seedData: AnnualActivityStatisticsSeedData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualStatisticCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualActivityStatisticsCell
 
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
@@ -34,7 +34,7 @@ class AnnualSummaryTableVC: BaseTableViewController {
             return
         }
 
-        let tempCell = cell as! AnnualStatisticCell
+        let tempCell = cell as! AnnualActivityStatisticsCell
         let txtActivities = tempCell.txtFieldAnnualActivities.text!
         let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
@@ -86,10 +86,10 @@ class AnnualSummaryTableVC: BaseTableViewController {
     }
 }
 
-extension AnnualSummaryTableVC {
+extension AnnualActivityStatisticsController {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell: AnnualStatisticCell = getCellTextFieldBelongsTo(textField)
+        let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = indexPathIsValidFor(cell: cell) {
             self.sections[indexPath.section].rows[indexPath.row].stat1 = cell.txtFieldAnnualActivities.text!
