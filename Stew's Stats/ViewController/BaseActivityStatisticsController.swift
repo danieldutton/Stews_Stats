@@ -68,7 +68,7 @@ class BaseActivityStatisticsController: UITableViewController {
     func indexPathIsValidFor(cell: UITableViewCell) -> IndexPath? {
         if let sec = self.tableView.indexPath(for: cell)?.section,
         let row = self.tableView.indexPath(for:cell)?.row {
-            return IndexPath(row: sec, section: row)
+            return IndexPath(row: row, section: sec)
         }
         return nil
     }
