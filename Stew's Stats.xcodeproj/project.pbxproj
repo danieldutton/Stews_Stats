@@ -18,10 +18,6 @@
 		CA19811823322EE500F6EDE8 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
 		CA47E1E52347D2D2003D111C /* BaseTableViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E1E42347D2D2003D111C /* BaseTableViewControllerTests.swift */; };
-		CA47E1EC2347E27C003D111C /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA47E1EB2347E27C003D111C /* NotificationCenter.framework */; };
-		CA47E1EF2347E27C003D111C /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA47E1EE2347E27C003D111C /* TodayViewController.swift */; };
-		CA47E1F22347E27C003D111C /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA47E1F02347E27C003D111C /* MainInterface.storyboard */; };
-		CA47E1F62347E27C003D111C /* Stew's Stats Widget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
 		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
@@ -29,14 +25,8 @@
 		CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */; };
 		CA5AEB82234128F6005F4C91 /* AnnualActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */; };
 		CA81BAAA234E49F700EE811A /* BaseActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */; };
-		CA9C5F0C2348C3F20090A807 /* TableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* TableSection.swift */; };
-		CA9C5F0F2348D4510090A807 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* Persistance.swift */; };
 		CAA5F0C52343F1E800DA19FF /* AnnualActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */; };
 		CAAA9996234A0A9200B3DCF1 /* FooTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAAA9995234A0A9200B3DCF1 /* FooTest.swift */; };
-		CAAA9997234A8C9400B3DCF1 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
-		CAAA9998234A8C9B00B3DCF1 /* ActivitySeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */; };
-		CAACD918234B2B0D001771E2 /* SectionTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAACD917234B2B0D001771E2 /* SectionTool.swift */; };
-		CAACD91A234B2B24001771E2 /* SectionPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAACD919234B2B24001771E2 /* SectionPair.swift */; };
 		CAE0291723339A0A002E975E /* DailyActivityPieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* DailyActivityPieChartController.swift */; };
 		CAF525E5234F2887003F1BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C07232D786400DC990D /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -49,27 +39,9 @@
 			remoteGlobalIDString = CA018C03232D786400DC990D;
 			remoteInfo = "Stew's Stats";
 		};
-		CA47E1F42347E27C003D111C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CA018BFC232D786400DC990D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA47E1E92347E27C003D111C;
-			remoteInfo = "Stew's Stats Widget";
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		CA47E1F72347E27C003D111C /* Embed App Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				CA47E1F62347E27C003D111C /* Stew's Stats Widget.appex in Embed App Extensions */,
-			);
-			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CA4DA56C233A25140029393E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -99,11 +71,7 @@
 		CA19811723322EE500F6EDE8 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsSeedData.swift; sourceTree = "<group>"; };
 		CA47E1E42347D2D2003D111C /* BaseTableViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewControllerTests.swift; sourceTree = "<group>"; };
-		CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Stew's Stats Widget.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA47E1EB2347E27C003D111C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
-		CA47E1EE2347E27C003D111C /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		CA47E1F12347E27C003D111C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		CA47E1F32347E27C003D111C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
 		CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColorTemplates.swift; sourceTree = "<group>"; };
 		CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySeedData.swift; sourceTree = "<group>"; };
@@ -111,11 +79,8 @@
 		CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats.entitlements"; sourceTree = "<group>"; };
-		CA9C5F102348D4DC0090A807 /* Stew's Stats Widget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats Widget.entitlements"; sourceTree = "<group>"; };
 		CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsCell.swift; sourceTree = "<group>"; };
 		CAAA9995234A0A9200B3DCF1 /* FooTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooTest.swift; sourceTree = "<group>"; };
-		CAACD917234B2B0D001771E2 /* SectionTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTool.swift; sourceTree = "<group>"; };
-		CAACD919234B2B24001771E2 /* SectionPair.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionPair.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* DailyActivityPieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityPieChartController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,14 +100,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA47E1E72347E27C003D111C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA47E1EC2347E27C003D111C /* NotificationCenter.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -151,7 +108,6 @@
 			children = (
 				CA018C06232D786400DC990D /* Stew's Stats */,
 				CA018C1B232D786600DC990D /* Stew's StatsTests */,
-				CA47E1ED2347E27C003D111C /* Stew's Stats Widget */,
 				CA018C05232D786400DC990D /* Products */,
 				CA499BBC233A2C050013220D /* Frameworks */,
 			);
@@ -162,7 +118,6 @@
 			children = (
 				CA018C04232D786400DC990D /* Stew's Stats.app */,
 				CA018C18232D786600DC990D /* Stew's StatsTests.xctest */,
-				CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -223,19 +178,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CA47E1ED2347E27C003D111C /* Stew's Stats Widget */ = {
-			isa = PBXGroup;
-			children = (
-				CAACD916234B2AED001771E2 /* Model */,
-				CAACD91B234B2B3C001771E2 /* ViewController */,
-				CAACD915234B2AE5001771E2 /* Domain */,
-				CA9C5F102348D4DC0090A807 /* Stew's Stats Widget.entitlements */,
-				CA47E1F02347E27C003D111C /* MainInterface.storyboard */,
-				CA47E1F32347E27C003D111C /* Info.plist */,
-			);
-			path = "Stew's Stats Widget";
-			sourceTree = "<group>";
-		};
 		CA499BBC233A2C050013220D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,30 +223,6 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		CAACD915234B2AE5001771E2 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				CAACD917234B2B0D001771E2 /* SectionTool.swift */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		CAACD916234B2AED001771E2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				CAACD919234B2B24001771E2 /* SectionPair.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		CAACD91B234B2B3C001771E2 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CA47E1EE2347E27C003D111C /* TodayViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -317,12 +235,10 @@
 				CA018C02232D786400DC990D /* Resources */,
 				CA4DA56C233A25140029393E /* Embed Frameworks */,
 				CA499BC0233A2C120013220D /* ShellScript */,
-				CA47E1F72347E27C003D111C /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				CA47E1F52347E27C003D111C /* PBXTargetDependency */,
 			);
 			name = "Stew's Stats";
 			packageProductDependencies = (
@@ -349,23 +265,6 @@
 			productReference = CA018C18232D786600DC990D /* Stew's StatsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CA47E1E92347E27C003D111C /* Stew's Stats Widget */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CA47E1FA2347E27C003D111C /* Build configuration list for PBXNativeTarget "Stew's Stats Widget" */;
-			buildPhases = (
-				CA47E1E62347E27C003D111C /* Sources */,
-				CA47E1E72347E27C003D111C /* Frameworks */,
-				CA47E1E82347E27C003D111C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Stew's Stats Widget";
-			productName = "Stew's Stats Widget";
-			productReference = CA47E1EA2347E27C003D111C /* Stew's Stats Widget.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -382,9 +281,6 @@
 					CA018C17232D786600DC990D = {
 						CreatedOnToolsVersion = 10.3;
 						TestTargetID = CA018C03232D786400DC990D;
-					};
-					CA47E1E92347E27C003D111C = {
-						CreatedOnToolsVersion = 11.0;
 					};
 				};
 			};
@@ -405,7 +301,6 @@
 			targets = (
 				CA018C03232D786400DC990D /* Stew's Stats */,
 				CA018C17232D786600DC990D /* Stew's StatsTests */,
-				CA47E1E92347E27C003D111C /* Stew's Stats Widget */,
 			);
 		};
 /* End PBXProject section */
@@ -425,14 +320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CA47E1E82347E27C003D111C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA47E1F22347E27C003D111C /* MainInterface.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -491,20 +378,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		CA47E1E62347E27C003D111C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA9C5F0C2348C3F20090A807 /* TableSection.swift in Sources */,
-				CA47E1EF2347E27C003D111C /* TodayViewController.swift in Sources */,
-				CAAA9998234A8C9B00B3DCF1 /* ActivitySeedData.swift in Sources */,
-				CAACD918234B2B0D001771E2 /* SectionTool.swift in Sources */,
-				CAACD91A234B2B24001771E2 /* SectionPair.swift in Sources */,
-				CA9C5F0F2348D4510090A807 /* Persistance.swift in Sources */,
-				CAAA9997234A8C9400B3DCF1 /* AnnualActivityStatisticsSeedData.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -512,11 +385,6 @@
 			isa = PBXTargetDependency;
 			target = CA018C03232D786400DC990D /* Stew's Stats */;
 			targetProxy = CA018C19232D786600DC990D /* PBXContainerItemProxy */;
-		};
-		CA47E1F52347E27C003D111C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA47E1E92347E27C003D111C /* Stew's Stats Widget */;
-			targetProxy = CA47E1F42347E27C003D111C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -535,14 +403,6 @@
 				CA018C11232D786600DC990D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		CA47E1F02347E27C003D111C /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA47E1F12347E27C003D111C /* Base */,
-			);
-			name = MainInterface.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -667,11 +527,10 @@
 		CA018C22232D786600DC990D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Stew's Stats/Stew's Stats.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
+				DEVELOPMENT_TEAM = 76BSGUF375;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -682,7 +541,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.danbdutton.StewsStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -692,11 +551,10 @@
 		CA018C23232D786600DC990D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Stew's Stats/Stew's Stats.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
+				DEVELOPMENT_TEAM = 76BSGUF375;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -707,7 +565,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats";
+				PRODUCT_BUNDLE_IDENTIFIER = co.uk.danbdutton.StewsStats;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -719,8 +577,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
+				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's StatsTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -730,6 +590,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-StatsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stew's Stats.app/Stew's Stats";
@@ -741,8 +603,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
+				DEVELOPMENT_TEAM = 76BSGUF375;
 				INFOPLIST_FILE = "Stew's StatsTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -752,49 +616,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-StatsTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stew's Stats.app/Stew's Stats";
-			};
-			name = Release;
-		};
-		CA47E1F82347E27C003D111C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Stew's Stats Widget/Stew's Stats Widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
-				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats.Stew-s-Stats-Widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Debug;
-		};
-		CA47E1F92347E27C003D111C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = "Stew's Stats Widget/Stew's Stats Widget.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HE7PQVU2ZD;
-				INFOPLIST_FILE = "Stew's Stats Widget/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "co.uk.danbdutton.Stew-s-Stats.Stew-s-Stats-Widget";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -824,15 +650,6 @@
 			buildConfigurations = (
 				CA018C25232D786600DC990D /* Debug */,
 				CA018C26232D786600DC990D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CA47E1FA2347E27C003D111C /* Build configuration list for PBXNativeTarget "Stew's Stats Widget" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA47E1F82347E27C003D111C /* Debug */,
-				CA47E1F92347E27C003D111C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -13,7 +13,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        seedTableViewIfEmpty(.dailySummary, seedData: AnnualActivityStatisticsSeedData())
+        seedTableViewIfEmpty(.dailySummary, seedData: DailyActivityStatisticsSeedData())
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
