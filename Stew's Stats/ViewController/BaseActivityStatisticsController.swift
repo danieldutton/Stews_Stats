@@ -20,8 +20,8 @@ class BaseActivityStatisticsController: UITableViewController {
         
         addEditButtonItemToRightOfNavBar()
     }
-    
-    internal func addEditButtonItemToRightOfNavBar() {
+    //Signed off
+    private  func addEditButtonItemToRightOfNavBar() {
         navigationItem.rightBarButtonItem = editButtonItem
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
     }
@@ -35,18 +35,22 @@ class BaseActivityStatisticsController: UITableViewController {
         }
     }
 
+    //Signed off
     override func numberOfSections(in tableView: UITableView) -> Int {
         sections.count
     }
     
+    //Signed Off
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         sections[section].rows.count
     }
     
+    //Signed Off
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         sections[section].name
     }
     
+    //Signed Off
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
         nil
     }
@@ -61,6 +65,7 @@ class BaseActivityStatisticsController: UITableViewController {
         return .none
     }
     
+    //Signed Off
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         false
     }
@@ -74,14 +79,17 @@ class BaseActivityStatisticsController: UITableViewController {
     }
 }
 
+//Signed Off
 extension BaseActivityStatisticsController: UITextFieldDelegate {
     
+    //Signed Off
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.endEditing(true)
 
         return false
     }
     
+    //Signed Off
     internal func getCellTextFieldBelongsTo<T: UITableViewCell>(_ textField: UITextField) -> T {
         var v : UIView = textField
         
