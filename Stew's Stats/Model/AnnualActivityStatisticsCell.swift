@@ -1,11 +1,3 @@
-//
-//  AnnualActivityStatisticsCell.swift
-//  Stew's Stats
-//
-//  Created by Daniel Dutton on 01/10/2019.
-//  Copyright © 2019 Daniel Dutton. All rights reserved.
-//
-
 import UIKit
 
 class AnnualActivityStatisticsCell: UITableViewCell {

@@ -1,11 +1,3 @@
-//
-//  AnnualActivityStatisticsController.swift
-//  Stew's Stats
-//
-//  Created by Daniel Dutton on 29/09/2019.
-//  Copyright © 2019 Daniel Dutton. All rights reserved.
-//
-
 import UIKit
 
 class AnnualActivityStatisticsController: BaseActivityStatisticsController {
@@ -13,8 +5,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //consider using factory
-        seedTableViewIfEmpty(.annualSummary, seedData: AnnualActivityStatisticsSeedData())
+        self.sections = persistance.retrievePersistedData(.annualSummary)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

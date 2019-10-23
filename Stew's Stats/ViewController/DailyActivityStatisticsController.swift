@@ -1,11 +1,3 @@
-//
-//  DailyActivityStatisticsController.swift
-//  Stew's Stats
-//
-//  Created by Daniel Dutton on 14/09/2019.
-//  Copyright © 2019 Daniel Dutton. All rights reserved.
-//
-
 import UIKit
 
 class DailyActivityStatisticsController: BaseActivityStatisticsController {
@@ -13,7 +5,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        seedTableViewIfEmpty(.dailySummary, seedData: DailyActivityStatisticsSeedData())
+        self.sections = persistance.retrievePersistedData(.dailySummary)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

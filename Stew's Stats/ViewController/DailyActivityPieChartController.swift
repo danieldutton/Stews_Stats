@@ -1,11 +1,3 @@
-//
-//  DailyActivityPieChartController.swift
-//  Stew's Stats
-//
-//  Created by Daniel Dutton on 19/09/2019.
-//  Copyright © 2019 Daniel Dutton. All rights reserved.
-//
-
 import Charts
 import UIKit
 
@@ -13,7 +5,7 @@ class DailyActivityPieChartController: UIViewController {
     
     private var sections: [Section]!
 
-    var persistance = Persistance.shared
+    var persistance = StatisticsCacher()
     
     @IBOutlet weak var pieChartView: PieChartView!
 
