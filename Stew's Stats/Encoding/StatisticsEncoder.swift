@@ -16,8 +16,9 @@ class StatisticsEncoder {
     
     func persist(statistics: Statistics) throws {
         do {
-            let encoded = try jsonEncoder.encode(statistics)
-            userDefaults.set(encoded, forKey: statistics.saveKey!.rawValue)
+            let encodedStats = try jsonEncoder.encode(statistics)
+            
+            userDefaults.set(encodedStats, forKey: statistics.saveKey!.rawValue)
         } catch {
             throw StatisticsSaveError.saveFailed
         }

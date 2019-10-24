@@ -1,18 +1,20 @@
 import Charts
 import UIKit
 
+//what about extending from table view controller
 class DailyActivityPieChartController: UIViewController {
     
-    private var sections: [Section]!
+    private var statistics: Statistics!
 
-    var persistance = StatisticsCacher()
+    var statsRepo = StatisticsRepository()
     
     @IBOutlet weak var pieChartView: PieChartView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.sections = persistance.retrievePersistedData(.dailySummary)
+
+        //deal with the try
+        try! self.statistics = statsRepo.getStatistics(.daily)
 
         updateChartData(with: tabBarController!.selectedIndex)
     }
@@ -21,8 +23,8 @@ class DailyActivityPieChartController: UIViewController {
         //remove the view already there.  are we overlaying views.  memory problems etc
         pieChartView.clear()
         // 2. generate chart data entries
-        let statType = sections[section].rows.map {$0.stat1}
-        let statValue = sections[section].rows.map{Double($0.stat2)!}
+        let statType = self.statistics.sections[section].rows.map {$0.stat1}
+        let statValue = self.statistics.sections[section].rows.map{Double($0.stat2)!}
         
         var entries = [PieChartDataEntry]()
         for (index, value) in statValue.enumerated() {

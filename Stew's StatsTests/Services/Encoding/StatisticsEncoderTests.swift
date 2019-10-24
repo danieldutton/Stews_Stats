@@ -3,136 +3,100 @@ import XCTest
 
 class StatisticsEncoderTests: XCTestCase {
 
-    func test_persist_encodeIsCalled_exactlyOnce() {
-        let mockUserDefaults = FakeUserDefaults()
+    func test_encodeMethodShouldBeCalledOnce() {
+        let stubUserDefaults = FakeUserDefaults()
         let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
         
         let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
+            userDefaults: stubUserDefaults,
             jsonEncoder: mockJsonEncoder
         )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected = 1
-        let actual = mockJsonEncoder.encodeCallCount
-        
-        XCTAssertEqual(expected, actual)
+
+        try! sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual(1, mockJsonEncoder.encodeCallCount)
     }
     
-    func test_persist_encodeIsCalled_withCorrectType() {
-        let mockUserDefaults = FakeUserDefaults()
+    func test_encodeMethodShouldBeCalledWithTheStatisticsDataType() {
+        let stubUserDefaults = FakeUserDefaults()
         let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
         
         let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
+            userDefaults: stubUserDefaults,
             jsonEncoder: mockJsonEncoder
         )
         
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
+        try! sut.persist(statistics: testStatistics)
         
         XCTAssertTrue(mockJsonEncoder.value is Statistics)
     }
 
-    func test_persist_encodeIsCalled_withCorrectStatistics() {
+    func test_encodeMethodShouldBeCalledWithCorrectStatisticsValues() {
         let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
         
         let sut = StatisticsEncoder(
             userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
+            jsonEncoder: stubJsonEncoder
         )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected = statistics
-        let actual = mockJsonEncoder.value as! Statistics
-        
-        XCTAssertEqual(expected, actual)
-    }
-    
-    func test_persist_encodeCallSucceedsWithoutError_setIsCalledExactlyOnce() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
-        
-        let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
-        )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected = 1
-        let actual = mockUserDefaults.setCount
-        
-        XCTAssertEqual(expected, actual)
-    }
-    
-    func test_persist_encodeCallSucceedsWithoutError_setIsCalledWithCorrectData() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
-        
-        let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
-        )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected =  Data(capacity: 10)
-        let actual = mockUserDefaults.value as! Data
-        
-        XCTAssertEqual(expected,actual)
-    }
-    
-    func test_persist_encodeCallSucceedsWithoutError_setIsCalledWithCorrectKey() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
-        
-        let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
-        )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected = "dailySummary"
-        let actual = mockUserDefaults.forKey
-        
-        XCTAssertEqual(expected, actual)
-    }
-    
-    func test_persist_encodeCallFailsWithError_saveFailedErrorIsThrown() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: true)
-        
-        let sut = StatisticsEncoder(
-            userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
-        )
-        
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
 
-        XCTAssertThrowsError(try sut.persist(statistics: statistics), "") { error in
+        try! sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual(testStatistics, stubJsonEncoder.value as! Statistics)
+    }
+
+    func test_setMethodShouldBeCalledOnceIfEncodeMethodCallSucceedsWithoutError() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
+        
+        let sut = StatisticsEncoder(
+            userDefaults: mockUserDefaults,
+            jsonEncoder: stubJsonEncoder
+        )
+
+        try! sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual(1, mockUserDefaults.setCount)
+    }
+
+    func test_setMethodShouldBeCalledWithEncodeResultIfEncodeMethodCallSucceedsWithoutError() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
+        
+        let sut = StatisticsEncoder(
+            userDefaults: mockUserDefaults,
+            jsonEncoder: stubJsonEncoder
+        )
+
+        try! sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual(Data(capacity: 10), mockUserDefaults.value as! Data)
+    }
+    
+    func test_setMethodShouldBeCalledWithCorrectForKeyIfEncodeMethodCallSucceedsWithoutError() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: false)
+        
+        let sut = StatisticsEncoder(
+            userDefaults: mockUserDefaults,
+            jsonEncoder: stubJsonEncoder
+        )
+
+        try! sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual("daily", mockUserDefaults.forKey)
+    }
+
+    func test_aSaveFailedErrorShouldBeThrownIfEncodeMethodCallFailsAndThrows() {
+        let stubUserDefaults = FakeUserDefaults()
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: true)
+        
+        let sut = StatisticsEncoder(
+            userDefaults: stubUserDefaults,
+            jsonEncoder: stubJsonEncoder
+        )
+
+        XCTAssertThrowsError(try sut.persist(statistics: testStatistics), "") { error in
             let expected = StatisticsEncoder.StatisticsSaveError.saveFailed
             let actual = error as! StatisticsEncoder.StatisticsSaveError
             
@@ -140,24 +104,30 @@ class StatisticsEncoderTests: XCTestCase {
         }
     }
     
-    func test_persist_encodeCallFailsWithError_setIsNeverCalled() {
+    func test_setMethodShouldNeverBeCalledIfEncodeMethodCallFailsAndThrows() {
         let mockUserDefaults = FakeUserDefaults()
-        let mockJsonEncoder = FakeJSONEncoder(throwsEncodeError: true)
+        let stubJsonEncoder = FakeJSONEncoder(throwsEncodeError: true)
         
         let sut = StatisticsEncoder(
             userDefaults: mockUserDefaults,
-            jsonEncoder: mockJsonEncoder
+            jsonEncoder: stubJsonEncoder
         )
+
+        try? sut.persist(statistics: testStatistics)
+
+        XCTAssertEqual(0, mockUserDefaults.setCount)
+    }
+}
+
+extension StatisticsEncoderTests {
+    private var testStatistics: Statistics {
+        let rows = [
+            Row(stat1: "Row1-stat1", stat2: "Row1-stat2"),
+            Row(stat1: "Row2-stat1", stat2: "Row2-stat2"),
+        ]
+        let sections = [Section(name: "Section 1", rows: rows)]
         
-        let sections = [Section(name: "Section 1", rows: [Row(stat1: "Row1-stat1", stat2: "Row1-stat2")])]
-        let statistics = Statistics(saveKey: .dailySummary, sections: sections)
-        
-        try? sut.persist(statistics: statistics)
-        
-        let expected = 0
-        let actual = mockUserDefaults.setCount
-        
-        XCTAssertEqual(expected, actual)
+        return Statistics(saveKey: .daily, sections: sections)
     }
 }
 

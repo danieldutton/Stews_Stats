@@ -3,16 +3,16 @@ import XCTest
 
 class StatisticsDecoderTests: XCTestCase {
 
-    func test_retrive_dataIsCalled_exactlyOnce() {
+    func test_dataMethodShouldBeCalledOnce() {
         let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        let stubJSONDecoder = FakeJSONDecoder(throwsDecodeError: false)
         
         let sut = StatisticsDecoder(
             userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
+            jsonDecoder: stubJSONDecoder
         )
         
-        _ = try! sut.retrieve(.dailySummary)
+        _ = try! sut.retrieve(.daily)
         
         let expected = 1
         let actual = mockUserDefaults.dataCallCount
@@ -20,35 +20,117 @@ class StatisticsDecoderTests: XCTestCase {
         XCTAssertEqual(expected, actual)
     }
     
-    func test_retrieve_dataIsCalled_withCorrectKey() {
+    func test_dataMethodShouldBeCalledWithCorrectKey() {
         let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        let stubJSONDecoder = FakeJSONDecoder(throwsDecodeError: false)
         
         let sut = StatisticsDecoder(
             userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
+            jsonDecoder: stubJSONDecoder
         )
         
-        _ = try! sut.retrieve(.dailySummary)
+        _ = try! sut.retrieve(.daily)
         
-        let expected = "dailySummary"
+        let expected = "daily"
         let actual = mockUserDefaults.forKey
         
         XCTAssertEqual(expected, actual)
     }
     
-    func test_retrieve_dataCallIsNil_retrievalFailedErrowThrown() {
-        let mockUserDefaults = FakeUserDefaults()
-        mockUserDefaults.dataToReturn = nil
+    func test_decodeMethodShouldBeCalledOnceIfDataCallSucceedsWithoutError() {
+        let stubUserDefaults = FakeUserDefaults()
+        let mockJSONDecoder = FakeJSONDecoder(throwsDecodeError: false)
         
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        let sut = StatisticsDecoder(
+            userDefaults: stubUserDefaults,
+            jsonDecoder: mockJSONDecoder
+        )
+        
+        _ = try! sut.retrieve(.daily)
+        
+        let expected = 1
+        let actual = mockJSONDecoder.decodeCallCount
+        
+        XCTAssertEqual(expected, actual)
+    }
+    
+    //test_decodeMethodShouldBeCalledWithTheCorrectType
+    func test_decodeMethodShouldBeCalledWithCorrectType() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
         
         let sut = StatisticsDecoder(
             userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
+            jsonDecoder: stubJsonDecoder
+        )
+        
+        _ = try! sut.retrieve(.daily)
+        
+        XCTAssertTrue(stubJsonDecoder.type is Statistics)
+        
+        //complete
+    }
+    
+    func test_decodeMethodShouldBeCalledWithCorrectData() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        
+        let sut = StatisticsDecoder(
+            userDefaults: mockUserDefaults,
+            jsonDecoder: stubJsonDecoder
+        )
+        
+        _ = try! sut.retrieve(.daily)
+        
+        let expected = Data(capacity: 10)
+        
+        
+        //complete
+    }
+    
+    func test_decodeMethodShouldReturnCorrectStatisticsIfItSucceedsWithoutError() {
+        let mockUserDefaults = FakeUserDefaults()
+        let stubJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+               
+        let sut = StatisticsDecoder(
+            userDefaults: mockUserDefaults,
+            jsonDecoder: stubJsonDecoder
+        )
+        
+        _ = try! sut.retrieve(.daily)
+        
+        //complete
+    }
+    
+    func test_retrieve_decodeFailsWithError_correctErrorThrown() {
+       let stubUserDefaults = FakeUserDefaults()
+       let stubJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+               
+        let sut = StatisticsDecoder(
+            userDefaults: stubUserDefaults,
+            jsonDecoder: stubJsonDecoder
+        )
+        
+        XCTAssertThrowsError(try sut.retrieve(.daily), "") { error in
+        let expected = StatisticsDecoder.UserPreferenceError.retrievalFailed
+            let actual = error as! StatisticsDecoder.UserPreferenceError
+            
+            XCTAssertEqual(expected, actual)
+        }
+    }
+    
+    func test_retrieve_dataCallIsNil_retrievalFailedErrowThrown() {
+        let stubUserDefaults = FakeUserDefaults()
+        stubUserDefaults.dataToReturn = nil
+        
+        let stubJSONDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        
+        let sut = StatisticsDecoder(
+            userDefaults: stubUserDefaults,
+            jsonDecoder: stubJSONDecoder
         )
 
-       XCTAssertThrowsError(try sut.retrieve(.dailySummary), "") { error in
+       XCTAssertThrowsError(try sut.retrieve(.daily), "") { error in
         let expected = StatisticsDecoder.UserPreferenceError.retrievalFailed
             let actual = error as! StatisticsDecoder.UserPreferenceError
             
@@ -57,97 +139,27 @@ class StatisticsDecoderTests: XCTestCase {
     }
     
     func test_retrieve_dataCallIsNil_decodeIsNeverCalled() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
+        let stubUserDefaults = FakeUserDefaults()
+        let mockJSONDecoder = FakeJSONDecoder(throwsDecodeError: false)
                
         let sut = StatisticsDecoder(
-                userDefaults: mockUserDefaults,
-                jsonDecoder: mockJsonDecoder
+                userDefaults: stubUserDefaults,
+                jsonDecoder: mockJSONDecoder
         )
                
-        _ = try! sut.retrieve(.dailySummary)
+        _ = try! sut.retrieve(.daily)
                
         let expected = 1
-        let actual = mockJsonDecoder.decodeCallCount
+        let actual = mockJSONDecoder.decodeCallCount
                
         XCTAssertEqual(expected, actual)
-    }
-    
-    func test_retrieve_dataCallSucceedsWithoutError_decodeIsCalledExactlyOnce() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
-        
-        let sut = StatisticsDecoder(
-            userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
-        )
-        
-        _ = try! sut.retrieve(.dailySummary)
-        
-        let expected = 1
-        let actual = mockJsonDecoder.decodeCallCount
-        
-        XCTAssertEqual(expected, actual)
-    }
-    
-    func test_retrieve_dataCallSucceedsWithoutError_decodeIsCalledWithCorrectType() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
-        
-        let sut = StatisticsDecoder(
-            userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
-        )
-        
-        _ = try! sut.retrieve(.dailySummary)
-    }
-    
-    func test_retrieve_dataCallSucceedsWithoutError_decodeIsCalledWithCorrectData() {
-        let mockUserDefaults = FakeUserDefaults()
-        let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
-        
-        let sut = StatisticsDecoder(
-            userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
-        )
-        
-        _ = try! sut.retrieve(.dailySummary)
-    }
-    
-    func test_retrieve_decodeCallSucceedsWithoutError_decodeReturnsCorrectStatistics() {
-        let mockUserDefaults = FakeUserDefaults()
-               let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
-               
-        let sut = StatisticsDecoder(
-            userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
-        )
-        
-        _ = try! sut.retrieve(.dailySummary)
-    }
-    
-    func test_retrieve_decodeFailsWithError_correctErrorThrown() {
-       let mockUserDefaults = FakeUserDefaults()
-               let mockJsonDecoder = FakeJSONDecoder(throwsDecodeError: false)
-               
-        let sut = StatisticsDecoder(
-            userDefaults: mockUserDefaults,
-            jsonDecoder: mockJsonDecoder
-        )
-        
-        XCTAssertThrowsError(try sut.retrieve(.dailySummary), "") { error in
-        let expected = StatisticsDecoder.UserPreferenceError.retrievalFailed
-            let actual = error as! StatisticsDecoder.UserPreferenceError
-            
-            XCTAssertEqual(expected, actual)
-        }
     }
 }
 
 class FakeJSONDecoder: JSONDecoder {
     var decodeCallCount = 0
     var type: Decodable.Type!
-    var data: Data!
+    var data: Decodable!
     var throwsDecodeError = false
     
     init(throwsDecodeError: Bool) {
@@ -163,7 +175,7 @@ class FakeJSONDecoder: JSONDecoder {
             throw TestError.anyOldError
         }
         
-        return Statistics(saveKey: .dailySummary, sections: [Section(name: "Section 1", rows: [])]) as! T
+        return Statistics(saveKey: .daily, sections: [Section(name: "Section 1", rows: [])]) as! T
     }
     
     enum TestError: Error {

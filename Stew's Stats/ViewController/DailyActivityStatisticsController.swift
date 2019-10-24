@@ -5,17 +5,28 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.sections = persistance.retrievePersistedData(.dailySummary)
+        self.statistics = try! statisticsRepo.getStatistics(.daily)
+        //save them for now so pie charts work
+        //deal with the try
+        try! self.statisticsRepo.save(statistics: statistics)
+    }
+    
+    func doStuff() {
+        do {
+            try self.statisticsRepo.save(statistics: statistics)
+        } catch {
+            self.statistics = StatisticsFactory().getStatistics(key: .daily)
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyActivityStatisticsCell
 
-        cell.lblStat.text = sections[indexPath.section].rows[indexPath.row].stat1
+        cell.lblStat.text = statistics.sections[indexPath.section].rows[indexPath.row].stat1
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = sections[indexPath.section].rows[indexPath.row].stat2
+        cell.txtFieldStatValue.text = statistics.sections[indexPath.section].rows[indexPath.row].stat2
         
         return cell
     }
@@ -29,7 +40,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         let text = tempCell.txtFieldStatValue.text!
 
         //add subscript to properly modelled class and pass an indexPath???
-        self.sections[indexPath.section].rows[indexPath.row].stat2 = text
+        self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = text
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -37,16 +48,17 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         
         func addNewLocationRow(_ location: String) {
             //indexPath.section was prev hardcoded 5
-            self.sections[indexPath.section].rows[indexPath.row].stat1 = location
-            self.sections[indexPath.section].rows[indexPath.row].stat2 = "0"
-            let ct = sections[indexPath.section].rows.count
+            self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = location
+            self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = "0"
+            let ct = statistics.sections[indexPath.section].rows.count
 
             tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: ct-1, section: sections.count - 1)], with: .automatic)
-                tableView.reloadRows(at: [IndexPath(row: ct-1, section: sections.count - 1)], with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: ct-1, section: statistics.sections.count - 1)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: ct-1, section: statistics.sections.count - 1)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
-                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
+                //deal with the try
+                try! self.statisticsRepo.save(statistics: self.statistics)
             }
         }
         
@@ -56,17 +68,18 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard indexPath.section == sections.count - 1 else {
+        guard indexPath.section == statistics.sections.count - 1 else {
             return UISwipeActionsConfiguration(actions: [])
         }
         
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
 
             self.tableView.performBatchUpdates({
-                self.sections[indexPath.section].rows.remove(at: indexPath.row)
+                self.statistics.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
+                //try! deal with
+                try! self.statisticsRepo.save(statistics: self.statistics)
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -89,16 +102,16 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            self.sections[5].rows.append(Row(stat1: location, stat2: "0"))
+            self.statistics.sections[5].rows.append(Row(stat1: location, stat2: "0"))
 
             tableView.performBatchUpdates({
-                let indexPathInsert = IndexPath(row: sections[5].rows.count - 1, section: 5)
+                let indexPathInsert = IndexPath(row: statistics.sections[5].rows.count - 1, section: 5)
                 tableView.insertRows(at: [indexPathInsert], with: .automatic)
-                let indexPathReload = IndexPath(row: sections[5].rows.count - 2, section: 5)
+                let indexPathReload = IndexPath(row: statistics.sections[5].rows.count - 2, section: 5)
                 tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
-                self.persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
-                let indexPathScrollTo = IndexPath(row: self.sections[5].rows.count - 1, section: 5)
+                try! self.statisticsRepo.save(statistics: self.statistics)
+                let indexPathScrollTo = IndexPath(row: self.statistics.sections[5].rows.count - 1, section: 5)
                 self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
         }
@@ -130,9 +143,10 @@ extension DailyActivityStatisticsController {
         let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = indexPathIsValidFor(cell: cell) {
-            self.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
+            self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
 
-            persistance.persistUserData(tableViewData: self.sections, with: .dailySummary)
+            //deal with the try here
+            try! statisticsRepo.save(statistics: self.statistics)
         }
     }
 }
@@ -140,7 +154,7 @@ extension DailyActivityStatisticsController {
 extension DailyActivityStatisticsController {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == sections.count - 1 && self.sections[indexPath.section].rows.count > 1 {
+        if indexPath.section == statistics.sections.count - 1 && self.statistics.sections[indexPath.section].rows.count > 1 {
             return true
         }
         return false
@@ -149,17 +163,18 @@ extension DailyActivityStatisticsController {
      override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         tableView.endEditing(true)
         
-        if proposedDestinationIndexPath.section != sections.count - 1 {
-            return IndexPath(row: 0, section: sections.count - 1)
+        if proposedDestinationIndexPath.section != statistics.sections.count - 1 {
+            return IndexPath(row: 0, section: statistics.sections.count - 1)
         }
         return proposedDestinationIndexPath
     }
 
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let locationRow = sections[5].rows.remove(at: sourceIndexPath.row)
-        sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
+        let locationRow = statistics.sections[5].rows.remove(at: sourceIndexPath.row)
+        statistics.sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
 
-        persistance.persistUserData(tableViewData: sections, with: .dailySummary)
+        //deal with the error here
+        try! statisticsRepo.save(statistics: self.statistics)
 
         tableView.reloadData()
     }

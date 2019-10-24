@@ -17,10 +17,11 @@
 		CA181D8A2360755800A06A81 /* StatisticsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA181D892360755800A06A81 /* StatisticsDecoder.swift */; };
 		CA181D8C2360762E00A06A81 /* StatisticsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA181D8B2360762E00A06A81 /* StatisticsDecoderTests.swift */; };
 		CA19811323322C6700F6EDE8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* Statistics.swift */; };
-		CA19811823322EE500F6EDE8 /* StatisticsCacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* StatisticsCacher.swift */; };
+		CA19811823322EE500F6EDE8 /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811723322EE500F6EDE8 /* StatisticsReport.swift */; };
 		CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
 		CA499BBE233A2C050013220D /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; };
 		CA499BBF233A2C050013220D /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CA499BBD233A2C050013220D /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CA4CDF1F2360E1A8008B0E33 /* StatisticsFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CDF1E2360E1A8008B0E33 /* StatisticsFactoryTests.swift */; };
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
 		CA5AEB7E2340EC8A005F4C91 /* ActivitySeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */; };
 		CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */; };
@@ -74,10 +75,11 @@
 		CA181D892360755800A06A81 /* StatisticsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDecoder.swift; sourceTree = "<group>"; };
 		CA181D8B2360762E00A06A81 /* StatisticsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsDecoderTests.swift; path = ../Services/Encoding/StatisticsDecoderTests.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		CA19811723322EE500F6EDE8 /* StatisticsCacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCacher.swift; sourceTree = "<group>"; };
+		CA19811723322EE500F6EDE8 /* StatisticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsReport.swift; sourceTree = "<group>"; };
 		CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsSeedData.swift; sourceTree = "<group>"; };
 		CA47E1EB2347E27C003D111C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		CA499BBD233A2C050013220D /* Charts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Charts.framework; path = Carthage/Build/iOS/Charts.framework; sourceTree = "<group>"; };
+		CA4CDF1E2360E1A8008B0E33 /* StatisticsFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFactoryTests.swift; sourceTree = "<group>"; };
 		CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColorTemplates.swift; sourceTree = "<group>"; };
 		CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitySeedData.swift; sourceTree = "<group>"; };
 		CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatisticsSeedData.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				CA11570D2360C57D007687F5 /* StatisticsRepositoryTests.swift */,
+				CA4CDF1E2360E1A8008B0E33 /* StatisticsFactoryTests.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -245,7 +248,7 @@
 		CA5AEB7B2340EBD7005F4C91 /* ActivityPersistance */ = {
 			isa = PBXGroup;
 			children = (
-				CA19811723322EE500F6EDE8 /* StatisticsCacher.swift */,
+				CA19811723322EE500F6EDE8 /* StatisticsReport.swift */,
 			);
 			path = ActivityPersistance;
 			sourceTree = "<group>";
@@ -425,7 +428,7 @@
 				CA5AEB7E2340EC8A005F4C91 /* ActivitySeedData.swift in Sources */,
 				CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */,
 				CA018C28232D790300DC990D /* DailyActivityStatisticsController.swift in Sources */,
-				CA19811823322EE500F6EDE8 /* StatisticsCacher.swift in Sources */,
+				CA19811823322EE500F6EDE8 /* StatisticsReport.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* Statistics.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -439,6 +442,7 @@
 				CAF525E5234F2887003F1BD1 /* AppDelegate.swift in Sources */,
 				CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */,
 				CA11570E2360C57D007687F5 /* StatisticsRepositoryTests.swift in Sources */,
+				CA4CDF1F2360E1A8008B0E33 /* StatisticsFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

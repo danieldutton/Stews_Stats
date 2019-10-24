@@ -1,10 +1,8 @@
-struct Statistics: Codable, Equatable {
-    var saveKey: UserPrefsKey? = nil
+import Foundation
+
+struct Statistics: Codable {
+    var saveKey: StatisticsReport? = nil
     var sections: [Section]
-    
-    private enum CodingKeys: String, CodingKey {
-        case sections
-    }
 }
 
 struct Row: Codable, Equatable {
@@ -12,14 +10,19 @@ struct Row: Codable, Equatable {
     var stat2: String
 }
 
-struct Section: Codable, Equatable {
-    static func == (lhs: Section, rhs: Section) -> Bool {
-        return lhs.name == rhs.name && lhs.rows == rhs.rows
-    }
-    
+struct Section: Codable, Equatable  {
     var name: String
     var rows: [Row] = []
 }
+
+extension Statistics: Equatable {
+    static func == (lhs: Statistics, rhs: Statistics) -> Bool {
+        return lhs.saveKey == rhs.saveKey &&
+            lhs.sections == rhs.sections
+    }
+}
+
+
 
 
 

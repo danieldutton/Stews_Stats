@@ -2,10 +2,11 @@ import UIKit
 
 class BaseActivityStatisticsController: UITableViewController {
     
-    internal var sections: [Section] = []
+    internal var statistics: Statistics!
     
-    internal var persistance = StatisticsCacher()
+    internal var statisticsRepo = StatisticsRepository()
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,15 +19,15 @@ class BaseActivityStatisticsController: UITableViewController {
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        sections.count
+        statistics.sections.count
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        sections[section].rows.count
+        statistics.sections[section].rows.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        sections[section].name
+        statistics.sections[section].name
     }
     
     override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
@@ -34,7 +35,7 @@ class BaseActivityStatisticsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == sections.count - 1 {
+        if indexPath.section == statistics.sections.count - 1 {
             let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
             if rows - 1 == indexPath.row {
                 return .insert
