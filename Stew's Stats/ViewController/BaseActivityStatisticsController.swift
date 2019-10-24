@@ -49,13 +49,40 @@ class BaseActivityStatisticsController: UITableViewController {
     }
 }
 
-extension UITableView {
-    func indexPathIsValidFor(cell: UITableViewCell) -> IndexPath? {
-        if let sec = self.indexPath(for: cell)?.section,
-        let row = self.indexPath(for:cell)?.row {
-            return IndexPath(row: row, section: sec)
+extension BaseActivityStatisticsController {
+    
+    func retrieveSavedStatistics(key: StatisticsReport) {
+        do {
+            try self.statistics = statisticsRepo.getStatistics(key)
+        } catch {
+            displayStatisticsRetrievalFailedErrorMessage()
         }
-        return nil
+    }
+    
+    func displayStatisticsRetrievalFailedErrorMessage() {
+        let controller = UIAlertController(title: "Oops!, Statistics Retrieval Failed", message: "Using placeholder data.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        
+        present(controller, animated: true)
+    }
+    
+    func saveCurrentStatistics() {
+        do {
+            try statisticsRepo.save(statistics: self.statistics)
+        } catch {
+            displayStatisticsSaveFailedErrorMessage()
+        }
+    }
+    
+    func displayStatisticsSaveFailedErrorMessage() {
+        let controller = UIAlertController(title: "Oops!, Failed to Save Statistics", message: "Please try again.", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        controller.addAction(okAction)
+        
+        present(controller, animated: true)
     }
 }
 

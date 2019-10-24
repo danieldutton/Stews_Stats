@@ -5,8 +5,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        //deal with try
-        try! self.statistics = statisticsRepo.getStatistics(.annual)
+        retrieveSavedStatistics(key: .annual)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -30,7 +29,6 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         let txtActivities = tempCell.txtFieldAnnualActivities.text!
         let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
-        //add subscript to properly modelled class and pass an indexPath???
         self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = txtActivities
         self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = txtMiles
     }
@@ -51,8 +49,8 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
             //consider insert sections
             //use performbatchupdates
             tableView.insertSections(indexSet, with: .automatic)
-            //deal with the try
-            try! statisticsRepo.save(statistics: self.statistics)
+
+            saveCurrentStatistics()
         }
     }
     
@@ -68,7 +66,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
                 self.statistics.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                try! self.statisticsRepo.save(statistics: self.statistics)
+                self.saveCurrentStatistics()
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -84,12 +82,11 @@ extension AnnualActivityStatisticsController {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
-        if let indexPath = tableView.indexPathIsValidFor(cell: cell) {
+        if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = cell.txtFieldAnnualActivities.text!
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldAnnualMiles.text!
 
-            //deal with the try!
-            try! statisticsRepo.save(statistics: self.statistics)
+            saveCurrentStatistics()
         }
     }
 }

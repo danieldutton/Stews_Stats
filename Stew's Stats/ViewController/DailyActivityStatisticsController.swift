@@ -5,18 +5,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.statistics = try! statisticsRepo.getStatistics(.daily)
-        //save them for now so pie charts work
-        //deal with the try
-        try! self.statisticsRepo.save(statistics: statistics)
-    }
-    
-    func doStuff() {
-        do {
-            try self.statisticsRepo.save(statistics: statistics)
-        } catch {
-            self.statistics = StatisticsFactory().getStatistics(key: .daily)
-        }
+        retrieveSavedStatistics(key: .daily)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -58,7 +47,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
             }) { _ in
                 tableView.setEditing(true, animated: false)
                 //deal with the try
-                try! self.statisticsRepo.save(statistics: self.statistics)
+                self.saveCurrentStatistics()
             }
         }
         
@@ -79,7 +68,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 //try! deal with
-                try! self.statisticsRepo.save(statistics: self.statistics)
+                self.saveCurrentStatistics()
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -110,7 +99,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 let indexPathReload = IndexPath(row: statistics.sections[5].rows.count - 2, section: 5)
                 tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
-                try! self.statisticsRepo.save(statistics: self.statistics)
+                self.saveCurrentStatistics()
                 let indexPathScrollTo = IndexPath(row: self.statistics.sections[5].rows.count - 1, section: 5)
                 self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
@@ -142,11 +131,10 @@ extension DailyActivityStatisticsController {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
-        if let indexPath = tableView.indexPathIsValidFor(cell: cell) {
+        if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
 
-            //deal with the try here
-            try! statisticsRepo.save(statistics: self.statistics)
+            saveCurrentStatistics()
         }
     }
 }
@@ -173,8 +161,7 @@ extension DailyActivityStatisticsController {
         let locationRow = statistics.sections[5].rows.remove(at: sourceIndexPath.row)
         statistics.sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
 
-        //deal with the error here
-        try! statisticsRepo.save(statistics: self.statistics)
+        saveCurrentStatistics()
 
         tableView.reloadData()
     }
