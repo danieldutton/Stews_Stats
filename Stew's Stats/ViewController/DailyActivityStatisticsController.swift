@@ -142,7 +142,7 @@ extension DailyActivityStatisticsController {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
-        if let indexPath = indexPathIsValidFor(cell: cell) {
+        if let indexPath = tableView.indexPathIsValidFor(cell: cell) {
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
 
             //deal with the try here

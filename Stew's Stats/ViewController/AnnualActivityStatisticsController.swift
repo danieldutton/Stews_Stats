@@ -84,7 +84,7 @@ extension AnnualActivityStatisticsController {
     func textFieldDidEndEditing(_ textField: UITextField) {
         let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
-        if let indexPath = indexPathIsValidFor(cell: cell) {
+        if let indexPath = tableView.indexPathIsValidFor(cell: cell) {
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = cell.txtFieldAnnualActivities.text!
             self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldAnnualMiles.text!
 

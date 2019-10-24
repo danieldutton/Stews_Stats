@@ -47,10 +47,12 @@ class BaseActivityStatisticsController: UITableViewController {
     override func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
         false
     }
-    
+}
+
+extension UITableView {
     func indexPathIsValidFor(cell: UITableViewCell) -> IndexPath? {
-        if let sec = self.tableView.indexPath(for: cell)?.section,
-        let row = self.tableView.indexPath(for:cell)?.row {
+        if let sec = self.indexPath(for: cell)?.section,
+        let row = self.indexPath(for:cell)?.row {
             return IndexPath(row: row, section: sec)
         }
         return nil
