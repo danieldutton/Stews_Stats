@@ -28,7 +28,6 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         let tempCell = cell as! DailyActivityStatisticsCell
         let text = tempCell.txtFieldStatValue.text!
 
-        //add subscript to properly modelled class and pass an indexPath???
         self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = text
     }
 
@@ -46,7 +45,6 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 tableView.reloadRows(at: [IndexPath(row: ct-1, section: statistics.sections.count - 1)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
-                //deal with the try
                 self.saveCurrentStatistics()
             }
         }
@@ -67,7 +65,6 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 self.statistics.sections[indexPath.section].rows.remove(at: indexPath.row)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                //try! deal with
                 self.saveCurrentStatistics()
             }) { (_) in
                 //self.tableView.reloadData()

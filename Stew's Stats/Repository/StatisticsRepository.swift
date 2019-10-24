@@ -20,7 +20,7 @@ class StatisticsRepository {
     
     func getStatistics(_ key: StatisticsReport) throws -> Statistics {
         do {
-            return try statisticsDecoder.retrieve(.daily)
+            return try statisticsDecoder.retrieve(key)
         } catch {
             //save should really be in here though that is a side effect
             //need to call save but in a none side effecty way
