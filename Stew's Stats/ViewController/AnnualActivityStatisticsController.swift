@@ -40,7 +40,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
             let lastSection = self.statistics.sections.count - 1
             let lastYear = Int(self.statistics.sections[lastSection].name)!
             let nextYear = lastYear + 1
-            print(lastSection)
+
             self.statistics.sections.append(Section(name: "\(nextYear)", rows: [
                 Row(stat1: "0", stat2: "0")
             ]))

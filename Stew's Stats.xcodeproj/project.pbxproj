@@ -35,6 +35,7 @@
 		CAECBCE4235E040A00AB8A26 /* StatisticsEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAECBCE3235E040A00AB8A26 /* StatisticsEncoderTests.swift */; };
 		CAF3297B23607D190002DCE1 /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3297A23607D190002DCE1 /* StatisticsRepository.swift */; };
 		CAF525E5234F2887003F1BD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C07232D786400DC990D /* AppDelegate.swift */; };
+		CAF628F023630BA200B241D5 /* StatisticsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF628EF23630BA200B241D5 /* StatisticsTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		CAECBCE1235E02DC00AB8A26 /* StatisticsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsEncoder.swift; sourceTree = "<group>"; };
 		CAECBCE3235E040A00AB8A26 /* StatisticsEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsEncoderTests.swift; path = ../Services/Encoding/StatisticsEncoderTests.swift; sourceTree = "<group>"; };
 		CAF3297A23607D190002DCE1 /* StatisticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepository.swift; sourceTree = "<group>"; };
+		CAF628EF23630BA200B241D5 /* StatisticsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 		CA181D8F236076B700A06A81 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CAF628EF23630BA200B241D5 /* StatisticsTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAECBCE4235E040A00AB8A26 /* StatisticsEncoderTests.swift in Sources */,
+				CAF628F023630BA200B241D5 /* StatisticsTests.swift in Sources */,
 				CA181D8C2360762E00A06A81 /* StatisticsDecoderTests.swift in Sources */,
 				CAF525E5234F2887003F1BD1 /* AppDelegate.swift in Sources */,
 				CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */,

@@ -11,11 +11,11 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyActivityStatisticsCell
 
-        cell.lblStat.text = statistics.sections[indexPath.section].rows[indexPath.row].stat1
+        cell.lblStat.text = statistics[indexPath]?.stat1
         cell.lblStat.sizeToFit()
         
         cell.txtFieldStatValue.delegate = self
-        cell.txtFieldStatValue.text = statistics.sections[indexPath.section].rows[indexPath.row].stat2
+        cell.txtFieldStatValue.text = statistics[indexPath]?.stat2
         
         return cell
     }
