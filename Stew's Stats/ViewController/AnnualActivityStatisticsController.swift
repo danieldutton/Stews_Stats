@@ -14,8 +14,9 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
         
-        cell.txtFieldAnnualActivities.text = self.statistics.sections[indexPath.section].rows[indexPath.row].stat1
-        cell.txtFieldAnnualMiles.text = self.statistics.sections[indexPath.section].rows[indexPath.row].stat2
+        let row = statistics[indexPath]
+        cell.txtFieldAnnualActivities.text = row?.stat1
+        cell.txtFieldAnnualMiles.text = row?.stat2
         
         return cell
     }
@@ -25,12 +26,14 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
             return
         }
 
+        //consider using inner functions for tidyness
+        
         let tempCell = cell as! AnnualActivityStatisticsCell
         let txtActivities = tempCell.txtFieldAnnualActivities.text!
         let txtMiles = tempCell.txtFieldAnnualMiles.text!
 
-        self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = txtActivities
-        self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = txtMiles
+        let updatedRow = Row(stat1: txtActivities, stat2: txtMiles)
+        statistics[indexPath] = updatedRow
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -83,9 +86,12 @@ extension AnnualActivityStatisticsController {
         let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
-            self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = cell.txtFieldAnnualActivities.text!
-            self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldAnnualMiles.text!
-
+            self.statistics[indexPath] = Row(
+                stat1: cell.txtFieldAnnualActivities.text!,
+                stat2: cell.txtFieldAnnualMiles.text!
+            )
+            //shouldnt save be performed by calling the repository
+            //as as soon as we save, we update
             saveCurrentStatistics()
         }
     }

@@ -24,11 +24,15 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         guard !tableView.isEditing else {
             return
         }
-
+        
         let tempCell = cell as! DailyActivityStatisticsCell
-        let text = tempCell.txtFieldStatValue.text!
+        let text1 = tempCell.lblStat.text!
+        let text2 = tempCell.txtFieldStatValue.text!
+        let updatedRow = Row(stat1: text1, stat2: text2)
 
-        self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = text
+        //consider a new model for each controller as stat1 is unused
+        self.statistics[indexPath] = updatedRow
+        
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
