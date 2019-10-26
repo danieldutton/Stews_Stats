@@ -4,6 +4,10 @@ struct Statistics: Codable {
     var saveKey: StatisticsReport? = nil
     var sections: [Section]
     
+    var lastSectionIndex: Int {
+        sections.count - 1
+    }
+    
     subscript(indexPath: IndexPath) -> Row? {
         get {
             guard sectionAndRowExistsFor(indexPath: indexPath) else {

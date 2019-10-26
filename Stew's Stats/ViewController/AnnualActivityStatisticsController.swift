@@ -13,10 +13,10 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
 
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
+
         
-        let row = statistics[indexPath]
-        cell.txtFieldAnnualActivities.text = row?.stat1
-        cell.txtFieldAnnualMiles.text = row?.stat2
+        cell.txtFieldAnnualActivities.text = statistics[indexPath]?.stat1
+        cell.txtFieldAnnualMiles.text = statistics[indexPath]?.stat2
         
         return cell
     }
@@ -25,23 +25,15 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         guard !tableView.isEditing else {
             return
         }
-
-        //consider using inner functions for tidyness
-        
-        let tempCell = cell as! AnnualActivityStatisticsCell
-        let txtActivities = tempCell.txtFieldAnnualActivities.text!
-        let txtMiles = tempCell.txtFieldAnnualMiles.text!
-
-        let updatedRow = Row(stat1: txtActivities, stat2: txtMiles)
-        statistics[indexPath] = updatedRow
+        statistics[indexPath] = (cell as! AnnualActivityStatisticsCell).asRow
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
         
         if editingStyle == .insert {
-            let lastSection = self.statistics.sections.count - 1
-            let lastYear = Int(self.statistics.sections[lastSection].name)!
+            let lastSection = statistics.lastSectionIndex
+            let lastYear = Int(statistics.sections[lastSection].name)!
             let nextYear = lastYear + 1
 
             self.statistics.sections.append(Section(name: "\(nextYear)", rows: [
@@ -86,10 +78,7 @@ extension AnnualActivityStatisticsController {
         let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
-            self.statistics[indexPath] = Row(
-                stat1: cell.txtFieldAnnualActivities.text!,
-                stat2: cell.txtFieldAnnualMiles.text!
-            )
+            self.statistics[indexPath] = cell.asRow
             //shouldnt save be performed by calling the repository
             //as as soon as we save, we update
             saveCurrentStatistics()

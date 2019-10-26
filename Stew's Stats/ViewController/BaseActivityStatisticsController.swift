@@ -36,7 +36,7 @@ class BaseActivityStatisticsController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        if indexPath.section == statistics.sections.count - 1 {
+        if indexPath.section == statistics.lastSectionIndex {
             let rows = self.tableView(tableView, numberOfRowsInSection: indexPath.section)
             if rows - 1 == indexPath.row {
                 return .insert

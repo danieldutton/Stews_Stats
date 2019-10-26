@@ -25,28 +25,20 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
             return
         }
         
-        let tempCell = cell as! DailyActivityStatisticsCell
-        let text1 = tempCell.lblStat.text!
-        let text2 = tempCell.txtFieldStatValue.text!
-        let updatedRow = Row(stat1: text1, stat2: text2)
-
-        //consider a new model for each controller as stat1 is unused
-        self.statistics[indexPath] = updatedRow
-        
+        statistics[indexPath] = (cell as! DailyActivityStatisticsCell).asRow
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
         
         func addNewLocationRow(_ location: String) {
-            //indexPath.section was prev hardcoded 5
-            self.statistics.sections[indexPath.section].rows[indexPath.row].stat1 = location
-            self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = "0"
+            statistics[indexPath]? = Row(stat1: location, stat2: "0")
+
             let ct = statistics.sections[indexPath.section].rows.count
 
             tableView.performBatchUpdates({
-                tableView.insertRows(at: [IndexPath(row: ct-1, section: statistics.sections.count - 1)], with: .automatic)
-                tableView.reloadRows(at: [IndexPath(row: ct-1, section: statistics.sections.count - 1)], with: .automatic)
+                tableView.insertRows(at: [IndexPath(row: ct-1, section: statistics.lastSectionIndex)], with: .automatic)
+                tableView.reloadRows(at: [IndexPath(row: ct-1, section: statistics.lastSectionIndex)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
                 self.saveCurrentStatistics()
@@ -59,7 +51,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        guard indexPath.section == statistics.sections.count - 1 else {
+        guard indexPath.section == statistics.lastSectionIndex else {
             return UISwipeActionsConfiguration(actions: [])
         }
         
@@ -133,8 +125,7 @@ extension DailyActivityStatisticsController {
         let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
-            self.statistics.sections[indexPath.section].rows[indexPath.row].stat2 = cell.txtFieldStatValue.text!
-
+            statistics[indexPath] = cell.asRow
             saveCurrentStatistics()
         }
     }
@@ -143,7 +134,7 @@ extension DailyActivityStatisticsController {
 extension DailyActivityStatisticsController {
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        if indexPath.section == statistics.sections.count - 1 && self.statistics.sections[indexPath.section].rows.count > 1 {
+        if indexPath.section == statistics.lastSectionIndex && self.statistics.sections[indexPath.section].rows.count > 1 {
             return true
         }
         return false
@@ -152,8 +143,8 @@ extension DailyActivityStatisticsController {
      override func tableView(_ tableView: UITableView, targetIndexPathForMoveFromRowAt sourceIndexPath: IndexPath, toProposedIndexPath proposedDestinationIndexPath: IndexPath) -> IndexPath {
         tableView.endEditing(true)
         
-        if proposedDestinationIndexPath.section != statistics.sections.count - 1 {
-            return IndexPath(row: 0, section: statistics.sections.count - 1)
+        if proposedDestinationIndexPath.section != statistics.lastSectionIndex {
+            return IndexPath(row: 0, section: statistics.lastSectionIndex)
         }
         return proposedDestinationIndexPath
     }
