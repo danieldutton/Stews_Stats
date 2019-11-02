@@ -1,5 +1,4 @@
 import XCTest
-@testable import Stew_s_Stats
 
 class StatisticsEncoderTests: XCTestCase {
 

@@ -1,4 +1,5 @@
 import Charts
+import CoreGraphics
 
 extension ChartColorTemplates {
     

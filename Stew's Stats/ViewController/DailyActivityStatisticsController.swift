@@ -58,7 +58,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
 
             self.tableView.performBatchUpdates({
-                self.statistics.sections[indexPath.section].rows.remove(at: indexPath.row)
+                self.statistics.removeRow(at: indexPath)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
                 self.saveCurrentStatistics()

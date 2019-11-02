@@ -8,7 +8,6 @@ class StatisticsRepository {
     
     private var statisticsFactory: StatisticsFactory!
     
-    
     init(statisticsDecoder: StatisticsDecoder = StatisticsDecoder(),
          statisticsEncoder: StatisticsEncoder = StatisticsEncoder(),
          statisticsFactory: StatisticsFactory = StatisticsFactory()) {

@@ -34,6 +34,10 @@ struct Statistics: Codable {
     private func rowExistsFor(indexPath: IndexPath) -> Bool {
         indexPath.row >= 0 && indexPath.row < sections[indexPath.section].rows.count
     }
+    
+    mutating func removeRow(at indexPath: IndexPath) {
+        sections[indexPath.section].rows.remove(at: indexPath.row)
+    }
 }
 
 struct Row: Codable, Equatable {

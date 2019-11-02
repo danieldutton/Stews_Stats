@@ -16,8 +16,6 @@ class DailyActivityStatisticsCell: UITableViewCell {
         }
     }
     
-    
-
     override func didTransition(to state: UITableViewCell.StateMask) {
         self.txtFieldStatValue.isEnabled = state.contains(.showingEditControl)
         self.txtFieldStatValue.layer.zPosition = 10
