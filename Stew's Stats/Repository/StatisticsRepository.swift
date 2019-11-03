@@ -17,7 +17,7 @@ class StatisticsRepository {
         self.statisticsFactory = statisticsFactory
     }
     
-    func getStatistics(_ key: StatisticsReport) throws -> Statistics {
+    func getStatistics(_ key: StatisticsType) throws -> Statistics {
         do {
             return try statisticsDecoder.retrieve(key)
         } catch {
@@ -34,7 +34,7 @@ class StatisticsRepository {
 }
 
 class StatisticsFactory {
-    func getStatistics(key: StatisticsReport) -> Statistics {
+    func getStatistics(key: StatisticsType) -> Statistics {
         switch key {
         case .daily:
             let sections = DailyActivityStatisticsSeedData().getSeedData()

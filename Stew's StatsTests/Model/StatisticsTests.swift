@@ -110,7 +110,7 @@ class StatisticsTests: XCTestCase {
     
     func test_subscriptSet_setFirstRowInSectionOne_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 1", stat2: "Row Update 1")
+        let newRow = Row(stat1: "TableRow Update 1", stat2: "TableRow Update 1")
         let indexPath = IndexPath(row: 0, section: 0)
         
         sut[indexPath] = newRow
@@ -123,7 +123,7 @@ class StatisticsTests: XCTestCase {
     
     func test_subscriptSet_setLastRowInSectionOne_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 2", stat2: "Row Update 2")
+        let newRow = Row(stat1: "TableRow Update 2", stat2: "TableRow Update 2")
         let indexPath = IndexPath(row: 1, section: 0)
         
         sut[indexPath] = newRow
@@ -136,7 +136,7 @@ class StatisticsTests: XCTestCase {
     
     func test_subscriptSet_setFirstRowInSectionTwo_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 3", stat2: "Row Update 3")
+        let newRow = Row(stat1: "TableRow Update 3", stat2: "TableRow Update 3")
         let indexPath = IndexPath(row: 0, section: 1)
         
         sut[indexPath] = newRow
@@ -149,7 +149,7 @@ class StatisticsTests: XCTestCase {
     
     func test_subscriptSet_setThirdRowInSectionTwo_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 4", stat2: "Row Update 4")
+        let newRow = Row(stat1: "TableRow Update 4", stat2: "TableRow Update 4")
         let indexPath = IndexPath(row: 2, section: 1)
         
         sut[indexPath] = newRow
@@ -162,7 +162,7 @@ class StatisticsTests: XCTestCase {
     
     func test_subscriptSet_setLastRowInSectionTwo_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 5", stat2: "Row Update 5")
+        let newRow = Row(stat1: "TableRow Update 5", stat2: "TableRow Update 5")
         let indexPath = IndexPath(row: 4, section: 1)
         
         sut[indexPath] = newRow
@@ -175,7 +175,7 @@ class StatisticsTests: XCTestCase {
 
     func test_subscriptSet_setOnlyRowInSectionThree_rowUpdatedCorrectly() {
         var sut: Statistics = makeStatistics
-        let newRow = Row(stat1: "Row Update 6", stat2: "Row Update 6")
+        let newRow = Row(stat1: "TableRow Update 6", stat2: "TableRow Update 6")
         let indexPath = IndexPath(row: 0, section: 2)
         
         sut[indexPath] = newRow
@@ -240,10 +240,10 @@ extension StatisticsTests {
         ]
         
         let sections = [
-            Section(name: "Section 1", rows: section1Rows),
-            Section(name: "Section 2", rows: section2Rows),
-            Section(name: "Section 3", rows: section3Rows),
-            Section(name: "Section 4", rows: section4Rows),
+            Section(name: "TableSection 1", rows: section1Rows),
+            Section(name: "TableSection 2", rows: section2Rows),
+            Section(name: "TableSection 3", rows: section3Rows),
+            Section(name: "TableSection 4", rows: section4Rows),
         ]
         return Statistics(saveKey: .daily, sections: sections)
     }

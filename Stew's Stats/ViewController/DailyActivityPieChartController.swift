@@ -38,7 +38,7 @@ class DailyActivityPieChartController: UIViewController {
         let set = PieChartDataSet(entries)
         pieChartView.drawEntryLabelsEnabled = false
 
-        set.colors = ChartColorTemplates.stewsStatsColourful()
+        set.colors = ChartColorTemplates.dazzlingBright
         let data = PieChartData(dataSet: set)
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent

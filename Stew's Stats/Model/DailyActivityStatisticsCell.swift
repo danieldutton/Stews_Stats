@@ -6,9 +6,9 @@ class DailyActivityStatisticsCell: UITableViewCell {
     
     @IBOutlet weak var txtFieldStatValue: UITextField!
     
-    var asRow: Row {
+    var asRow: TableRow {
         get {
-            Row(stat1: lblStat.text!, stat2: txtFieldStatValue.text!)
+            TableRow(stat1: lblStat.text!, stat2: txtFieldStatValue.text!)
         }
         set(row) {
             lblStat.text = row.stat1

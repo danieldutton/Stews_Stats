@@ -32,7 +32,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         tableView.endEditing(true)
         
         func addNewLocationRow(_ location: String) {
-            statistics[indexPath]? = Row(stat1: location, stat2: "0")
+            statistics[indexPath]? = TableRow(stat1: location, stat2: "0")
 
             let ct = statistics.sections[indexPath.section].rows.count
 
@@ -84,7 +84,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            self.statistics.sections[5].rows.append(Row(stat1: location, stat2: "0"))
+            self.statistics.sections[5].rows.append(TableRow(stat1: location, stat2: "0"))
 
             tableView.performBatchUpdates({
                 let indexPathInsert = IndexPath(row: statistics.sections[5].rows.count - 1, section: 5)

@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ActivitySeedData {
-    func getSeedData() -> [Section]
+    func getSeedData() -> [TableSection]
 }

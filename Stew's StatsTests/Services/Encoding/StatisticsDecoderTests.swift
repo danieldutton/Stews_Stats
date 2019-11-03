@@ -175,7 +175,7 @@ class FakeJSONDecoder: JSONDecoder {
             throw TestError.anyOldError
         }
         
-        return Statistics(saveKey: .daily, sections: [Section(name: "Section 1", rows: [])]) as! T
+        return Statistics(saveKey: .daily, sections: [Section(name: "TableSection 1", rows: [])]) as! T
     }
     
     enum TestError: Error {

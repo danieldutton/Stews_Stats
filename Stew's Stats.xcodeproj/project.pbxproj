@@ -25,7 +25,7 @@
 		CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */; };
 		CA5AEB82234128F6005F4C91 /* AnnualActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */; };
 		CA7F1D37236247C900D86F8C /* Ext_UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */; };
-		CA7F1D3A2362485400D86F8C /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D392362485400D86F8C /* StatisticsReport.swift */; };
+		CA7F1D3A2362485400D86F8C /* StatisticsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D392362485400D86F8C /* StatisticsType.swift */; };
 		CA81BAAA234E49F700EE811A /* BaseActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */; };
 		CAA5F0C52343F1E800DA19FF /* AnnualActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */; };
 		CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */; };
@@ -39,7 +39,7 @@
 		CADB2EC2236E067000854FE5 /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3297A23607D190002DCE1 /* StatisticsRepository.swift */; };
 		CADB2EC4236E068100854FE5 /* StatisticsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA181D892360755800A06A81 /* StatisticsDecoder.swift */; };
 		CADB2EC5236E068100854FE5 /* StatisticsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAECBCE1235E02DC00AB8A26 /* StatisticsEncoder.swift */; };
-		CADB2EC6236E068100854FE5 /* StatisticsReport.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D392362485400D86F8C /* StatisticsReport.swift */; };
+		CADB2EC6236E068100854FE5 /* StatisticsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D392362485400D86F8C /* StatisticsType.swift */; };
 		CADB2EC7236E068400854FE5 /* ActivitySeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */; };
 		CADB2EC8236E068400854FE5 /* DailyActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */; };
 		CADB2EC9236E068400854FE5 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
@@ -103,7 +103,7 @@
 		CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatisticsSeedData.swift; sourceTree = "<group>"; };
 		CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_UITableView.swift; sourceTree = "<group>"; };
-		CA7F1D392362485400D86F8C /* StatisticsReport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsReport.swift; sourceTree = "<group>"; };
+		CA7F1D392362485400D86F8C /* StatisticsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsType.swift; sourceTree = "<group>"; };
 		CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats.entitlements"; sourceTree = "<group>"; };
 		CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsCell.swift; sourceTree = "<group>"; };
@@ -299,7 +299,7 @@
 			children = (
 				CA181D892360755800A06A81 /* StatisticsDecoder.swift */,
 				CAECBCE1235E02DC00AB8A26 /* StatisticsEncoder.swift */,
-				CA7F1D392362485400D86F8C /* StatisticsReport.swift */,
+				CA7F1D392362485400D86F8C /* StatisticsType.swift */,
 			);
 			path = Persistance;
 			sourceTree = "<group>";
@@ -466,7 +466,7 @@
 				CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */,
 				CA5AEB7E2340EC8A005F4C91 /* ActivitySeedData.swift in Sources */,
 				CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */,
-				CA7F1D3A2362485400D86F8C /* StatisticsReport.swift in Sources */,
+				CA7F1D3A2362485400D86F8C /* StatisticsType.swift in Sources */,
 				CA018C28232D790300DC990D /* DailyActivityStatisticsController.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* Statistics.swift in Sources */,
 			);
@@ -495,7 +495,7 @@
 				CADB2EC8236E068400854FE5 /* DailyActivityStatisticsSeedData.swift in Sources */,
 				CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */,
 				CADB2ECA236E068700854FE5 /* Ext_UITableView.swift in Sources */,
-				CADB2EC6236E068100854FE5 /* StatisticsReport.swift in Sources */,
+				CADB2EC6236E068100854FE5 /* StatisticsType.swift in Sources */,
 				CA11570E2360C57D007687F5 /* StatisticsRepositoryTests.swift in Sources */,
 				CADB2EBA236E066400854FE5 /* Statistics.swift in Sources */,
 				CADB2EC5236E068100854FE5 /* StatisticsEncoder.swift in Sources */,

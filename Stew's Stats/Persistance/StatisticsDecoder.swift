@@ -16,14 +16,14 @@ class StatisticsDecoder {
         self.jsonDecoder = jsonDecoder
     }
     
-    func retrieve(_ key: StatisticsReport) throws -> Statistics {
+    func retrieve(_ key: StatisticsType) throws -> Statistics {
         let savedData = try getSavedData(key: key)
         
         return try jsonDecoder.decode(Statistics.self, from: savedData)
     }
     
     //srp?
-    private func getSavedData(key: StatisticsReport) throws -> Data {
+    private func getSavedData(key: StatisticsType) throws -> Data {
         if let savedData = userDefaults.data(forKey: key.rawValue) {
             return savedData
         } else {

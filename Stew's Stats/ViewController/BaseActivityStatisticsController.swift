@@ -53,7 +53,7 @@ class BaseActivityStatisticsController: UITableViewController {
 
 extension BaseActivityStatisticsController {
     
-    func retrieveSavedStatistics(key: StatisticsReport) {
+    func retrieveSavedStatistics(key: StatisticsType) {
         do {
             try self.statistics = statisticsRepo.getStatistics(key)
         } catch {

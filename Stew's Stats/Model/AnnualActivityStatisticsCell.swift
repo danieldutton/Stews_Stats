@@ -6,9 +6,9 @@ class AnnualActivityStatisticsCell: UITableViewCell {
     
     @IBOutlet weak var txtFieldAnnualMiles: UITextField!
     
-    var asRow: Row {
+    var asRow: TableRow {
         get {
-            Row(stat1: txtFieldAnnualActivities.text!, stat2: txtFieldAnnualMiles.text!)
+            TableRow(stat1: txtFieldAnnualActivities.text!, stat2: txtFieldAnnualMiles.text!)
         }
         set(row) {
             txtFieldAnnualActivities.text = row.stat1

@@ -36,8 +36,8 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
             let lastYear = Int(statistics.sections[lastSection].name)!
             let nextYear = lastYear + 1
 
-            self.statistics.sections.append(Section(name: "\(nextYear)", rows: [
-                Row(stat1: "0", stat2: "0")
+            self.statistics.sections.append(TableSection(name: "\(nextYear)", rows: [
+                TableRow(stat1: "0", stat2: "0")
             ]))
             let indexSet = IndexSet(integer: statistics.sections.count - 1)
             
