@@ -9,7 +9,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! DailyActivityStatisticsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellDailyStat
 
         cell.lblStat.text = statistics[indexPath]?.stat1
         cell.lblStat.sizeToFit()
@@ -25,14 +25,14 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
             return
         }
         
-        statistics[indexPath] = (cell as! DailyActivityStatisticsCell).asRow
+        statistics[indexPath] = (cell as! TableViewCellDailyStat).asRow
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
         
         func addNewLocationRow(_ location: String) {
-            statistics[indexPath]? = TableRow(stat1: location, stat2: "0")
+            statistics[indexPath]? = TableViewRow(stat1: location, stat2: "0")
 
             let ct = statistics.sections[indexPath.section].rows.count
 
@@ -84,7 +84,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
 
     private func inputLocationForm() -> UIAlertController {
         func addNewLocationRow(_ location: String) {
-            self.statistics.sections[5].rows.append(TableRow(stat1: location, stat2: "0"))
+            self.statistics.sections[5].rows.append(TableViewRow(stat1: location, stat2: "0"))
 
             tableView.performBatchUpdates({
                 let indexPathInsert = IndexPath(row: statistics.sections[5].rows.count - 1, section: 5)
@@ -122,7 +122,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
 extension DailyActivityStatisticsController {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell: DailyActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
+        let cell: TableViewCellDailyStat = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             statistics[indexPath] = cell.asRow

@@ -1,14 +1,14 @@
 import Foundation
-
+ 
 struct Statistics: Codable {
     var saveKey: StatisticsType? = nil
-    var sections: [TableSection]
+    var sections: [TableViewSection]
     
     var lastSectionIndex: Int {
         sections.count - 1
     }
     
-    subscript(indexPath: IndexPath) -> TableRow? {
+    subscript(indexPath: IndexPath) -> TableViewRow? {
         get {
             guard sectionAndRowExistsFor(indexPath: indexPath) else {
                 return nil
@@ -24,7 +24,7 @@ struct Statistics: Codable {
     }
 }
 
-extension Statistics: Equatable {
+extension Statistics {
     
     private func sectionAndRowExistsFor(indexPath: IndexPath) -> Bool {
         return sectionExistsFor(indexPath: indexPath) && rowExistsFor(indexPath: indexPath)
@@ -34,6 +34,7 @@ extension Statistics: Equatable {
         indexPath.section >= 0 && indexPath.section < sections.count
     }
     
+    //we are testing row here why?
     private func rowExistsFor(indexPath: IndexPath) -> Bool {
         indexPath.row >= 0 && indexPath.row < sections[indexPath.section].rows.count
     }
@@ -41,22 +42,11 @@ extension Statistics: Equatable {
     mutating func removeRow(at indexPath: IndexPath) {
         sections[indexPath.section].rows.remove(at: indexPath.row)
     }
-    
-    static func == (lhs: Statistics, rhs: Statistics) -> Bool {
-        return lhs.saveKey == rhs.saveKey &&
-            lhs.sections == rhs.sections
-    }
 }
 
-struct TableRow: Codable, Equatable {
-    var stat1: String
-    var stat2: String
-}
 
-struct TableSection: Codable, Equatable  {
-    var name: String
-    var rows: [TableRow] = []
-}
+
+
 
 
 

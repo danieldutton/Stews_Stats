@@ -1,13 +1,11 @@
 import UIKit
 
 class BaseActivityStatisticsController: UITableViewController {
-    
-    //this should really be in the repository should it?
+
     internal var statistics: Statistics!
     
     internal var statisticsRepo = StatisticsRepository()
 
-    //feature envy where we ask another object to get info to perform computation or make a decision
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -35,7 +35,7 @@ class StatisticsRepositoryTests: XCTestCase {
         
         _ = try! sut.getStatistics(.daily)
         
-        let expected: StatisticsReport = .annual
+        let expected: StatisticsType = .annual
         let actual = mockStatisticsDecoder.key
         
         XCTAssertEqual(expected, actual)
@@ -60,7 +60,7 @@ class StatisticsRepositoryTests: XCTestCase {
         
         _ = try! sut.getStatistics(.daily)
         
-        let expected: StatisticsReport = .annual
+        let expected: StatisticsType = .annual
         let actual = mockStatisticsDecoder.key
         
         XCTAssertEqual(expected, actual)
@@ -78,7 +78,7 @@ class StatisticsRepositoryTests: XCTestCase {
         
         _ = try! sut.getStatistics(.daily)
         
-        let expected: StatisticsReport = .annual
+        let expected: StatisticsType = .annual
         let actual = mockStatisticsDecoder.key
         
         XCTAssertEqual(expected, actual)
@@ -96,7 +96,7 @@ class StatisticsRepositoryTests: XCTestCase {
         
         _ = try! sut.getStatistics(.daily)
         
-        let expected: StatisticsReport = .annual
+        let expected: StatisticsType = .annual
         let actual = mockStatisticsDecoder.key
         
         XCTAssertEqual(expected, actual)
@@ -154,9 +154,9 @@ class Dependencies {
 
 class FakeStatisticsDecoder: StatisticsDecoder {
     var retrieveCallCount = 0
-    var key: StatisticsReport!
+    var key: StatisticsType!
     
-    override func retrieve(_ key: StatisticsReport) throws -> Statistics {
+    override func retrieve(_ key: StatisticsType) throws -> Statistics {
         retrieveCallCount += 1
         self.key = key
         return Statistics(saveKey: .daily, sections: [])
@@ -170,7 +170,7 @@ class FakeStatisticsEncoder: StatisticsEncoder {
 }
 
 class FakeStatisticsFactory: StatisticsFactory {
-    override func getStatistics(key: StatisticsReport) -> Statistics {
+    override func getStatistics(key: StatisticsType) -> Statistics {
         return Statistics(saveKey: .daily, sections: [])
     }
 }

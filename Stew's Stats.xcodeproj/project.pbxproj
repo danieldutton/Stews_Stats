@@ -12,12 +12,11 @@
 		CA018C0F232D786600DC990D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA018C0E232D786600DC990D /* Assets.xcassets */; };
 		CA018C12232D786600DC990D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA018C10232D786600DC990D /* LaunchScreen.storyboard */; };
 		CA018C28232D790300DC990D /* DailyActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* DailyActivityStatisticsController.swift */; };
-		CA018C2A232D79B200DC990D /* DailyActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* DailyActivityStatisticsCell.swift */; };
+		CA018C2A232D79B200DC990D /* TableViewCellDailyStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCellDailyStat.swift */; };
 		CA11570E2360C57D007687F5 /* StatisticsRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA11570D2360C57D007687F5 /* StatisticsRepositoryTests.swift */; };
 		CA181D8A2360755800A06A81 /* StatisticsDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA181D892360755800A06A81 /* StatisticsDecoder.swift */; };
 		CA181D8C2360762E00A06A81 /* StatisticsDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA181D8B2360762E00A06A81 /* StatisticsDecoderTests.swift */; };
 		CA19811323322C6700F6EDE8 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* Statistics.swift */; };
-		CA307BD0236473AE0091770F /* BaseActivityPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA307BCF236473AE0091770F /* BaseActivityPresenterTests.swift */; };
 		CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
 		CA4CDF1F2360E1A8008B0E33 /* StatisticsFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA4CDF1E2360E1A8008B0E33 /* StatisticsFactoryTests.swift */; };
 		CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
@@ -26,13 +25,14 @@
 		CA5AEB82234128F6005F4C91 /* AnnualActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */; };
 		CA7F1D37236247C900D86F8C /* Ext_UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */; };
 		CA7F1D3A2362485400D86F8C /* StatisticsType.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D392362485400D86F8C /* StatisticsType.swift */; };
+		CA80B87D236F7CEE0096E80F /* TableViewCellDailyStatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80B87C236F7CEE0096E80F /* TableViewCellDailyStatTests.swift */; };
 		CA81BAAA234E49F700EE811A /* BaseActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */; };
-		CAA5F0C52343F1E800DA19FF /* AnnualActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */; };
+		CAA5F0C52343F1E800DA19FF /* TableViewCellAnnualStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */; };
 		CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */; };
 		CADB2EB9236E063A00854FE5 /* Ext_ChartColortemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2EB8236E063A00854FE5 /* Ext_ChartColortemplateTests.swift */; };
 		CADB2EBA236E066400854FE5 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* Statistics.swift */; };
-		CADB2EBB236E066600854FE5 /* DailyActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* DailyActivityStatisticsCell.swift */; };
-		CADB2EBC236E066800854FE5 /* AnnualActivityStatisticsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */; };
+		CADB2EBB236E066600854FE5 /* TableViewCellDailyStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C29232D79B200DC990D /* TableViewCellDailyStat.swift */; };
+		CADB2EBC236E066800854FE5 /* TableViewCellAnnualStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */; };
 		CADB2EBD236E066A00854FE5 /* BaseActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */; };
 		CADB2EBE236E066B00854FE5 /* DailyActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA018C27232D790300DC990D /* DailyActivityStatisticsController.swift */; };
 		CADB2EC0236E066E00854FE5 /* AnnualActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */; };
@@ -44,11 +44,17 @@
 		CADB2EC8236E068400854FE5 /* DailyActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */; };
 		CADB2EC9236E068400854FE5 /* AnnualActivityStatisticsSeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */; };
 		CADB2ECA236E068700854FE5 /* Ext_UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */; };
-		CADB2ECE236E0EA200854FE5 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CADB2ECD236E0EA200854FE5 /* Charts */; };
 		CADB2ECF236E2CEB00854FE5 /* DailyActivityPieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* DailyActivityPieChartController.swift */; };
 		CADB2ED0236E2CF100854FE5 /* Ext_ChartColorTemplates.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5AEB792340EB9D005F4C91 /* Ext_ChartColorTemplates.swift */; };
-		CADB2ED7236E341400854FE5 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CADB2ED6236E341400854FE5 /* Charts */; };
+		CADB2ED9236EE0D500854FE5 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2ED8236EE0D500854FE5 /* TableViewSection.swift */; };
+		CADB2EDA236EE0D500854FE5 /* TableViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2ED8236EE0D500854FE5 /* TableViewSection.swift */; };
+		CADB2EDC236EE0FC00854FE5 /* TableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2EDB236EE0FC00854FE5 /* TableViewRow.swift */; };
+		CADB2EDD236EE0FC00854FE5 /* TableViewRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2EDB236EE0FC00854FE5 /* TableViewRow.swift */; };
+		CADB2EDF236EF84400854FE5 /* TableViewCellAnnualStatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2EDE236EF84400854FE5 /* TableViewCellAnnualStatTests.swift */; };
 		CAE0291723339A0A002E975E /* DailyActivityPieChartController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE0291623339A0A002E975E /* DailyActivityPieChartController.swift */; };
+		CAE7A4E723709DB400D9D0B3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CAE7A4E623709DB400D9D0B3 /* Charts */; };
+		CAE7A4E923709DD200D9D0B3 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = CAE7A4E823709DD200D9D0B3 /* Charts */; };
+		CAE7A4ED2370C85900D9D0B3 /* Ext_UITableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAE7A4EC2370C85900D9D0B3 /* Ext_UITableViewTests.swift */; };
 		CAECBCE2235E02DC00AB8A26 /* StatisticsEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAECBCE1235E02DC00AB8A26 /* StatisticsEncoder.swift */; };
 		CAECBCE4235E040A00AB8A26 /* StatisticsEncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAECBCE3235E040A00AB8A26 /* StatisticsEncoderTests.swift */; };
 		CAF3297B23607D190002DCE1 /* StatisticsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAF3297A23607D190002DCE1 /* StatisticsRepository.swift */; };
@@ -89,12 +95,11 @@
 		CA018C18232D786600DC990D /* Stew's StatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stew's StatsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA018C1E232D786600DC990D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA018C27232D790300DC990D /* DailyActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatisticsController.swift; sourceTree = "<group>"; };
-		CA018C29232D79B200DC990D /* DailyActivityStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityStatisticsCell.swift; sourceTree = "<group>"; };
+		CA018C29232D79B200DC990D /* TableViewCellDailyStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDailyStat.swift; sourceTree = "<group>"; };
 		CA11570D2360C57D007687F5 /* StatisticsRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepositoryTests.swift; sourceTree = "<group>"; };
 		CA181D892360755800A06A81 /* StatisticsDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsDecoder.swift; sourceTree = "<group>"; };
 		CA181D8B2360762E00A06A81 /* StatisticsDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsDecoderTests.swift; path = ../Services/Encoding/StatisticsDecoderTests.swift; sourceTree = "<group>"; };
 		CA19811223322C6700F6EDE8 /* Statistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistics.swift; sourceTree = "<group>"; };
-		CA307BCF236473AE0091770F /* BaseActivityPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityPresenterTests.swift; sourceTree = "<group>"; };
 		CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsSeedData.swift; sourceTree = "<group>"; };
 		CA47E1EB2347E27C003D111C /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		CA4CDF1E2360E1A8008B0E33 /* StatisticsFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsFactoryTests.swift; sourceTree = "<group>"; };
@@ -104,12 +109,17 @@
 		CA5AEB81234128F6005F4C91 /* AnnualActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_UITableView.swift; sourceTree = "<group>"; };
 		CA7F1D392362485400D86F8C /* StatisticsType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsType.swift; sourceTree = "<group>"; };
+		CA80B87C236F7CEE0096E80F /* TableViewCellDailyStatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellDailyStatTests.swift; sourceTree = "<group>"; };
 		CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats.entitlements"; sourceTree = "<group>"; };
-		CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnualActivityStatisticsCell.swift; sourceTree = "<group>"; };
+		CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnnualStat.swift; sourceTree = "<group>"; };
 		CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDefaults.swift; sourceTree = "<group>"; };
 		CADB2EB8236E063A00854FE5 /* Ext_ChartColortemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColortemplateTests.swift; sourceTree = "<group>"; };
+		CADB2ED8236EE0D500854FE5 /* TableViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
+		CADB2EDB236EE0FC00854FE5 /* TableViewRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewRow.swift; sourceTree = "<group>"; };
+		CADB2EDE236EF84400854FE5 /* TableViewCellAnnualStatTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnnualStatTests.swift; sourceTree = "<group>"; };
 		CAE0291623339A0A002E975E /* DailyActivityPieChartController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyActivityPieChartController.swift; sourceTree = "<group>"; };
+		CAE7A4EC2370C85900D9D0B3 /* Ext_UITableViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_UITableViewTests.swift; sourceTree = "<group>"; };
 		CAECBCE1235E02DC00AB8A26 /* StatisticsEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsEncoder.swift; sourceTree = "<group>"; };
 		CAECBCE3235E040A00AB8A26 /* StatisticsEncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StatisticsEncoderTests.swift; path = ../Services/Encoding/StatisticsEncoderTests.swift; sourceTree = "<group>"; };
 		CAF3297A23607D190002DCE1 /* StatisticsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsRepository.swift; sourceTree = "<group>"; };
@@ -121,7 +131,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADB2ECE236E0EA200854FE5 /* Charts in Frameworks */,
+				CAE7A4E723709DB400D9D0B3 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,7 +139,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADB2ED7236E341400854FE5 /* Charts in Frameworks */,
+				CAE7A4E923709DD200D9D0B3 /* Charts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,9 +171,9 @@
 				CA19811623322C9200F6EDE8 /* Model */,
 				CA19811523322C8100F6EDE8 /* ViewController */,
 				CAF3297923607CE10002DCE1 /* Repository */,
-				CA5AEB782340EAFB005F4C91 /* ChartThemes */,
 				CA7F1D382362482E00D86F8C /* Persistance */,
-				CA5AEB7C2340EC1F005F4C91 /* ActivitySeedData */,
+				CA5AEB7C2340EC1F005F4C91 /* FailsafeStatistics */,
+				CA5AEB782340EAFB005F4C91 /* ChartThemes */,
 				CA181D902360796500A06A81 /* Extensions */,
 				CA018C07232D786400DC990D /* AppDelegate.swift */,
 				CA018C0B232D786400DC990D /* Main.storyboard */,
@@ -178,25 +188,26 @@
 		CA018C1B232D786600DC990D /* Stew's StatsTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA307BCE236473740091770F /* Presenters */,
 				CA181D8F236076B700A06A81 /* Model */,
 				CA6AD7612338D43C004501F0 /* ViewController */,
-				CA11570A2360C40E007687F5 /* Encoding */,
 				CA11570B2360C4F1007687F5 /* Repository */,
+				CA11570A2360C40E007687F5 /* Persistance */,
+				CAE7A4EA2370C79B00D9D0B3 /* FailsafeStatistics */,
 				CA11570C2360C4FE007687F5 /* ChartThemes */,
-				CAC3289D235F1C7300A9D152 /* SharedFakes */,
+				CAE7A4EB2370C80500D9D0B3 /* Extensions */,
+				CAC3289D235F1C7300A9D152 /* _SharedFakes */,
 				CA018C1E232D786600DC990D /* Info.plist */,
 			);
 			path = "Stew's StatsTests";
 			sourceTree = "<group>";
 		};
-		CA11570A2360C40E007687F5 /* Encoding */ = {
+		CA11570A2360C40E007687F5 /* Persistance */ = {
 			isa = PBXGroup;
 			children = (
 				CAECBCE3235E040A00AB8A26 /* StatisticsEncoderTests.swift */,
 				CA181D8B2360762E00A06A81 /* StatisticsDecoderTests.swift */,
 			);
-			path = Encoding;
+			path = Persistance;
 			sourceTree = "<group>";
 		};
 		CA11570B2360C4F1007687F5 /* Repository */ = {
@@ -220,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				CAF628EF23630BA200B241D5 /* StatisticsTests.swift */,
+				CADB2EDE236EF84400854FE5 /* TableViewCellAnnualStatTests.swift */,
+				CA80B87C236F7CEE0096E80F /* TableViewCellDailyStatTests.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -247,18 +260,12 @@
 			isa = PBXGroup;
 			children = (
 				CA19811223322C6700F6EDE8 /* Statistics.swift */,
-				CA018C29232D79B200DC990D /* DailyActivityStatisticsCell.swift */,
-				CAA5F0C42343F1E800DA19FF /* AnnualActivityStatisticsCell.swift */,
+				CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */,
+				CA018C29232D79B200DC990D /* TableViewCellDailyStat.swift */,
+				CADB2EDB236EE0FC00854FE5 /* TableViewRow.swift */,
+				CADB2ED8236EE0D500854FE5 /* TableViewSection.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		CA307BCE236473740091770F /* Presenters */ = {
-			isa = PBXGroup;
-			children = (
-				CA307BCF236473AE0091770F /* BaseActivityPresenterTests.swift */,
-			);
-			path = Presenters;
 			sourceTree = "<group>";
 		};
 		CA499BBC233A2C050013220D /* Frameworks */ = {
@@ -277,14 +284,14 @@
 			path = ChartThemes;
 			sourceTree = "<group>";
 		};
-		CA5AEB7C2340EC1F005F4C91 /* ActivitySeedData */ = {
+		CA5AEB7C2340EC1F005F4C91 /* FailsafeStatistics */ = {
 			isa = PBXGroup;
 			children = (
 				CA5AEB7D2340EC8A005F4C91 /* ActivitySeedData.swift */,
 				CA5AEB7F2340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift */,
 				CA420A3323435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift */,
 			);
-			path = ActivitySeedData;
+			path = FailsafeStatistics;
 			sourceTree = "<group>";
 		};
 		CA6AD7612338D43C004501F0 /* ViewController */ = {
@@ -304,12 +311,27 @@
 			path = Persistance;
 			sourceTree = "<group>";
 		};
-		CAC3289D235F1C7300A9D152 /* SharedFakes */ = {
+		CAC3289D235F1C7300A9D152 /* _SharedFakes */ = {
 			isa = PBXGroup;
 			children = (
 				CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */,
 			);
-			path = SharedFakes;
+			path = _SharedFakes;
+			sourceTree = "<group>";
+		};
+		CAE7A4EA2370C79B00D9D0B3 /* FailsafeStatistics */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FailsafeStatistics;
+			sourceTree = "<group>";
+		};
+		CAE7A4EB2370C80500D9D0B3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CAE7A4EC2370C85900D9D0B3 /* Ext_UITableViewTests.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		CAF3297923607CE10002DCE1 /* Repository */ = {
@@ -331,7 +353,6 @@
 				CA018C01232D786400DC990D /* Frameworks */,
 				CA018C02232D786400DC990D /* Resources */,
 				CA4DA56C233A25140029393E /* Embed Frameworks */,
-				CA499BC0233A2C120013220D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -339,7 +360,7 @@
 			);
 			name = "Stew's Stats";
 			packageProductDependencies = (
-				CADB2ECD236E0EA200854FE5 /* Charts */,
+				CAE7A4E623709DB400D9D0B3 /* Charts */,
 			);
 			productName = "Stew's Stats";
 			productReference = CA018C04232D786400DC990D /* Stew's Stats.app */;
@@ -360,7 +381,7 @@
 			);
 			name = "Stew's StatsTests";
 			packageProductDependencies = (
-				CADB2ED6236E341400854FE5 /* Charts */,
+				CAE7A4E823709DD200D9D0B3 /* Charts */,
 			);
 			productName = "Stew's StatsTests";
 			productReference = CA018C18232D786600DC990D /* Stew's StatsTests.xctest */;
@@ -394,7 +415,7 @@
 			);
 			mainGroup = CA018BFB232D786400DC990D;
 			packageReferences = (
-				CADB2ECC236E0EA200854FE5 /* XCRemoteSwiftPackageReference "Charts" */,
+				CAE7A4E523709DB400D9D0B3 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = CA018C05232D786400DC990D /* Products */;
 			projectDirPath = "";
@@ -426,46 +447,27 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		CA499BC0233A2C120013220D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "
-";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		CA018C00232D786400DC990D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				CAF3297B23607D190002DCE1 /* StatisticsRepository.swift in Sources */,
-				CA018C2A232D79B200DC990D /* DailyActivityStatisticsCell.swift in Sources */,
+				CA018C2A232D79B200DC990D /* TableViewCellDailyStat.swift in Sources */,
+				CADB2ED9236EE0D500854FE5 /* TableViewSection.swift in Sources */,
 				CA181D8A2360755800A06A81 /* StatisticsDecoder.swift in Sources */,
 				CAE0291723339A0A002E975E /* DailyActivityPieChartController.swift in Sources */,
 				CA7F1D37236247C900D86F8C /* Ext_UITableView.swift in Sources */,
 				CA81BAAA234E49F700EE811A /* BaseActivityStatisticsController.swift in Sources */,
 				CAECBCE2235E02DC00AB8A26 /* StatisticsEncoder.swift in Sources */,
 				CA5AEB7A2340EB9E005F4C91 /* Ext_ChartColorTemplates.swift in Sources */,
-				CAA5F0C52343F1E800DA19FF /* AnnualActivityStatisticsCell.swift in Sources */,
+				CAA5F0C52343F1E800DA19FF /* TableViewCellAnnualStat.swift in Sources */,
 				CA5AEB82234128F6005F4C91 /* AnnualActivityStatisticsController.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */,
 				CA5AEB7E2340EC8A005F4C91 /* ActivitySeedData.swift in Sources */,
 				CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */,
+				CADB2EDC236EE0FC00854FE5 /* TableViewRow.swift in Sources */,
 				CA7F1D3A2362485400D86F8C /* StatisticsType.swift in Sources */,
 				CA018C28232D790300DC990D /* DailyActivityStatisticsController.swift in Sources */,
 				CA19811323322C6700F6EDE8 /* Statistics.swift in Sources */,
@@ -476,11 +478,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADB2EBC236E066800854FE5 /* AnnualActivityStatisticsCell.swift in Sources */,
+				CADB2EDA236EE0D500854FE5 /* TableViewSection.swift in Sources */,
+				CADB2EBC236E066800854FE5 /* TableViewCellAnnualStat.swift in Sources */,
+				CADB2EDD236EE0FC00854FE5 /* TableViewRow.swift in Sources */,
 				CAECBCE4235E040A00AB8A26 /* StatisticsEncoderTests.swift in Sources */,
 				CADB2EC2236E067000854FE5 /* StatisticsRepository.swift in Sources */,
-				CADB2EBB236E066600854FE5 /* DailyActivityStatisticsCell.swift in Sources */,
+				CAE7A4ED2370C85900D9D0B3 /* Ext_UITableViewTests.swift in Sources */,
+				CADB2EBB236E066600854FE5 /* TableViewCellDailyStat.swift in Sources */,
 				CAF628F023630BA200B241D5 /* StatisticsTests.swift in Sources */,
+				CA80B87D236F7CEE0096E80F /* TableViewCellDailyStatTests.swift in Sources */,
 				CA181D8C2360762E00A06A81 /* StatisticsDecoderTests.swift in Sources */,
 				CADB2EBE236E066B00854FE5 /* DailyActivityStatisticsController.swift in Sources */,
 				CADB2ECF236E2CEB00854FE5 /* DailyActivityPieChartController.swift in Sources */,
@@ -489,7 +495,6 @@
 				CAF525E5234F2887003F1BD1 /* AppDelegate.swift in Sources */,
 				CADB2EB9236E063A00854FE5 /* Ext_ChartColortemplateTests.swift in Sources */,
 				CADB2EC4236E068100854FE5 /* StatisticsDecoder.swift in Sources */,
-				CA307BD0236473AE0091770F /* BaseActivityPresenterTests.swift in Sources */,
 				CADB2EC7236E068400854FE5 /* ActivitySeedData.swift in Sources */,
 				CADB2ED0236E2CF100854FE5 /* Ext_ChartColorTemplates.swift in Sources */,
 				CADB2EC8236E068400854FE5 /* DailyActivityStatisticsSeedData.swift in Sources */,
@@ -500,6 +505,7 @@
 				CADB2EBA236E066400854FE5 /* Statistics.swift in Sources */,
 				CADB2EC5236E068100854FE5 /* StatisticsEncoder.swift in Sources */,
 				CADB2EC0236E066E00854FE5 /* AnnualActivityStatisticsController.swift in Sources */,
+				CADB2EDF236EF84400854FE5 /* TableViewCellAnnualStatTests.swift in Sources */,
 				CA4CDF1F2360E1A8008B0E33 /* StatisticsFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -580,10 +586,13 @@
 					"$(inherited)",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -635,10 +644,13 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_MISSING_FIELD_INITIALIZERS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_LABEL = YES;
+				GCC_WARN_UNUSED_PARAMETER = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -661,6 +673,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_WARN_UNUSED_LABEL = NO;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -685,6 +698,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				GCC_WARN_UNUSED_LABEL = NO;
 				INFOPLIST_FILE = "Stew's Stats/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -779,7 +793,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		CADB2ECC236E0EA200854FE5 /* XCRemoteSwiftPackageReference "Charts" */ = {
+		CAE7A4E523709DB400D9D0B3 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -790,14 +804,14 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		CADB2ECD236E0EA200854FE5 /* Charts */ = {
+		CAE7A4E623709DB400D9D0B3 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CADB2ECC236E0EA200854FE5 /* XCRemoteSwiftPackageReference "Charts" */;
+			package = CAE7A4E523709DB400D9D0B3 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
-		CADB2ED6236E341400854FE5 /* Charts */ = {
+		CAE7A4E823709DD200D9D0B3 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = CADB2ECC236E0EA200854FE5 /* XCRemoteSwiftPackageReference "Charts" */;
+			package = CAE7A4E523709DB400D9D0B3 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -9,12 +9,11 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AnnualActivityStatisticsCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TableViewCellAnnualStat
 
         cell.txtFieldAnnualActivities.delegate = self
         cell.txtFieldAnnualMiles.delegate = self
 
-        
         cell.txtFieldAnnualActivities.text = statistics[indexPath]?.stat1
         cell.txtFieldAnnualMiles.text = statistics[indexPath]?.stat2
         
@@ -25,7 +24,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         guard !tableView.isEditing else {
             return
         }
-        statistics[indexPath] = (cell as! AnnualActivityStatisticsCell).asRow
+        statistics[indexPath] = (cell as! TableViewCellAnnualStat).asRow
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -36,8 +35,8 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
             let lastYear = Int(statistics.sections[lastSection].name)!
             let nextYear = lastYear + 1
 
-            self.statistics.sections.append(TableSection(name: "\(nextYear)", rows: [
-                TableRow(stat1: "0", stat2: "0")
+            self.statistics.sections.append(TableViewSection(name: "\(nextYear)", rows: [
+                TableViewRow(stat1: "0", stat2: "0")
             ]))
             let indexSet = IndexSet(integer: statistics.sections.count - 1)
             
@@ -75,7 +74,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
 extension AnnualActivityStatisticsController {
 
     func textFieldDidEndEditing(_ textField: UITextField) {
-        let cell: AnnualActivityStatisticsCell = getCellTextFieldBelongsTo(textField)
+        let cell: TableViewCellAnnualStat = getCellTextFieldBelongsTo(textField)
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             self.statistics[indexPath] = cell.asRow
