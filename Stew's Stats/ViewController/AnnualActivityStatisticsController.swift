@@ -1,5 +1,7 @@
 import UIKit
 
+//if you delete a section first before adding, the plus button has gone to add a new section
+
 class AnnualActivityStatisticsController: BaseActivityStatisticsController {
 
     override func viewDidLoad() {
@@ -31,21 +33,22 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         tableView.endEditing(true)
         
         if editingStyle == .insert {
-            let lastSection = statistics.lastSectionIndex
-            let lastYear = Int(statistics.sections[lastSection].name)!
-            let nextYear = lastYear + 1
-
-            self.statistics.sections.append(TableViewSection(name: "\(nextYear)", rows: [
+            self.statistics.sections.append(TableViewSection(name: "\(titleForNewYear())", rows: [
                 TableViewRow(stat1: "0", stat2: "0")
             ]))
             let indexSet = IndexSet(integer: statistics.sections.count - 1)
-            
-            //consider insert sections
-            //use performbatchupdates
             tableView.insertSections(indexSet, with: .automatic)
 
             saveCurrentStatistics()
         }
+    }
+    
+    func titleForNewYear() -> String {
+        let lastSection = statistics.lastSectionIndex
+        let lastYear = Int(statistics.sections[lastSection].name)!
+        let nextYear = lastYear + 1
+        
+        return "\(nextYear)"
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -56,15 +59,16 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
         let contextItem = UIContextualAction(style: .destructive, title: "Delete") {  (contextualAction, view, boolValue) in
             
             self.tableView.performBatchUpdates({
-                //need to remove the section
-                self.statistics.sections[indexPath.section].rows.remove(at: indexPath.row)
+                guard self.statistics.sections.count > 1 else {
+                    return
+                }
+                self.statistics.sections.remove(at: indexPath.section)
 
-                self.tableView.deleteRows(at: [indexPath], with: .automatic)
+                let indexSet = IndexSet(arrayLiteral: indexPath.section)
+                tableView.deleteSections(indexSet, with: .automatic)
+                
                 self.saveCurrentStatistics()
             }) { (_) in
-                //self.tableView.reloadData()
-                //code to handle if last row in section is deleted
-                //consult iOS 12 book
             }
         }
         return UISwipeActionsConfiguration(actions: [contextItem])
@@ -78,8 +82,7 @@ extension AnnualActivityStatisticsController {
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             self.statistics[indexPath] = cell.asRow
-            //shouldnt save be performed by calling the repository
-            //as as soon as we save, we update
+
             saveCurrentStatistics()
         }
     }

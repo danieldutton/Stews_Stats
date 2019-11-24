@@ -16,17 +16,21 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
         
         cell.txtFieldStatValue.delegate = self
         cell.txtFieldStatValue.text = statistics[indexPath]?.stat2
-        
+        print(#function)
         return cell
     }
 
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        /*
         guard !tableView.isEditing else {
             return
         }
+        */
+        let c = cell as! TableViewCellDailyStat
         
-        statistics[indexPath] = (cell as! TableViewCellDailyStat).asRow
+        statistics[indexPath] = c.asRow
     }
+    
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
