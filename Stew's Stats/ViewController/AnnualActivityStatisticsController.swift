@@ -31,19 +31,27 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         tableView.endEditing(true)
-        
-        if editingStyle == .insert {
-            self.statistics.sections.append(TableViewSection(name: "\(titleForNewYear())", rows: [
-                TableViewRow(stat1: "0", stat2: "0")
-            ]))
-            let indexSet = IndexSet(integer: statistics.sections.count - 1)
-            tableView.insertSections(indexSet, with: .automatic)
 
-            saveCurrentStatistics()
+        if editingStyle == .insert {
+            insertNewSectionIntoDataModel()
+            insertNewSectionIntoTableView()
+            saveCurrentDataModel()
         }
     }
     
-    func titleForNewYear() -> String {
+    private func insertNewSectionIntoDataModel() {
+        self.statistics.sections.append(TableViewSection(name: "\(titleForNewYear())", rows: [
+            TableViewRow(stat1: "0", stat2: "0")
+        ]))
+    }
+    
+    private func insertNewSectionIntoTableView() {
+        let indexSet = IndexSet(integer: statistics.sections.count - 1)
+        
+        tableView.insertSections(indexSet, with: .automatic)
+    }
+    
+    private func titleForNewYear() -> String {
         let lastSection = statistics.lastSectionIndex
         let lastYear = Int(statistics.sections[lastSection].name)!
         let nextYear = lastYear + 1
@@ -67,7 +75,7 @@ class AnnualActivityStatisticsController: BaseActivityStatisticsController {
                 let indexSet = IndexSet(arrayLiteral: indexPath.section)
                 tableView.deleteSections(indexSet, with: .automatic)
                 
-                self.saveCurrentStatistics()
+                self.saveCurrentDataModel()
             }) { (_) in
             }
         }
@@ -83,7 +91,7 @@ extension AnnualActivityStatisticsController {
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             self.statistics[indexPath] = cell.asRow
 
-            saveCurrentStatistics()
+            saveCurrentDataModel()
         }
     }
 }

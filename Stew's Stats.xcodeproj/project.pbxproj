@@ -28,6 +28,7 @@
 		CA80B87D236F7CEE0096E80F /* TableViewCellDailyStatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA80B87C236F7CEE0096E80F /* TableViewCellDailyStatTests.swift */; };
 		CA81BAAA234E49F700EE811A /* BaseActivityStatisticsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */; };
 		CAA5F0C52343F1E800DA19FF /* TableViewCellAnnualStat.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */; };
+		CAB02D64238B045E00EEA1FE /* Ext_NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAB02D63238B045E00EEA1FE /* Ext_NumberFormatter.swift */; };
 		CAC3289F235F1C9800A9D152 /* FakeUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */; };
 		CADB2EB9236E063A00854FE5 /* Ext_ChartColortemplateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CADB2EB8236E063A00854FE5 /* Ext_ChartColortemplateTests.swift */; };
 		CADB2EBA236E066400854FE5 /* Statistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA19811223322C6700F6EDE8 /* Statistics.swift */; };
@@ -113,6 +114,7 @@
 		CA81BAA9234E49F700EE811A /* BaseActivityStatisticsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseActivityStatisticsController.swift; sourceTree = "<group>"; };
 		CA9C5F0E2348CDAC0090A807 /* Stew's Stats.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Stew's Stats.entitlements"; sourceTree = "<group>"; };
 		CAA5F0C42343F1E800DA19FF /* TableViewCellAnnualStat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellAnnualStat.swift; sourceTree = "<group>"; };
+		CAB02D63238B045E00EEA1FE /* Ext_NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_NumberFormatter.swift; sourceTree = "<group>"; };
 		CAC3289E235F1C9800A9D152 /* FakeUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDefaults.swift; sourceTree = "<group>"; };
 		CADB2EB8236E063A00854FE5 /* Ext_ChartColortemplateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ext_ChartColortemplateTests.swift; sourceTree = "<group>"; };
 		CADB2ED8236EE0D500854FE5 /* TableViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewSection.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				CA7F1D36236247C900D86F8C /* Ext_UITableView.swift */,
+				CAB02D63238B045E00EEA1FE /* Ext_NumberFormatter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				CA5AEB82234128F6005F4C91 /* AnnualActivityStatisticsController.swift in Sources */,
 				CA018C08232D786400DC990D /* AppDelegate.swift in Sources */,
 				CA5AEB802340ECC4005F4C91 /* DailyActivityStatisticsSeedData.swift in Sources */,
+				CAB02D64238B045E00EEA1FE /* Ext_NumberFormatter.swift in Sources */,
 				CA5AEB7E2340EC8A005F4C91 /* ActivitySeedData.swift in Sources */,
 				CA420A3423435FBF005325C8 /* AnnualActivityStatisticsSeedData.swift in Sources */,
 				CADB2EDC236EE0FC00854FE5 /* TableViewRow.swift in Sources */,

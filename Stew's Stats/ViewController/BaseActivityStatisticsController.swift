@@ -68,7 +68,7 @@ extension BaseActivityStatisticsController {
         present(controller, animated: true)
     }
     
-    func saveCurrentStatistics() {
+    func saveCurrentDataModel() {
         do {
             try statisticsRepo.save(statistics: self.statistics)
         } catch {

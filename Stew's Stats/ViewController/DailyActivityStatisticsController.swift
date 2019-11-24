@@ -45,7 +45,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 tableView.reloadRows(at: [IndexPath(row: ct-1, section: statistics.lastSectionIndex)], with: .automatic)
             }) { _ in
                 tableView.setEditing(true, animated: false)
-                self.saveCurrentStatistics()
+                self.saveCurrentDataModel()
             }
         }
         
@@ -65,7 +65,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 self.statistics.removeRow(at: indexPath)
 
                 self.tableView.deleteRows(at: [indexPath], with: .automatic)
-                self.saveCurrentStatistics()
+                self.saveCurrentDataModel()
             }) { (_) in
                 //self.tableView.reloadData()
                 //code to handle if last row in section is deleted
@@ -96,7 +96,7 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
                 let indexPathReload = IndexPath(row: statistics.sections[5].rows.count - 2, section: 5)
                 tableView.reloadRows(at: [indexPathReload], with: .automatic)
             }) { _ in
-                self.saveCurrentStatistics()
+                self.saveCurrentDataModel()
                 let indexPathScrollTo = IndexPath(row: self.statistics.sections[5].rows.count - 1, section: 5)
                 self.tableView.scrollToRow(at: indexPathScrollTo, at: .bottom, animated: true)
             }
@@ -130,7 +130,7 @@ extension DailyActivityStatisticsController {
         
         if let indexPath = tableView.hasValidIndexPathFor(cell: cell) {
             statistics[indexPath] = cell.asRow
-            saveCurrentStatistics()
+            saveCurrentDataModel()
         }
     }
 }
@@ -157,7 +157,7 @@ extension DailyActivityStatisticsController {
         let locationRow = statistics.sections[5].rows.remove(at: sourceIndexPath.row)
         statistics.sections[5].rows.insert(locationRow, at: destinationIndexPath.row)
 
-        saveCurrentStatistics()
+        saveCurrentDataModel()
 
         tableView.reloadData()
     }
