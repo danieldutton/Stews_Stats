@@ -21,11 +21,10 @@ class DailyActivityStatisticsController: BaseActivityStatisticsController {
     }
 
     override func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        /*
         guard !tableView.isEditing else {
             return
         }
-        */
+        
         let c = cell as! TableViewCellDailyStat
         
         statistics[indexPath] = c.asRow
